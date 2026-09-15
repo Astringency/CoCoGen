@@ -43,6 +43,8 @@ DDP 与序列化依据 [PyTorch 2.8 分布式文档](https://github.com/pytorch/
 
 2026-09-15 11:10 CST 核查：`cocogen_burger_pipeline` 的进程存活，状态为 `waiting_for_first60`，未占用 GPU。调度器使用固定 Git 检出 `code_burger`（`36875e0412361a7d2d449a08675b9b143f1f401b`）。它依次接续数据准备、训练显存测速、双卡训练、采样校准、双卡六单元评估和 66 单元汇总；各阶段使用独立 tmux、日志和退出码。
 
+11:15 CST 更新：同步修正四模型校准中发现的完成日志字段重名问题，等待中的协调器已切换到 `code_burger_v2`（`bf94ef703f499fb50e099ef9af34849e5390e344`）。仍为 `waiting_for_first60`，训练代码和已通过的 CPU 检查哈希未变化。
+
 训练完成后比较 `best.ckpt` 与 `last.ckpt`，在最多 500 NFE 的配置中校准。校准样本与正式评估隔离，冻结配置后用独立 64 例/设置验证。
 
 Burgers 正式输入仍来自 FM4PDE 的历史归档。六个单元的 `zeta_obs_a` 均为 0，因此仅应用解场 mask：每个分布分别使用随机 500 个点和 5 个完整时间列。历史归档同时保存的系数候选 mask 不参与观测；合并两个 mask 会额外泄露真值，不能采用。

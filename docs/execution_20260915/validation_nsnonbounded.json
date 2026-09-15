@@ -1,0 +1,94 @@
+{
+  "regressions": {
+    "status": "passed",
+    "checks": [
+      "positive score times",
+      "terminal t=0",
+      "NFE count",
+      "observations exact",
+      "unobserved truth ignored",
+      "batch-independent RNG",
+      "solution-only correction",
+      "global residual descent",
+      "neighbor finite-difference gradient"
+    ]
+  },
+  "pde": "nsnonbounded",
+  "device": "cuda:1",
+  "torch": "2.8.0+cu128",
+  "tf32": true,
+  "precision": "float32",
+  "measurements": [
+    {
+      "stage": "base",
+      "batch": 1,
+      "seconds_per_NFE": 0.004291348531842232,
+      "peak_bytes": 231378432,
+      "samples_per_gpu_hour_4000NFE": 209.7242844112779
+    },
+    {
+      "stage": "base",
+      "batch": 8,
+      "seconds_per_NFE": 0.027761485427618027,
+      "peak_bytes": 1127558656,
+      "samples_per_gpu_hour_4000NFE": 259.3521163978209
+    },
+    {
+      "stage": "base",
+      "batch": 16,
+      "seconds_per_NFE": 0.054947183653712275,
+      "peak_bytes": 2170940928,
+      "samples_per_gpu_hour_4000NFE": 262.06984675960047
+    },
+    {
+      "stage": "base",
+      "batch": 32,
+      "seconds_per_NFE": 0.10860023126006127,
+      "peak_bytes": 4257705472,
+      "samples_per_gpu_hour_4000NFE": 265.19280544655214
+    },
+    {
+      "stage": "base",
+      "batch": 64,
+      "seconds_per_NFE": 0.21728012822568415,
+      "peak_bytes": 8431234560,
+      "samples_per_gpu_hour_4000NFE": 265.09557256967435
+    },
+    {
+      "stage": "control",
+      "batch": 1,
+      "seconds_per_NFE": 0.006068652868270874,
+      "peak_bytes": 277586432,
+      "samples_per_gpu_hour_4000NFE": 148.30309453116482
+    },
+    {
+      "stage": "control",
+      "batch": 8,
+      "seconds_per_NFE": 0.03947894833981991,
+      "peak_bytes": 1336164864,
+      "samples_per_gpu_hour_4000NFE": 182.37567875479138
+    },
+    {
+      "stage": "control",
+      "batch": 16,
+      "seconds_per_NFE": 0.07744103111326694,
+      "peak_bytes": 2565145088,
+      "samples_per_gpu_hour_4000NFE": 185.9479373271547
+    },
+    {
+      "stage": "control",
+      "batch": 32,
+      "seconds_per_NFE": 0.15298593416810036,
+      "peak_bytes": 5023105536,
+      "samples_per_gpu_hour_4000NFE": 188.25260084600112
+    },
+    {
+      "stage": "control",
+      "batch": 64,
+      "seconds_per_NFE": 0.3057955112308264,
+      "peak_bytes": 9939026432,
+      "samples_per_gpu_hour_4000NFE": 188.36116909682588
+    }
+  ],
+  "status": "passed"
+}
