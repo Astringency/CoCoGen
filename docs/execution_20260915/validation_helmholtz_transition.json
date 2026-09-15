@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T11:28:24.884823+00:00",
+  "scope": "Helmholtz first completed formal batches after transition; not a complete-cell result",
+  "cell": "helmholtz/id/full_forward",
+  "samples": 64,
+  "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+  "code_commit": "ae7cd742211afdfbc4ee0859671b9d75fb613283",
+  "selected_sha256": "377a5c74db21def2d9bc6e7c464513b07ab8cbf0c5eb37f0ee4ce6bad3e4154f",
+  "batches": [
+    {
+      "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/helmholtz/id/full_forward/batches/0000/receipt.json",
+      "receipt_sha256": "3861003330742698eb947504520f7fd8e58b3d0287bbe471ef4289b973291b33",
+      "prediction_sha256": "e6f1745c7c3517483c04315f34067e5328f2f712e59b81812788078cc9846235",
+      "offset": 0,
+      "n": 32,
+      "sampler_seconds": 55.662313580513,
+      "peak_bytes": 4326387712,
+      "ids_and_masks_match": true,
+      "observed_values_exact": true,
+      "errors_recomputed_cpu_float64": true,
+      "nfe": 500,
+      "final_time": 0
+    },
+    {
+      "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/helmholtz/id/full_forward/batches/0032/receipt.json",
+      "receipt_sha256": "7b86f979632d66ea6a20a50c418aeea776eac85079a444a3b5700613f9299ae8",
+      "prediction_sha256": "67bb0446e9c170a093cdf8978910ca9aa52facc6ca51b02ca27303e11d8463ad",
+      "offset": 32,
+      "n": 32,
+      "sampler_seconds": 55.67964147403836,
+      "peak_bytes": 4326387712,
+      "ids_and_masks_match": true,
+      "observed_values_exact": true,
+      "errors_recomputed_cpu_float64": true,
+      "nfe": 500,
+      "final_time": 0
+    }
+  ]
+}
