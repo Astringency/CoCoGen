@@ -7,8 +7,12 @@ device=$2
 shift 2
 exec >> "$study/logs/calibrate_cost_${group}.log" 2>&1
 trap 'status=$?; echo "$status" > "$study/logs/calibrate_cost_${group}.exit"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 PYTHONUNBUFFERED=1
-cd "$study/code_cost"
+code_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+cd "$code_root"
 date -Iseconds
 git rev-parse HEAD
 nvidia-smi --query-gpu=index,memory.used,memory.total,utilization.gpu --format=csv

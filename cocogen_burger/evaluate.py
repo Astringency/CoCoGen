@@ -97,7 +97,7 @@ def calibrate(study,device,batch_size=32,max_nfe=500):
         validation_prediction_path=validation['prediction_path'],
         estimated_main_gpu_hours=validation['seconds']/128*6000/3600)
     write_json(target,selected)
-    print(json.dumps(dict(stage='burger_calibration_complete',**selected)),flush=True)
+    print(json.dumps(dict(event='burger_calibration_complete',**selected)),flush=True)
 
 
 def worker(study,device,worker_id,batch_size=32):

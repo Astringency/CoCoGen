@@ -140,7 +140,7 @@ def calibrate(pde, device, study, batch_size):
     total_samples = len(records)*64
     selected['estimated_main_gpu_hours'] = validation['seconds']/total_samples*15000/3600
     write_json(selected_path, selected)
-    print(json.dumps(dict(pde=pde, stage='calibration_complete', **selected)), flush=True)
+    print(json.dumps(dict(event='calibration_complete', **selected)), flush=True)
 
 
 if __name__ == '__main__':

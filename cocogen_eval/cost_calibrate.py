@@ -84,7 +84,7 @@ def calibrate(pde,device,study,batch_size,max_nfe):
         estimated_main_gpu_hours=validation['seconds']/(len(records)*64)*15000/3600)
     write_json(target,selected)
     write_json(protocol,dict(status='complete',selected=selected))
-    print(json.dumps(dict(stage='cost_calibration_complete',**selected)),flush=True)
+    print(json.dumps(dict(event='cost_calibration_complete',**selected)),flush=True)
 
 
 if __name__=='__main__':
