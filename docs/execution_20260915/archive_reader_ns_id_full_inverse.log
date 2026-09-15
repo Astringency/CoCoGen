@@ -1,0 +1,5 @@
+2026-09-16T03:37:22+08:00
+5094909b66d22a78ded57dd3a6f161ae51379303
+{"event": "archive_cell_verified", "cell": "nsnonbounded/id/full_inverse", "done": 1, "total": 1}
+{"status": "passed", "verified_cells": 1, "output": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/validation/archive_reader_ns_id_full_inverse.json"}
+2026-09-16T03:37:27+08:00
