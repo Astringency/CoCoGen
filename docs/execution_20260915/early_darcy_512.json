@@ -1,0 +1,86 @@
+{
+  "status": "partial_preview",
+  "scope": "First 512 samples in two Darcy ID cells only; no 1000-sample cell is claimed complete",
+  "time_unix": 1789445931.3424683,
+  "selection": "Fixed prefix of currently generated samples; all sampler selections were frozen before formal sampling",
+  "metrics": "Physical per-sample relative L2; FM4PDE paired on identical sample IDs and historical effective masks",
+  "results": [
+    {
+      "cell": "darcy/id/full_forward",
+      "samples": 512,
+      "metrics": {
+        "u": {
+          "cocogen_mean_relative_l2": 0.007000512165982914,
+          "fm4pde_mean_relative_l2": 0.0781928079544336,
+          "ratio": 0.08952884989195452,
+          "paired_mean_difference": -0.07119229578845068,
+          "cocogen_smaller_error_fraction": 1.0
+        }
+      },
+      "prediction_hashes": [
+        "ac27dacace4f8143b2653160abffd31d58e9fb531ab123dade10851534778818",
+        "dac4cf41ba182f49913df94026dbba15262143f65f65bdb67967bdc04f79d84b",
+        "aebd24cfb4e6a1894ea1b3705db7e2549f6022eca11e5abcd28c199a63b6328c",
+        "ce4a0c1625683f8c6b91ff6cc3bd6bc2bf0ea59f7ef120ddc2fc1d586c61225e",
+        "31f29f177f152b0d7d8bf2681ab59de81d9fb60fa0e695e86a9373b1aa51ada4",
+        "174e0baa3b61eef2c4c26e4721a537bab848542d89436241651b3c5fef87f6ad",
+        "9b1726474be1030e37935901dc9c8d00f7713b1e824ff67ee8895ba5d63ec03a",
+        "8a0b36e9ad4e6624a32e8c55a505d5336ee22d6bf832a269f64c6d3a77ad24f8",
+        "a01f8abcba6f613c364f7084742a4abcd2975f1101135d6435d58c9a72347e23",
+        "5fdf9ce5f1b394b777ef95363baa18c2cab4bcf0972e79ea5f690b7edf2acb9d",
+        "c5abf024aeef38cebc44f1e979c50f29e1c87dab8285e7a1eb6fe658c9bddd68",
+        "caf5ce214bd6d09cc495e3ed8d8dcc967a4772ff1fcfbd860ff0dd0d03a95a04",
+        "9794ad47b3d0c823bf1a1a08882ba16fce9e7fd50bdb569dbca7c5a90e1486a3",
+        "dc58c21c92d4b044b8b701cbf996dc82914232b63287d9d8afafa98159bc3635",
+        "b00cd2b3a8aee90a3fb8612158962163758dc1275e54770925684acceb9a02fd",
+        "80ddd969e18d704988be9f74f0790c571ac0ee5340690115a0833d0d92e4737d"
+      ],
+      "id_range_inclusive": [
+        0,
+        511
+      ]
+    },
+    {
+      "cell": "darcy/id/sparse_joint",
+      "samples": 512,
+      "metrics": {
+        "a": {
+          "cocogen_mean_relative_l2": 0.5314752731333591,
+          "fm4pde_mean_relative_l2": 0.2605704498128917,
+          "ratio": 2.039660573618369,
+          "paired_mean_difference": 0.27090482332046734,
+          "cocogen_smaller_error_fraction": 0.00390625
+        },
+        "u": {
+          "cocogen_mean_relative_l2": 0.1619622265611455,
+          "fm4pde_mean_relative_l2": 0.041106684761379166,
+          "ratio": 3.9400459438975086,
+          "paired_mean_difference": 0.12085554179976632,
+          "cocogen_smaller_error_fraction": 0.0
+        }
+      },
+      "prediction_hashes": [
+        "1da2238c353aa6c80efd931d6e7fecde5e2fc99b04552d7fce1fad1e08da53f5",
+        "f78cb7469b84e1e459cae90c48605b8b6730d1461f42cb803cbc6e9daff7b528",
+        "6d2af9cf603a6876d93997cb4532f1849ca7896e39fe0bbb52160b0516471998",
+        "c69969e539595360f0b045b1c082369611dba0d53c81555d6401598c3bc42014",
+        "e9ed99907013959430c7d2890e56796d27ca06703acd089e24bcf3dc68d32f5d",
+        "c67f6f2874828f5c6e2a02e8610c8533e33f54f26b2155b8bf5f8a7820a20b01",
+        "d3900d5dfcbcc2ba8bae5027eb62f40eaa7d55447e0332ea3d7df4a8971802f2",
+        "3c8b6a478860c8881662bff7d1cfa5a81e2e25cadbf71cf6913f553e343f4b1d",
+        "093594eb88d199a88bdd3cf244afd87ac16b82e4ffc9f764e881eeb27d725da8",
+        "0fae20ec07e6793e7ed2d89bc4ae95e5e140cf6a121409e0733dce1b75c96f0c",
+        "4f5f110736894fd1a39121745b06a6370d14b328572283ca70080710a1f37e3e",
+        "174c6d9abd6f57f250966f9a910269404d10214dd99fb80be7e606eb9b3684cd",
+        "b67801836395962d6c47de36363bbc6f60a8ca787f64cd4c9bdab6b669df636c",
+        "043c9abe7d844eb010fd3c49d7f5e292dcb85358be0067a84205cb0b2f5a1069",
+        "f7340d69bf0e8c9ce29cdf976be58ec630a4459bcec16374fc98b56c7ab8fb79",
+        "a5a5d1060b0bd1e264be3193db23bdea6b4be98227c3adea4f05a0ce17810b63"
+      ],
+      "id_range_inclusive": [
+        0,
+        511
+      ]
+    }
+  ]
+}
