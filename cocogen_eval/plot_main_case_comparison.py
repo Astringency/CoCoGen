@@ -32,6 +32,15 @@ def error(prediction, truth):
     return float(np.linalg.norm(delta) / denominator)
 
 
+def reference_error(prediction, truth):
+    # Frozen FM4PDE rows use metric_errors from prepare_main_resume_eval.py:
+    # subtract at the stored float32 precision, then take float64 norms.
+    require(prediction.dtype == truth.dtype == torch.float32, 'Unexpected historical field precision')
+    denominator = torch.linalg.vector_norm(truth.double().flatten())
+    require(denominator > 0, 'Zero historical relative-error denominator')
+    return float(torch.linalg.vector_norm((prediction-truth).double().flatten()) / denominator)
+
+
 def render(root, original_study, metrics_path, out):
     torch.set_num_threads(4)
     reader = ArchiveReader(root, original_study)
@@ -91,7 +100,7 @@ def render(root, original_study, metrics_path, out):
         arrays = dict(truth=truth.numpy(), fm4pde=fm.numpy(), cocogen=prediction.numpy())
         errors = {}
         for channel, field in enumerate(('a', 'u')):
-            e_fm = error(arrays['fm4pde'][channel], arrays['truth'][channel])
+            e_fm = reference_error(fm[channel], truth[channel])
             e_coco = error(arrays['cocogen'][channel], arrays['truth'][channel])
             close(e_fm, row[f'error_{field}'], 'FM4PDE image error differs from frozen reference')
             close(e_coco, payload['errors'][field][index], 'CoCoGen image error differs from saved prediction')
@@ -151,6 +160,8 @@ def render(root, original_study, metrics_path, out):
         scope='First formal sample for completed ID tasks of the four existing models; qualitative examples only',
         metrics_sha256=sha_file(reader.resolve(metrics_path)), metrics_completed_cells=metrics['completed_cells'],
         cells=provenance, pdf_pages=len(examples), color_limits={f'{pde}/{channel}': list(v) for (pde, channel), v in limits.items()},
+        metric_precision=dict(fm4pde='Float32 subtraction followed by float64 norms, matching frozen reference rows',
+                              cocogen='Float64 subtraction and norms, matching saved CoCoGen evaluation'),
         sources=reader.opened, outputs=files, renderer_sha256=sha_file(__file__)))
     print(f'Rendered {len(examples)} source-checked pages to {pdf_path}', flush=True)
 
