@@ -76,7 +76,7 @@ def schedule(study,hours_limit=24.,margin=1.15):
         raise RuntimeError('Measured projection exceeds the user budget; formal sampling was not started')
     started=time.time()
     code=Path(__file__).resolve().parents[1]
-    for gpu,pdes in enumerate(groups):
+    for gpu in range(2):
         session=f'cocogen_main24_gpu{gpu}'
         existing=subprocess.run(['tmux','has-session','-t',session],capture_output=True)
         if existing.returncode==0:
@@ -84,6 +84,8 @@ def schedule(study,hours_limit=24.,margin=1.15):
         exit_path=study/'logs'/f'main24_gpu{gpu}.exit'
         if exit_path.exists():
             raise RuntimeError(f'Previous main24 exit needs explicit review before resuming: {exit_path}')
+    for gpu,pdes in enumerate(groups):
+        session=f'cocogen_main24_gpu{gpu}'
         command=shlex.join(['bash',str(code/'cocogen_eval/main24_group.sh'),str(gpu),*pdes])
         subprocess.run(['tmux','new-session','-d','-s',session,command],check=True,cwd=code)
     plan.update(status='running',started_unix=started)
