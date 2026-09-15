@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "old_root": "/data1/zjinzxf2025/C01Python/cocogen_darcy_long_20260916",
+  "new_root": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/diagnostics/darcy_long_sampling_20260916",
+  "primary_archive_verified_before_cleanup": true,
+  "temporary_execution_root_removed": true,
+  "worker_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "tmux_note": "Worker sessions ended automatically after successful commands; no diagnostic tmux server remained at final inspection.",
+  "source_recovery": "Primary archive previously restored and reran the collector in a fresh repository without alternates.",
+  "unrelated_data_and_jobs_touched": false,
+  "remote_generated_at": "2026-09-15T17:56:37.009740+00:00",
+  "reference_recorded_at": "2026-09-15T17:52:00.525308+00:00",
+  "source_inventory_sha256": "b892dc8cf812bb4debf79732666a3f06138930935e13f82afab8e82f8b57604c",
+  "archive_validation_sha256": "439cbbffb92f5803f6b208cde967819e27704b7bc10cb3cfb2ec0c1db4d093a1",
+  "primary_report_sha256": "1d4efacf3f4f87348b2004c7f96f2d90d57b5eb731f523cd1ba5aa90bd297e18"
+}

@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T17:48:24.921736+00:00",
+  "archive_root": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/diagnostics/darcy_long_sampling_20260916",
+  "source_root": "/data1/zjinzxf2025/C01Python/cocogen_darcy_long_20260916",
+  "source_inventory_sha256": "b892dc8cf812bb4debf79732666a3f06138930935e13f82afab8e82f8b57604c",
+  "comparison_sha256": "74af0f394ba2150c52674875c487e32e82c814255b333ff932aad55101aab4c7",
+  "files_verified": 52,
+  "bytes_verified": 159462292,
+  "independently_recomputed": "NumPy float64 per-case full-field relative L2, independent of cocogen_eval.inputs.scores",
+  "cells": [
+    {
+      "config": "s100_r4",
+      "setting": "sparse_forward",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s100_r4",
+      "setting": "sparse_inverse",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s100_r4",
+      "setting": "sparse_joint",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r4",
+      "setting": "sparse_forward",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r4",
+      "setting": "sparse_inverse",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r4",
+      "setting": "sparse_joint",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r10",
+      "setting": "sparse_forward",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r10",
+      "setting": "sparse_inverse",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    },
+    {
+      "config": "s2000_r10",
+      "setting": "sparse_joint",
+      "samples": 8,
+      "numpy_float64_errors_match": true,
+      "observed_max_absolute_error": 0.0
+    }
+  ],
+  "workers": [
+    {
+      "worker": 0,
+      "exit_code": 0,
+      "jobs": [
+        [
+          "s100_r4",
+          "sparse_forward"
+        ],
+        [
+          "s100_r4",
+          "sparse_inverse"
+        ],
+        [
+          "s100_r4",
+          "sparse_joint"
+        ],
+        [
+          "s2000_r10",
+          "sparse_forward"
+        ]
+      ],
+      "wall_seconds": 865.0,
+      "remote_end_epoch": 1789494206.0
+    },
+    {
+      "worker": 1,
+      "exit_code": 0,
+      "jobs": [
+        [
+          "s2000_r4",
+          "sparse_forward"
+        ],
+        [
+          "s2000_r4",
+          "sparse_inverse"
+        ],
+        [
+          "s2000_r4",
+          "sparse_joint"
+        ]
+      ],
+      "wall_seconds": 1088.0,
+      "remote_end_epoch": 1789494429.0
+    },
+    {
+      "worker": 2,
+      "exit_code": 0,
+      "jobs": [
+        [
+          "s2000_r10",
+          "sparse_inverse"
+        ]
+      ],
+      "wall_seconds": 802.0,
+      "remote_end_epoch": 1789494143.0
+    },
+    {
+      "worker": 3,
+      "exit_code": 0,
+      "jobs": [
+        [
+          "s2000_r10",
+          "sparse_joint"
+        ]
+      ],
+      "wall_seconds": 795.0,
+      "remote_end_epoch": 1789494136.0
+    }
+  ],
+  "sampling_wall_seconds": 1087.6991243362427,
+  "reference_finish_utc": "2026-09-15T17:42:31.586427+00:00",
+  "clock_note": "Finish inferred from launch-measured clock offset; worker log endpoints have one-second precision. Sampler times use monotonic clocks.",
+  "source_recovery": {
+    "status": "passed",
+    "commit": "20dfe717fc5df9bbc211dcbccffca01401ec4cfe",
+    "bundle_sha256": "6939b5cf4a83675a6fc60cb8c2e7e49e267269de24c1106da785ddf22fc683c2",
+    "fresh_repository": true,
+    "no_alternates": true,
+    "fsck_passed": true,
+    "recovered_collect_identical": true,
+    "temporary_recovery_repository_removed": true
+  },
+  "residual_recomputation": false,
+  "auditor_sha256": "c54114dd3418fe12949ce4ba7bbd4056e08b3edfc7b7cad5df67e34ac1ede160"
+}

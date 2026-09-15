@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T17:44:03.672030+00:00",
+  "scope": "Saved formal batches only; CPU input, prediction and metric audit; no complete-cell result or residual recomputation",
+  "cell": "nsnonbounded/rough/sparse_forward",
+  "samples": 64,
+  "batches": [
+    {
+      "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/sparse_forward/batches/0000/receipt.json",
+      "receipt_sha256": "46a4909ef5f88db8b73d4c3f29f79c92af58a63bef6451ef346a5ab6f9f9d380",
+      "prediction_sha256": "12b6acf96aef02901131fd60365e87e52e386f7e9e13fc609d3be09750a24e80",
+      "offset": 0,
+      "n": 32,
+      "sampler_seconds": 80.97290128469467,
+      "peak_bytes": 5091132416,
+      "nfe": 500,
+      "final_time": 0.0,
+      "observations": {
+        "a": {
+          "min_points": 500,
+          "max_points": 500,
+          "max_absolute_error": 0.0
+        },
+        "u": {
+          "min_points": 0,
+          "max_points": 0,
+          "max_absolute_error": null
+        }
+      },
+      "ids_and_masks_match": true,
+      "observed_values_exact": true,
+      "errors_recomputed_cpu_float64": true,
+      "code_commit": "ae7cd742211afdfbc4ee0859671b9d75fb613283"
+    },
+    {
+      "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/sparse_forward/batches/0032/receipt.json",
+      "receipt_sha256": "41d6019869e3ea0b3e2732d0b85ee2091eeb8ff0d91ea0caaa48ba090dab223e",
+      "prediction_sha256": "127dd88cbf256ac5b5768218aee5cf5fbbdbac4015893252c7d60d57cda77003",
+      "offset": 32,
+      "n": 32,
+      "sampler_seconds": 81.01919766888022,
+      "peak_bytes": 5091132416,
+      "nfe": 500,
+      "final_time": 0.0,
+      "observations": {
+        "a": {
+          "min_points": 500,
+          "max_points": 500,
+          "max_absolute_error": 0.0
+        },
+        "u": {
+          "min_points": 0,
+          "max_points": 0,
+          "max_absolute_error": null
+        }
+      },
+      "ids_and_masks_match": true,
+      "observed_values_exact": true,
+      "errors_recomputed_cpu_float64": true,
+      "code_commit": "ae7cd742211afdfbc4ee0859671b9d75fb613283"
+    }
+  ],
+  "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+  "selected_sha256": "cea38be63b92ebe4cf9333870d667b1d7f6520617f181997885932513f73059b",
+  "catalog_sha256": "1270b5aa80e117afc09fcd8faea6977086f2cb175b8bbb4f559adf51d765297d",
+  "record_sha256": "731e70849db128a15211e07ff8c17b6048aee5d573c892090fc9814432a5275c",
+  "auditor_sha256": "6532890b6fbf1f005fc466c96bd2b62470f34f4ace61a47f2247b1f68502e5e7"
+}

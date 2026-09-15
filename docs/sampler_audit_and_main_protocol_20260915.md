@@ -4,13 +4,13 @@
 
 用户已明确：先完成 Darcy、Poisson、Helmholtz、NS 四个已有模型的 **60 个评估单元，每单元 1,000 个样本**；之后补训 Burgers，再完成它的 6 个单元。
 
-**当前进度（2026-09-16 01:23 CST）：已完成并核验 42/60 个正式单元，即 Darcy 和 Poisson 各全部 15 个、Helmholtz 的 12 个，共 42,000 次完整单元样本评估。Poisson 总体宏平均相对 L2 为 CoCoGen 40.34%、FM4PDE 20.75%，Darcy 为 33.61% 对 16.07%。新增 Helmholtz smooth 完整观测反问题为 36.53% 对 23.26%，其三个分布的完整反问题均落后；仍缺 smooth 三个稀疏单元和 NS 十五个单元，不产生四模型总体宏平均。两张 A100 正常运行。9 月 16 日 00:47 的时间估算为约 07:13 完成纯计算，给当时剩余时间添加 15% 余量后约 08:11；NS 仍使用校准速度，后续以实际运行校正。Burgers 仍在等待前 60 单元全部完成。**
+**当前进度（2026-09-16 01:45 CST）：已完成并核验 44/60 个正式单元，即 Darcy 和 Poisson 各全部 15 个、Helmholtz 的 14 个，共 44,000 次完整单元样本评估。Poisson 总体宏平均相对 L2 为 CoCoGen 40.34%、FM4PDE 20.75%，Darcy 为 33.61% 对 16.07%。新增 Helmholtz smooth 稀疏正问题为 67.41% 对 17.37%，稀疏联合任务为 23.56% 对 16.97%；仅缺其 smooth 稀疏反问题。NS 已进入正式采样，首两批共 64 例的输入、观测和指标独立核验通过，约 81 秒/32 例，尚无完整 NS 单元结果。两张 A100 正常运行，不产生四模型总体宏平均。9 月 16 日 00:47 的时间估算为约 07:13 完成纯计算，给当时剩余时间添加 15% 余量后约 08:11；NS 初始实际速度接近该估算中的校准速度。Burgers 仍在等待前 60 单元全部完成。**
 
 已完成 PDE 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结](darcy_complete_results_20260915.md) 与 [Poisson 完整评估总结](poisson_complete_results_20260916.md)。
 
 针对稀疏引导的补充核查见 [当前方法与论文的关系](sparse_guidance_audit_20260916.md)：Darcy 全部九个稀疏单元、9,000 次任务评估的观测点均逐值满足，逐例误差通过 CPU float64 重算；正文观测条件模型与本次附录 D 短采样适配的区别单独列明。
 
-用户另要求测试 2,000 步并增加 RePaint。[Darcy 长采样诊断](darcy_long_sampling_diagnostic_20260916.md) 已于 01:24 CST 在 216 的四张空闲 A800 上启动，用八个非正式校准样本比较 500/10,000/22,000 NFE，共 72 次生成；197 正式评估及 Burgers 接续顺序保持原样。诊断尚待完成、效果核验与结果回传。
+用户另要求测试 2,000 步并增加 RePaint。[Darcy 长采样诊断](darcy_long_sampling_diagnostic_20260916.md) 已完成全部 72 次生成、独立指标复核、24 页对照图、197 主归档和源码独立恢复。八个校准样本上，100 步/r=4、2,000 步/r=4、2,000 步/r=10 的三任务平均误差分别为 32.70%、33.17%、31.54%；r=10 的实测采样成本为基线的 37.95 倍。四卡并行采样约 18.13 分钟。改善幅度较小，属于单种子 ID 小样本诊断；正式配置及 Burgers 接续顺序保持冻结。
 
 2026-09-15 10:37 CST 更新：用户要求四模型正式评估约 1 天，优先效果与耗时的平衡。原 4,000/8,000 NFE 长采样的自动接续已停止；已完成的长配置校准结果保留。当前改为 **每样本最多 500 NFE** 的短步数/重采样配置校准，在 60×1,000 个样本和相同观测协议下优化效果。正式评估尚未启动，Burgers 尚未训练。66 单元输入核验与恢复测试已通过。检查与首轮测速的原始 JSON 留存在 `docs/execution_20260915/`。
 
@@ -541,6 +541,22 @@ Poisson 总体平均误差约为 FM4PDE 的 **1.94 倍**。ID、smooth 完整观
 
 新增单元纯采样 1,744.68 秒（29.08 分钟）。本次快照生成于 2026-09-16 01:23:18 CST，JSON SHA256 为 `451b191f617945535a3b324c9a97585dc7b822b548c0d18708150ba336093dc3`，更新到 `docs/execution_20260915/metrics_first60_partial.json` 及对应 CSV，历史版本由 Git 保留。Darcy 和 Poisson 的完整比较继续绑定各自独立快照，正式配置保持冻结。
 
+### 四十四个完整单元与 NS 首两批独立核验
+
+2026-09-16 01:45 CST，收集器核验 44 个完整单元、53 个目标场和 1,408 份预测文件哈希。Darcy/Poisson 各 15 个、Helmholtz 14 个，NS 暂无完整单元。
+
+| 新增 Helmholtz smooth 任务 / 目标场 | CoCoGen | FM4PDE | 逐例 CoCoGen 误差更小比例 |
+|---|---:|---:|---:|
+| 稀疏正问题，u | 67.41% | 17.37% | 1.3% |
+| 稀疏联合重建，源项 a | 35.59% | 24.57% | 2.2% |
+| 稀疏联合重建，u | 11.54% | 9.37% | 25.9% |
+
+联合任务两场等权误差为 23.56% 对 16.97%。正问题和联合任务纯采样分别约 28.96、29.36 分钟。Helmholtz 尚缺 smooth 稀疏反问题，不产生完整 PDE 宏平均。
+
+NS 实际首个单元为 `nsnonbounded/rough/sparse_forward`。使用 Git 固定的 `validate_saved_batches.py` 在 CPU 重载前两批共 64 例，核验历史输入/有效掩码、模型和采样配置标识、预测哈希、观测精确一致、独立 float64 相对 L2、500 NFE 和终点时间 0，全部通过。每例仅观测初始场 a 的 500 点，u 无直接观测；两个批次采样分别为 80.973 和 81.019 秒，分配峰值均为 5,091,132,416 字节。本检查没有重新计算 PDE 残差，也不是完整 1,000 例成绩。证据为 `docs/execution_20260915/validation_nsnonbounded_transition.json`，主归档为 `validation/nsnonbounded_transition.json`。
+
+最新快照 SHA256 为 `6796073d7a4c50534564873d6bd2f378904d23ab78b62ca3aeede9f809e42aab`，生成于 2026-09-16 01:45:03 CST；本地 CSV 已与全部 53 个目标场逐项核验。已完成 Darcy/Poisson 的独立完整报告保持各自原始快照绑定。
+
 ### 独立验证与正式 ID 结果对照
 
 Darcy、Poisson、Helmholtz 的 ID 五任务均已完成，可与正式启动前冻结配置的独立验证结果对照。独立验证每任务 64 个样本，编号 1032–1095；正式 ID 每任务 1,000 个样本，编号 0–999。两组都先对联合任务的两个目标场等权平均，再对五任务等权平均。
@@ -576,7 +592,7 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915 --include-burger
 ```
 
-2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 01:23 CST 共四十二个完整单元、五十个目标场比较；Darcy 和 Poisson 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
+2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 01:45 CST 共四十四个完整单元、五十三个目标场比较；Darcy 和 Poisson 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
 
 ## 固定依赖归档与代码恢复检查
 

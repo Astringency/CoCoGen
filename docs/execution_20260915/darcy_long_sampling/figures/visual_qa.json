@@ -1,0 +1,18 @@
+{
+  "status": "passed_with_stated_scope",
+  "generated_at": "2026-09-15T17:47:44.221862+00:00",
+  "provenance_sha256": "bedcb8eaa421c758ceb1d3582e28e3f68f56e38872e4dee0ab9971925688ae6c",
+  "inspected_pngs": [
+    "sparse_forward_sample_1000.png",
+    "sparse_inverse_sample_1000.png",
+    "sparse_joint_sample_1000.png"
+  ],
+  "pdf_pages_checked_with_pdfinfo": 24,
+  "checks": [
+    "All three first-ID previews visually inspected; readable labels and color bars, no observed clipping.",
+    "Common physical color limits used for each field across all figures.",
+    "No interpolation; observed masks and unobserved channels clearly indicated.",
+    "All 8 IDs included in PDF; first ID 1000 chosen before results."
+  ],
+  "scope_limit": "Only the three PNG previews were visually inspected; all 24 PDF pages were structurally checked, not individually visually inspected."
+}
