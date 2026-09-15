@@ -1,0 +1,126 @@
+{
+  "status": "first60_complete",
+  "hours_limit": 24.0,
+  "margin": 1.15,
+  "estimated_hours_with_margin": 22.150122648614666,
+  "estimated_gpu_hours": {
+    "darcy": 10.45831422554329,
+    "poisson": 10.272487259402018,
+    "helmholtz": 7.233538063010201,
+    "nsnonbounded": 10.557468827949682
+  },
+  "gpu_hours": [
+    19.260832159718525,
+    19.260976216186666
+  ],
+  "gpu_cell_counts": [
+    32,
+    28
+  ],
+  "first_phase_cells": 60,
+  "samples_per_cell": 1000,
+  "scheduling_unit": "evaluation cell",
+  "user_preference": "约 1 天，优先效果与耗时的平衡",
+  "whole_pde_comparison": {
+    "gpu_groups": [
+      [
+        "darcy",
+        "poisson"
+      ],
+      [
+        "helmholtz",
+        "nsnonbounded"
+      ]
+    ],
+    "gpu_hours": [
+      20.73080148494531,
+      17.791006890959885
+    ],
+    "estimated_hours_with_margin": 23.840421707687106
+  },
+  "assignment": {
+    "gpu_cells": [
+      [
+        "darcy/id/full_forward",
+        "darcy/id/full_inverse",
+        "darcy/id/sparse_forward",
+        "darcy/id/sparse_inverse",
+        "poisson/id/full_forward",
+        "poisson/id/full_inverse",
+        "poisson/id/sparse_forward",
+        "poisson/id/sparse_inverse",
+        "poisson/id/sparse_joint",
+        "poisson/rough/full_forward",
+        "poisson/rough/full_inverse",
+        "helmholtz/id/full_forward",
+        "helmholtz/id/full_inverse",
+        "helmholtz/id/sparse_forward",
+        "helmholtz/id/sparse_inverse",
+        "helmholtz/id/sparse_joint",
+        "helmholtz/rough/full_forward",
+        "helmholtz/rough/full_inverse",
+        "helmholtz/rough/sparse_forward",
+        "helmholtz/rough/sparse_inverse",
+        "helmholtz/rough/sparse_joint",
+        "helmholtz/smooth/full_forward",
+        "helmholtz/smooth/full_inverse",
+        "helmholtz/smooth/sparse_forward",
+        "helmholtz/smooth/sparse_inverse",
+        "nsnonbounded/id/full_forward",
+        "nsnonbounded/id/full_inverse",
+        "nsnonbounded/id/sparse_forward",
+        "nsnonbounded/id/sparse_inverse",
+        "nsnonbounded/id/sparse_joint",
+        "nsnonbounded/rough/full_forward",
+        "nsnonbounded/rough/full_inverse"
+      ],
+      [
+        "darcy/id/sparse_joint",
+        "darcy/rough/full_forward",
+        "darcy/rough/full_inverse",
+        "darcy/rough/sparse_forward",
+        "darcy/rough/sparse_inverse",
+        "darcy/rough/sparse_joint",
+        "darcy/smooth/full_forward",
+        "darcy/smooth/full_inverse",
+        "darcy/smooth/sparse_forward",
+        "darcy/smooth/sparse_inverse",
+        "darcy/smooth/sparse_joint",
+        "poisson/rough/sparse_forward",
+        "poisson/rough/sparse_inverse",
+        "poisson/rough/sparse_joint",
+        "poisson/smooth/full_forward",
+        "poisson/smooth/full_inverse",
+        "poisson/smooth/sparse_forward",
+        "poisson/smooth/sparse_inverse",
+        "poisson/smooth/sparse_joint",
+        "helmholtz/smooth/sparse_joint",
+        "nsnonbounded/rough/sparse_forward",
+        "nsnonbounded/rough/sparse_inverse",
+        "nsnonbounded/rough/sparse_joint",
+        "nsnonbounded/smooth/full_forward",
+        "nsnonbounded/smooth/full_inverse",
+        "nsnonbounded/smooth/sparse_forward",
+        "nsnonbounded/smooth/sparse_inverse",
+        "nsnonbounded/smooth/sparse_joint"
+      ]
+    ],
+    "selected_sha256": {
+      "darcy": "2c1194065f46508a19f49238905d399da3ca0acafd265661f3c6ba9318324a14",
+      "poisson": "8ffb2a1a87add3fac4b53dad96279af9f041cd8501751da65a970c4e3f8e2a0a",
+      "helmholtz": "377a5c74db21def2d9bc6e7c464513b07ab8cbf0c5eb37f0ee4ce6bad3e4154f",
+      "nsnonbounded": "cea38be63b92ebe4cf9333870d667b1d7f6520617f181997885932513f73059b"
+    },
+    "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+    "code": {
+      "cell_schedule.py": "92b490aa7837e2611322c57ec0189885ecb3f25f04f5f1c345961a4f447e5c6e",
+      "cell_worker.py": "b376b3d8427f4d252a693b322c8af89065d5140169d508367e06ad168bb6e418",
+      "cell24_job.sh": "7815d9b8005b6bcf6cb855c432dba0aff51cd8fa48e14dbce063e94a6056d351"
+    }
+  },
+  "assignment_sha256": "c63299ad2b6acfeb964a1d2d472854414b28b00a84c62c612255d6baf67f5889",
+  "started_unix": 1789444315.2077785,
+  "finished_unix": 1789514036.3648026,
+  "actual_main_hours": 19.366988062461218,
+  "completion_receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/first60_complete.json"
+}

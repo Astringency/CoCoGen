@@ -1,0 +1,34 @@
+{
+  "status": "first60_reports_verified",
+  "updated_at": "2026-09-15T23:14:23.622579+00:00",
+  "final_study_complete": false,
+  "verified_cells": 60,
+  "metrics": "reports/auto_first60_20260916/metrics_0060_1789514061098577339.json",
+  "metrics_sha256": "b750415297098bc60c1e0ed4beb513a3bd24658f5b658d4ad31f18709641b08e",
+  "coverage": "reports/auto_first60_20260916/coverage_0060_1789514063613093737.json",
+  "coverage_sha256": "525d0e435a59af3789946b0e78559744131ed05c0bbb9c477cabd7f0cb91d0d0",
+  "audits": {
+    "validation/archive_reader_46cells.json": "e5a0da22d55759835dd9bbbce8c8d4db7a43e231abb18f5d784021997ec569c4",
+    "validation/archive_reader_ns_id_full_forward.json": "4712fad983d0e970d9afcdb6486767936002442d267ac7283df1b43f3a7e0e28",
+    "validation/archive_reader_ns_rough_sparse_inverse.json": "bcfc694f694e5875622deb8738db1ef91dfd48523fe2f86ee97fd4747756285f",
+    "validation/archive_reader_ns_id_full_inverse.json": "340b5289d3979272e8441822ba367bf69657f75878445e9f867eb34a2c8eceab",
+    "validation/archive_reader_ns_rough_sparse_joint.json": "833ab40f5c537bf0f41a6c4d477cbeeec62189cb17760ff1073f2ab7f28e087d",
+    "reports/auto_first60_20260916/audit_0051_1789503479169074305.json": "e4198295fc2099d59a97d898be3aa73f2477ef070c3a9cc470d450e585f4d7ec",
+    "reports/auto_first60_20260916/audit_0052_1789503911126709301.json": "47c5f7d32307cd8f41bb1c90a71abe03307ad769efc852661f015be874865bfe",
+    "reports/auto_first60_20260916/audit_0053_1789505993206314062.json": "b33a347175fa5c7e3c3f67ee75050c314f86afdfc4b2549f6ebd4fa4a0960ddd",
+    "reports/auto_first60_20260916/audit_0054_1789506455047082379.json": "d3e02d55c84b6eb2f278bbbe8c94e6f4609aeecd763dfa3aa760f6aecab276be",
+    "reports/auto_first60_20260916/audit_0055_1789508507428840537.json": "945fead7e9cab640d5db6fa1a39d2eecf2551983d3c820445affc74387e0f007",
+    "reports/auto_first60_20260916/audit_0056_1789508969628527803.json": "495f1ee92659d9fdab3d711dd839390ef648ac9de73f5f7540693c2c5ba4d284",
+    "reports/auto_first60_20260916/audit_0057_1789511022162102600.json": "9545014f22d86c9935a20065e33f65dde7fe3b038add0556846a87fee5f0f33c",
+    "reports/auto_first60_20260916/audit_0058_1789511514867481124.json": "358436d8095f504b94d24b14c7e1e01d68ece1ad195736f7c5c8dfeea9eef960",
+    "reports/auto_first60_20260916/audit_0059_1789513537787771665.json": "9213f18e40e45120c7ee494194f2f6d331fb1ca77b74c5c273a6c8b479cf7b9f",
+    "reports/auto_first60_20260916/audit_0060_1789514061106085097.json": "afdfed8d039d47d2238b2c7cb091ac34c73136db72b89537a3efa4b27f5529e4"
+  },
+  "published": {
+    "json": "reports/metrics_first60.json",
+    "json_sha256": "b750415297098bc60c1e0ed4beb513a3bd24658f5b658d4ad31f18709641b08e",
+    "csv": "reports/metrics_first60_targets.csv",
+    "csv_sha256": "9e2ae4a4b6db028b064b418171b3385f53c55d741cf0c192583665e620fcfb93"
+  },
+  "observer_sha256": "7f3e9245c94d85b3a957ee0dc152d81f677f93a690a52cde52e01ea589be5bfd"
+}

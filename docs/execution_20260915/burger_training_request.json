@@ -1,0 +1,43 @@
+{
+  "request": {
+    "config": {
+      "batch_size_per_rank": 32,
+      "max_epochs": 1200,
+      "min_epochs": 300,
+      "validation_every": 10,
+      "patience_checks": 20,
+      "relative_min_delta": 0.002,
+      "lr": 0.0001,
+      "weight_decay": 0.01,
+      "seed": 101,
+      "beta_min": 0.0001,
+      "beta_max": 10.0,
+      "eps": 1e-05,
+      "n_feat": 256,
+      "resolution": 128,
+      "pool_size": 4
+    },
+    "world_size": 2,
+    "cache_sha256": "2b0426707e4955636b89d24705a7fb16aa11cbfccc32b092a7b7c85f353e07e5",
+    "normalizer_sha256": "d79fee008d907c8274b763671730189caf6f616e12a878da96839f211244a190",
+    "code": {
+      "cocogen_burger/train.py": "85481589d8dab1ec6fa7714666564a346cafe3d9964fe299a52b42e1e63e1c5c",
+      "cocogen_burger/data.py": "cf3ea75a560f1a75177fea5309e47f273893b90554641214386e0b5ce1b96d97",
+      "cocogen_eval/network.py": "8692e3a32af4715a9c51d7107a9afba0c97ef5df0c861eda827664cd07a79f7c"
+    },
+    "torch_version": "2.8.0+cu128",
+    "precision": "float32",
+    "tf32": true,
+    "checkpoint_panel": "1096..1351",
+    "sampler_panel": "1000..1095",
+    "main_ids": "0..999"
+  },
+  "first60_gate": {
+    "first60_receipt_sha256": "64860be71fb9c3fc95a9a05d3839ab735811e7a46436ac24dd7d239f48bc9760",
+    "csv_sha256": "a0d605ab0cfbeb0d7940d5c7201beae16ccb0430f8c9ec975f7d64b43943379f",
+    "cells": 60,
+    "samples": 60000,
+    "predictions_hash_verified": true
+  },
+  "git_commit": "ca487a4115bda9df5383a339b4438d1a21a24d43"
+}

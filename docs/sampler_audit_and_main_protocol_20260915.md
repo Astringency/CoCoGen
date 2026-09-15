@@ -4,7 +4,7 @@
 
 用户已明确：先完成 Darcy、Poisson、Helmholtz、NS 四个已有模型的 **60 个评估单元，每单元 1,000 个样本**；之后补训 Burgers，再完成它的 6 个单元。
 
-**当前进度（2026-09-16 06:31 CST）：已完成并核验 58/60 个正式单元，即 Darcy、Poisson、Helmholtz 各全部 15 个，NS 完成 13 个，共 58,000 次完整单元样本评估。前三者宏平均相对 L2 分别为 CoCoGen / FM4PDE：33.61% / 16.07%、40.34% / 20.75%、42.61% / 23.47%。新增 NS smooth 稀疏反问题的初始场误差为 83.85% / 11.49%，误差比 7.30。剩余 rough 完整反问题、smooth 稀疏联合重建两个单元，两张 A100 各执行一项；尚不产生 NS 或四模型总体宏平均。9 月 16 日 05:54 用已完成的 11 个 NS 单元与当前批次重新估算，约 07:14 完成纯计算，给当时剩余时间添加 15% 余量后约 07:26；仅限前 60 单元，不含 Burgers。Burgers 仍在等待前 60 单元全部完成。**
+**当前进度（2026-09-16 07:21 CST）：四个已有模型的 60/60 个正式单元全部完成并通过独立复核，共 60,000 次完整单元样本评估。Darcy、Poisson、Helmholtz、NS 的宏平均相对 L2 为 CoCoGen / FM4PDE：33.61% / 16.07%、40.34% / 20.75%、42.61% / 23.47%、40.22% / 17.29%。四 PDE 等权总体为 39.19% / 19.40%，CoCoGen 在 11/60 个单元上平均误差更低。两张 A100 的四模型采样与原始汇总墙钟为 19.367 小时，满足约一天预算。Burgers 已在数据准备和显存测速通过后启动双 A100 训练，每卡 batch 32；训练完成、六单元评估与全研究归档仍待完成。完整结果见 [四模型总结](first60_complete_results_20260916.md)。**
 
 已完成 PDE 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结](darcy_complete_results_20260915.md)、[Poisson 完整评估总结](poisson_complete_results_20260916.md) 与 [Helmholtz 完整评估总结](helmholtz_complete_results_20260916.md)。
 
@@ -727,7 +727,7 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915 --include-burger
 ```
 
-2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 06:31 CST 共五十八个完整单元、六十九个目标场比较；Darcy、Poisson、Helmholtz 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
+2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 06:31 CST 共五十八个完整单元、六十九个目标场比较；Darcy、Poisson、Helmholtz 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60 模式已于 2026-09-16 07:14 CST 用实际结果验证；完整 66 模式仍待 Burgers 实际结果齐备。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
 
 ## 固定依赖归档与代码恢复检查
 
@@ -778,3 +778,13 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 启动前的真实 50 单元一次性检查已正常退出；随后通过读取已提交状态恢复常驻任务。两次指标快照相同，覆盖 50,000 次完整单元预测和 1,600 个预测文件哈希关联。记录见 `docs/execution_20260915/validation_report_watch_initialization.json`。截至本段时间，新增单元的自动处理路径及最终 60 单元完成路径尚未实际执行，须等相应结果到达后确认。
 
 自动任务运行期间，应读取上述状态及其引用文件，避免同时手工运行收集器写入相同的公开指标文件。原 GPU 采样任务和 Burgers 接续任务继续按冻结顺序运行。
+
+## 四模型完整结果（2026-09-16 07:14 CST）
+
+最后两个 NS 单元完成，完整采样、原始汇总和独立结果复核均通过，两个 worker、调度器、复核器均以 0 退出。新增 rough 完整反问题 a 的误差为 CoCoGen / FM4PDE：40.29% / 40.06%；smooth 联合重建 a 为 43.96% / 18.04%，u 为 29.92% / 8.75%。
+
+完整快照覆盖 60 单元、72 个目标场、1,920 份预测；快照 SHA256 为 `b750415297098bc60c1e0ed4beb513a3bd24658f5b658d4ad31f18709641b08e`。`validation_report_watch_60cells.json` 关联之前已核验的 58 单元与最后两个独立 NumPy float64 数值审计，同时核对实际完成记录、原始 CSV、全部聚合权重及正式进程的成功退出。
+
+四模型等权宏平均为 CoCoGen 39.19%、FM4PDE 19.40%；11 个单元 CoCoGen 均值更低。采样及原始汇总从 2026-09-15 11:51:55 到 2026-09-16 07:13:56 CST，共 19.367 小时，纯采样累计 38.544 GPU 小时。独立复核于 07:14:23 完成。
+
+[四模型完整总结](first60_complete_results_20260916.md)、[全部任务与字段表](execution_20260915/comparison_first60/comparison.md)、[NS 完整总结](ns_complete_results_20260916.md) 已分别提供。Burgers 在第一阶段完成后进入数据准备；四模型完成不等于五 PDE 全研究完成。

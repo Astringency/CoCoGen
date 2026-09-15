@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T23:22:30.066775+00:00",
+  "scope": "Read-only verification of actual startup receipts and source/config/data identities; not training convergence or completion",
+  "final_study_complete": false,
+  "training_complete": false,
+  "epochs_checked": 0,
+  "training_samples": 50000,
+  "checkpoint_validation_samples": 256,
+  "world_size": 2,
+  "batch_size_per_rank": 32,
+  "global_batch_size": 64,
+  "benchmark_peak_bytes": 21939705344,
+  "benchmark_estimated_seconds_per_epoch": 257.2210388712585,
+  "estimate_excludes": "DDP communication, validation and checkpoint I/O; update from actual completed epochs",
+  "checks": [
+    "preparation and benchmark exited 0",
+    "request config/world size agree",
+    "request binds exact cache and normalizer manifests",
+    "three training source hashes agree",
+    "first60 gate matches verified completion receipt",
+    "actual ranks 1852582 and 1852583 live at 2026-09-16 07:21:25 CST"
+  ],
+  "raw_training_cache_reloaded_locally": false,
+  "source_files": {
+    "validation_burger_training_gpu.json": "e5851bec7b9a6842f8c51eb8197f3e116134121c538c67a4f097d93e1519f56c",
+    "burger_training_cache.json": "2b0426707e4955636b89d24705a7fb16aa11cbfccc32b092a7b7c85f353e07e5",
+    "burger_normalizer.json": "d79fee008d907c8274b763671730189caf6f616e12a878da96839f211244a190",
+    "burger_train_config.json": "52e107e277ace0ef2c1a8f7c55bf238f1fd18ed6325bd47b774992f883133745",
+    "burger_training_request.json": "1580d4872149a86e3147ac83d4663492a41466fd6de96de5bed88ee6eb68abda",
+    "burger_pipeline_training_started.json": "e77d7b166c1329bed60b5b5e5f6d47e89f892f60bf49560dff9e5491b2beead8"
+  }
+}

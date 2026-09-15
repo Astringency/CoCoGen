@@ -1,0 +1,10 @@
+{
+  "stage": "training",
+  "code": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/code_burger_v3",
+  "updated_unix": 1789514302.8655362,
+  "batch_size_per_rank": 32,
+  "free_mib": {
+    "0": 81140,
+    "1": 81140
+  }
+}
