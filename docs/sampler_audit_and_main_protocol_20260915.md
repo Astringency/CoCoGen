@@ -301,3 +301,5 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 初步代码恢复检查也已通过：在本地新建临时空裸仓库，从 `source/archive_dependencies_code.bundle` 独立导入完整历史，运行 `git fsck --full`，确认没有 Git alternates，并恢复正式采样版本 `ae7cd742211afdfbc4ee0859671b9d75fb613283`、Burgers 版本 `ca487a4115bda9df5383a339b4438d1a21a24d43` 和归档版本 `2efdaa134007b302217713387b393dfb21942ac6`。关键源文件与相应原提交逐字节一致，临时恢复仓库已自动清理。检查记录保存在 `docs/execution_20260915/validation_code_bundle_recovery_preliminary.json`；源代码包 SHA256 为 `53f26f02705fa34ef6de2cdc4f1c994c71fa926b27f229cd22f27abdec63eba2`。
 
 最终归档仍须等待全部 66 单元、完整指标和 Burgers 权重齐备后，再保存最终代码包并核验恢复；之后才清理本任务的临时传输包、重复中间文件、临时检出和 tmux 会话。当前各临时检出共享 `code/.git`，不能在完成独立恢复核验前删除它。
+
+2026-09-15 19:17:32 CST 补充运行环境清单：Python 3.12.11、PyTorch `2.8.0+cu128`、CUDA 构建版本 12.8、cuDNN 版本标识 91002、NVIDIA 驱动 580.65.06，两张 A100-SXM4-80GB。两个实际评估进程的可执行文件均为 `fm4pde/bin/python3.12`，工作目录均为冻结的 `code_cell24`，PyTorch 版本与正式批次收据一致。`docs/execution_20260915/runtime_environment_first60.json` 保存采集时间、编译配置、119 个 Python 分发包版本和 30 个 conda 包的构建标识，`runtime_packages_first60.txt` 提供便于查看的版本列表。这是正式评估期间采集的环境信息，不是包含安装包二进制的完整环境镜像；最终恢复还需安装相应依赖。

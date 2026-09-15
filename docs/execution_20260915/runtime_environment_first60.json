@@ -1,0 +1,720 @@
+{
+  "captured_at": "2026-09-15T11:17:32.118197+00:00",
+  "phase": "During first60 evaluation; this is a version inventory, not an environment image",
+  "python": "3.12.11 | packaged by Anaconda, Inc. | (main, Jun  5 2025, 13:09:17) [GCC 11.2.0]",
+  "executable": "/research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python",
+  "prefix": "/research_data/users/zhangxifeng/.conda/envs/fm4pde",
+  "platform": "Linux-6.8.0-83-generic-x86_64-with-glibc2.35",
+  "torch": {
+    "version": "2.8.0+cu128",
+    "cuda_build": "12.8",
+    "cudnn_version": 91002,
+    "build_config": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 201703\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.7.1 (Git Hash 8d263e693366ef8db40acc569cc7d8edf644556d)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX512\n  - CUDA Runtime 12.8\n  - NVCC architecture flags: -gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_90,code=sm_90;-gencode;arch=compute_100,code=sm_100;-gencode;arch=compute_120,code=sm_120\n  - CuDNN 91.0.2  (built against CUDA 12.9)\n    - Built with CuDNN 90.8\n  - Magma 2.6.1\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=a1cb3cc05d46d198467bebbb6e8fba50a325d4e7, CUDA_VERSION=12.8, CUDNN_VERSION=9.8.0, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.8.0, USE_CUDA=ON, USE_CUDNN=ON, USE_CUSPARSELT=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=1, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n"
+  },
+  "gpu": [
+    "0, NVIDIA A100-SXM4-80GB, 580.65.06, 81920 MiB",
+    "1, NVIDIA A100-SXM4-80GB, 580.65.06, 81920 MiB"
+  ],
+  "formal_worker_processes": {
+    "848262": {
+      "executable": "/research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python3.12",
+      "cwd": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/code_cell24"
+    },
+    "848266": {
+      "executable": "/research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python3.12",
+      "cwd": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/code_cell24"
+    }
+  },
+  "receipt_torch_version_matches": true,
+  "installed_distributions": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.6.1"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.13.2"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0"
+    },
+    {
+      "name": "antlr4-python3-runtime",
+      "version": "4.9.3"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.0"
+    },
+    {
+      "name": "attrs",
+      "version": "25.4.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2025.10.5"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.4.4"
+    },
+    {
+      "name": "Clawpack",
+      "version": "5.13.1"
+    },
+    {
+      "name": "click",
+      "version": "8.3.0"
+    },
+    {
+      "name": "comm",
+      "version": "0.2.3"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.3"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1"
+    },
+    {
+      "name": "debugpy",
+      "version": "1.8.17"
+    },
+    {
+      "name": "decorator",
+      "version": "5.2.1"
+    },
+    {
+      "name": "dotenv",
+      "version": "0.9.9"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.1"
+    },
+    {
+      "name": "et_xmlfile",
+      "version": "2.0.0"
+    },
+    {
+      "name": "executing",
+      "version": "2.2.1"
+    },
+    {
+      "name": "filelock",
+      "version": "3.20.0"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.60.1"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0"
+    },
+    {
+      "name": "fsspec",
+      "version": "2025.9.0"
+    },
+    {
+      "name": "h5py",
+      "version": "3.15.0"
+    },
+    {
+      "name": "hydra-core",
+      "version": "1.3.2"
+    },
+    {
+      "name": "idna",
+      "version": "3.11"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "ipykernel",
+      "version": "7.1.0"
+    },
+    {
+      "name": "ipython",
+      "version": "9.6.0"
+    },
+    {
+      "name": "ipython_pygments_lexers",
+      "version": "1.1.1"
+    },
+    {
+      "name": "ipywidgets",
+      "version": "8.1.8"
+    },
+    {
+      "name": "jedi",
+      "version": "0.19.2"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "joblib",
+      "version": "1.5.2"
+    },
+    {
+      "name": "jupyter_client",
+      "version": "8.6.3"
+    },
+    {
+      "name": "jupyter_core",
+      "version": "5.9.1"
+    },
+    {
+      "name": "jupyterlab_widgets",
+      "version": "3.0.16"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.4.9"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.2"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.0.0"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.7"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.1"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0"
+    },
+    {
+      "name": "multidict",
+      "version": "6.7.0"
+    },
+    {
+      "name": "nest-asyncio",
+      "version": "1.6.0"
+    },
+    {
+      "name": "networkx",
+      "version": "3.5"
+    },
+    {
+      "name": "numpy",
+      "version": "2.3.3"
+    },
+    {
+      "name": "nvidia-cublas-cu12",
+      "version": "12.8.4.1"
+    },
+    {
+      "name": "nvidia-cuda-cupti-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc-cu12",
+      "version": "12.8.93"
+    },
+    {
+      "name": "nvidia-cuda-runtime-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "nvidia-cudnn-cu12",
+      "version": "9.10.2.21"
+    },
+    {
+      "name": "nvidia-cufft-cu12",
+      "version": "11.3.3.83"
+    },
+    {
+      "name": "nvidia-cufile-cu12",
+      "version": "1.13.1.3"
+    },
+    {
+      "name": "nvidia-curand-cu12",
+      "version": "10.3.9.90"
+    },
+    {
+      "name": "nvidia-cusolver-cu12",
+      "version": "11.7.3.90"
+    },
+    {
+      "name": "nvidia-cusparse-cu12",
+      "version": "12.5.8.93"
+    },
+    {
+      "name": "nvidia-cusparselt-cu12",
+      "version": "0.7.1"
+    },
+    {
+      "name": "nvidia-ml-py",
+      "version": "13.595.45"
+    },
+    {
+      "name": "nvidia-nccl-cu12",
+      "version": "2.27.3"
+    },
+    {
+      "name": "nvidia-nvjitlink-cu12",
+      "version": "12.8.93"
+    },
+    {
+      "name": "nvidia-nvtx-cu12",
+      "version": "12.8.90"
+    },
+    {
+      "name": "nvitop",
+      "version": "1.7.0"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0"
+    },
+    {
+      "name": "openpyxl",
+      "version": "3.1.5"
+    },
+    {
+      "name": "opt_einsum",
+      "version": "3.4.0"
+    },
+    {
+      "name": "packaging",
+      "version": "25.0"
+    },
+    {
+      "name": "pandas",
+      "version": "2.3.3"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.5"
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0"
+    },
+    {
+      "name": "pillow",
+      "version": "11.3.0"
+    },
+    {
+      "name": "pip",
+      "version": "25.2"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.5.0"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.52"
+    },
+    {
+      "name": "propcache",
+      "version": "0.4.1"
+    },
+    {
+      "name": "psutil",
+      "version": "7.1.1"
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0"
+    },
+    {
+      "name": "pure_eval",
+      "version": "0.2.3"
+    },
+    {
+      "name": "pyaml",
+      "version": "25.7.0"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.19.2"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.2.5"
+    },
+    {
+      "name": "pyro-api",
+      "version": "0.1.2"
+    },
+    {
+      "name": "pyro-ppl",
+      "version": "1.9.1"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.0"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.1.1"
+    },
+    {
+      "name": "pytorch-lightning",
+      "version": "2.5.5"
+    },
+    {
+      "name": "pytz",
+      "version": "2025.2"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3"
+    },
+    {
+      "name": "pyzmq",
+      "version": "27.1.0"
+    },
+    {
+      "name": "requests",
+      "version": "2.32.5"
+    },
+    {
+      "name": "rich",
+      "version": "14.2.0"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.7.2"
+    },
+    {
+      "name": "scikit-optimize",
+      "version": "0.10.2"
+    },
+    {
+      "name": "scipy",
+      "version": "1.16.2"
+    },
+    {
+      "name": "seaborn",
+      "version": "0.13.2"
+    },
+    {
+      "name": "setuptools",
+      "version": "80.9.0"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "some-package",
+      "version": "0.1"
+    },
+    {
+      "name": "stack-data",
+      "version": "0.6.3"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.6.0"
+    },
+    {
+      "name": "torch",
+      "version": "2.8.0"
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.8.2"
+    },
+    {
+      "name": "torchvision",
+      "version": "0.23.0"
+    },
+    {
+      "name": "tornado",
+      "version": "6.5.2"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.67.1"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.14.3"
+    },
+    {
+      "name": "triton",
+      "version": "3.4.0"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.15.0"
+    },
+    {
+      "name": "tzdata",
+      "version": "2025.2"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.5.0"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.2.14"
+    },
+    {
+      "name": "wheel",
+      "version": "0.45.1"
+    },
+    {
+      "name": "widgetsnbextension",
+      "version": "4.0.15"
+    },
+    {
+      "name": "yarl",
+      "version": "1.22.0"
+    }
+  ],
+  "conda_packages": [
+    {
+      "name": "_libgcc_mutex",
+      "version": "0.1",
+      "build": "main",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "_openmp_mutex",
+      "version": "5.1",
+      "build": "1_gnu",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "bzip2",
+      "version": "1.0.8",
+      "build": "h5eee18b_6",
+      "build_number": 6,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "ca-certificates",
+      "version": "2025.9.9",
+      "build": "h06a4308_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "expat",
+      "version": "2.7.1",
+      "build": "h6a678d5_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "ld_impl_linux-64",
+      "version": "2.44",
+      "build": "h153f514_2",
+      "build_number": 2,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libffi",
+      "version": "3.4.4",
+      "build": "h6a678d5_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libgcc-ng",
+      "version": "11.2.0",
+      "build": "h1234567_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libgomp",
+      "version": "11.2.0",
+      "build": "h1234567_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libstdcxx-ng",
+      "version": "11.2.0",
+      "build": "h1234567_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libuuid",
+      "version": "1.41.5",
+      "build": "h5eee18b_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libxcb",
+      "version": "1.17.0",
+      "build": "h9b100fa_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "libzlib",
+      "version": "1.3.1",
+      "build": "hb25bd0a_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "ncurses",
+      "version": "6.5",
+      "build": "h7934f7d_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "openssl",
+      "version": "3.0.18",
+      "build": "hd6dcaed_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "pip",
+      "version": "25.2",
+      "build": "pyhc872135_0",
+      "build_number": 0,
+      "subdir": "noarch"
+    },
+    {
+      "name": "pthread-stubs",
+      "version": "0.3",
+      "build": "h0ce48e5_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "python",
+      "version": "3.12.11",
+      "build": "h22baa00_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "readline",
+      "version": "8.3",
+      "build": "hc2a1206_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "setuptools",
+      "version": "80.9.0",
+      "build": "py312h06a4308_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "sqlite",
+      "version": "3.50.2",
+      "build": "hb25bd0a_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "tk",
+      "version": "8.6.15",
+      "build": "h54e0aa7_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "tzdata",
+      "version": "2025b",
+      "build": "h04d1e81_0",
+      "build_number": 0,
+      "subdir": "noarch"
+    },
+    {
+      "name": "wheel",
+      "version": "0.45.1",
+      "build": "py312h06a4308_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "xorg-libx11",
+      "version": "1.8.12",
+      "build": "h9b100fa_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "xorg-libxau",
+      "version": "1.0.12",
+      "build": "h9b100fa_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "xorg-libxdmcp",
+      "version": "1.1.5",
+      "build": "h9b100fa_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "xorg-xorgproto",
+      "version": "2024.1",
+      "build": "h5eee18b_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "xz",
+      "version": "5.6.4",
+      "build": "h5eee18b_1",
+      "build_number": 1,
+      "subdir": "linux-64"
+    },
+    {
+      "name": "zlib",
+      "version": "1.3.1",
+      "build": "hb25bd0a_0",
+      "build_number": 0,
+      "subdir": "linux-64"
+    }
+  ],
+  "note": "Package versions and conda build identifiers are recorded; package binaries, credentials and environment variables are not included."
+}
