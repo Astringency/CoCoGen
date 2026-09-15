@@ -41,6 +41,7 @@ nsnonbounded/id/sparse_forward,nsnonbounded,id,sparse_forward,forward,u,1000,0.5
 nsnonbounded/id/sparse_inverse,nsnonbounded,id,sparse_inverse,inverse,a,1000,0.7482590151804566,0.12680069139032427,0.6214583237901323,5.901064158058318,0.0
 nsnonbounded/id/sparse_joint,nsnonbounded,id,sparse_joint,both,a,1000,0.38995323546452154,0.1788676199163303,0.21108561554819127,2.180122012284458,0.0
 nsnonbounded/id/sparse_joint,nsnonbounded,id,sparse_joint,both,u,1000,0.2843976826369116,0.08241218804930109,0.20198549458761053,3.4509177509857842,0.0
+nsnonbounded/rough/full_forward,nsnonbounded,rough,full_forward,forward,u,1000,0.15832235612418114,0.12820199157624326,0.03012036454793789,1.234944591559055,0.153
 nsnonbounded/rough/sparse_forward,nsnonbounded,rough,sparse_forward,forward,u,1000,0.5625458536545374,0.19504127333918217,0.36750458031535516,2.884240058647764,0.0
 nsnonbounded/rough/sparse_inverse,nsnonbounded,rough,sparse_inverse,inverse,a,1000,0.7665114398879507,0.40906300305768256,0.35744843683026817,1.8738224531634404,0.0
 nsnonbounded/rough/sparse_joint,nsnonbounded,rough,sparse_joint,both,a,1000,0.503291037751048,0.4375649349257001,0.0657261028253479,1.1502087977787991,0.0
