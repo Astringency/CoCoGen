@@ -1,0 +1,27 @@
+batch_size: 20
+device: 0
+data:
+  pde_name: poisson
+  # data_dir: /large_storage/zhangxf/PDEdata/poisson/poisson_10000-128-128_1.mat
+  data_dir: /large_storage/zhangxf/PDEdata/test1125/poisson_test_1000-128-128.mat
+  batch_size: 32
+  num_workers: 8
+sensors:
+  target: sensors.sensors_new.solRandom
+  params:
+    sensors: 250
+sampler_config:
+  target: sdes.backward.ProbabilityFlowODEPhysics
+  params:
+    num_time_steps: 2000
+    eps: 1e-5
+    residual_config:
+      target: physics.operators.Helmholtz
+      params:
+        dx: 0.0078125
+        k: 0.0
+        eps: 1e-8
+        mu_p: 0.0
+        sigma_p: 0.02739726
+        mu_k: 0.0
+        sigma_k: 2.5

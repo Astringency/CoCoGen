@@ -1,0 +1,505 @@
+{
+  "training": [
+    {
+      "file": "output/2025-11-14T18-14-05_cocogen4poisson/lightning_logs/version_0/metrics.csv",
+      "sha256": "aa7f21d52d0f14ffb1325c85535eabca118743a93c7365c80915c9d98b256da3",
+      "first": [
+        0,
+        3045.743408203125
+      ],
+      "last": [
+        1626,
+        402.8088684082031
+      ],
+      "best": [
+        684,
+        389.3074951171875
+      ],
+      "first_50_mean": 626.9745147705078,
+      "last_50_mean": 415.6146667480469,
+      "previous_50_mean": 417.2567443847656,
+      "last_50_sd": 7.459104708622127,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 626.9745147705078,
+        "50": 468.5329180908203,
+        "100": 447.7639556884766,
+        "200": 431.43367736816407,
+        "300": 428.14601135253906,
+        "500": 424.38217895507813,
+        "700": 419.5033740234375,
+        "1000": 419.67267456054685,
+        "1100": 415.61082946777344,
+        "1500": 415.59333862304686
+      },
+      "late_change_percent": -0.3935413049200531,
+      "physics_residual_l2_norm": {
+        "first": 309696064.0,
+        "last": 150.93130493164062,
+        "median_last20": 173.8587875366211
+      }
+    },
+    {
+      "file": "output/2025-11-15T17-57-32_cocogen4darcy/lightning_logs/version_0/metrics.csv",
+      "sha256": "f2caa4a653ffa97c388ddfdc8a4e3d610dc481708dddbdb14c71a248c36c3411",
+      "first": [
+        0,
+        3434.4130859375
+      ],
+      "last": [
+        1130,
+        146.34010314941406
+      ],
+      "best": [
+        1108,
+        137.48033142089844
+      ],
+      "first_50_mean": 470.90410766601565,
+      "last_50_mean": 147.41792694091797,
+      "previous_50_mean": 148.29554534912108,
+      "last_50_sd": 4.485984390408024,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 470.90410766601565,
+        "50": 226.5117153930664,
+        "100": 196.50348999023439,
+        "200": 173.7044741821289,
+        "300": 164.75343902587892,
+        "500": 156.67060150146483,
+        "700": 150.93804901123048,
+        "1000": 148.0710607910156,
+        "1100": 147.02147502283896
+      },
+      "late_change_percent": -0.5918036217048894,
+      "physics_residual_l2_norm": {
+        "first": 1887506268160.0,
+        "last": 6766682.0,
+        "median_last20": 5545589.5
+      }
+    },
+    {
+      "file": "output/2025-11-15T18-01-40_cocogen4helmholtz/lightning_logs/version_0/metrics.csv",
+      "sha256": "f78510b5f10db384107e58519f3d51bf3c026618abc7f056e6f4a115efd40d10",
+      "first": [
+        0,
+        3044.452392578125
+      ],
+      "last": [
+        1188,
+        428.4986877441406
+      ],
+      "best": [
+        1184,
+        390.3069152832031
+      ],
+      "first_50_mean": 626.906734008789,
+      "last_50_mean": 417.0037445068359,
+      "previous_50_mean": 415.7856365966797,
+      "last_50_sd": 9.522204682675211,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 626.906734008789,
+        "50": 463.4860528564453,
+        "100": 445.4166815185547,
+        "200": 431.3612347412109,
+        "300": 427.93189697265626,
+        "500": 424.1161285400391,
+        "700": 420.01642028808595,
+        "1000": 419.7490704345703,
+        "1100": 415.6810113525391
+      },
+      "late_change_percent": 0.2929653655491249,
+      "physics_residual_l2_norm": {
+        "first": 323346912.0,
+        "last": 230.43112182617188,
+        "median_last20": 215.88304138183594
+      }
+    },
+    {
+      "file": "output/2025-11-15T18-08-44_cocogen4nsnonbounded/lightning_logs/version_0/metrics.csv",
+      "sha256": "10ec8befbdf5397bcef4e2f320b8aeddadb6994cb8fc1686736ef99db861e1b5",
+      "first": [
+        0,
+        3064.177978515625
+      ],
+      "last": [
+        1188,
+        398.1133117675781
+      ],
+      "best": [
+        1184,
+        368.75677490234375
+      ],
+      "first_50_mean": 628.8287023925782,
+      "last_50_mean": 389.0700830078125,
+      "previous_50_mean": 387.8788592529297,
+      "last_50_sd": 8.16854833952004,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 628.8287023925782,
+        "50": 449.2836944580078,
+        "100": 428.6832562255859,
+        "200": 413.07311462402345,
+        "300": 405.7142578125,
+        "500": 398.5271875,
+        "700": 392.74799682617186,
+        "1000": 391.18259887695314,
+        "1100": 387.92938110351565
+      },
+      "late_change_percent": 0.3071123177935453,
+      "physics_residual_l2_norm": {
+        "first": 3690135.25,
+        "last": 118.80842590332031,
+        "median_last20": 124.2518424987793
+      }
+    },
+    {
+      "file": "output/withcontrol/2025-11-27T21-17-46_cocogen4darcy/lightning_logs/version_0/metrics.csv",
+      "sha256": "c1b3f8039add3c6de6a55b3091d920844eaf760230406a7a40879e918a12ba1e",
+      "first": [
+        0,
+        148.8846435546875
+      ],
+      "last": [
+        249,
+        137.61610412597656
+      ],
+      "best": [
+        100,
+        133.6011505126953
+      ],
+      "first_50_mean": 140.9985858154297,
+      "last_50_mean": 138.50146270751952,
+      "previous_50_mean": 138.39720275878906,
+      "last_50_sd": 2.8676647227831102,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 140.9985858154297,
+        "50": 140.26392791748046,
+        "100": 139.35843505859376,
+        "200": 138.50146270751952
+      },
+      "late_change_percent": 0.0753338554914107,
+      "physics_residual_l2_norm": {
+        "first": 5927213.0,
+        "last": 6204598.5,
+        "median_last20": 6147784.0
+      }
+    },
+    {
+      "file": "output/withcontrol/2025-11-27T21-31-52_cocogen4poisson/lightning_logs/version_0/metrics.csv",
+      "sha256": "ef283333a69254618f63c22d4a6ab7347d49dfaf3a4c477ac418d8316f9b69dd",
+      "first": [
+        0,
+        416.0663146972656
+      ],
+      "last": [
+        245,
+        408.6216125488281
+      ],
+      "best": [
+        86,
+        393.1741943359375
+      ],
+      "first_50_mean": 413.39233825683596,
+      "last_50_mean": 411.49493591308595,
+      "previous_50_mean": 411.9900439453125,
+      "last_50_sd": 8.480290605529929,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 413.39233825683596,
+        "50": 414.16669982910156,
+        "100": 412.25307006835936,
+        "200": 411.1524193805197
+      },
+      "late_change_percent": -0.12017475652694731,
+      "physics_residual_l2_norm": {
+        "first": 167.46676635742188,
+        "last": 145.60882568359375,
+        "median_last20": 166.70764923095703
+      }
+    },
+    {
+      "file": "output/withcontrol/2025-11-27T21-32-06_cocogen4nsnonbounded/lightning_logs/version_0/metrics.csv",
+      "sha256": "9f08128608036fd7366bacd548f9472cc62ea82d14f7670b234c74f07f3ea6c2",
+      "first": [
+        0,
+        391.89459228515625
+      ],
+      "last": [
+        245,
+        378.2870788574219
+      ],
+      "best": [
+        86,
+        367.81781005859375
+      ],
+      "first_50_mean": 387.6388177490234,
+      "last_50_mean": 382.7840130615234,
+      "previous_50_mean": 383.52571350097656,
+      "last_50_sd": 7.149066276024898,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 387.6388177490234,
+        "50": 385.430927734375,
+        "100": 384.0491796875,
+        "200": 382.4843046768852
+      },
+      "late_change_percent": -0.19339001619542717,
+      "physics_residual_l2_norm": {
+        "first": 128.8939971923828,
+        "last": 132.5218963623047,
+        "median_last20": 125.78167724609375
+      }
+    },
+    {
+      "file": "output/withcontrol/2025-11-28T09-24-03_cocogen4helmholtz/lightning_logs/version_0/metrics.csv",
+      "sha256": "9ca7539cfdc65a69ec8984810b0b3cd843b3266bec62bdb269cf26da249b8567",
+      "first": [
+        0,
+        413.558837890625
+      ],
+      "last": [
+        219,
+        415.6413269042969
+      ],
+      "best": [
+        86,
+        393.3834533691406
+      ],
+      "first_50_mean": 413.97105407714844,
+      "last_50_mean": 412.50433044433595,
+      "previous_50_mean": 412.4158367919922,
+      "last_50_sd": 9.132108825724522,
+      "nonfinite": 0,
+      "has_validation_metrics": false,
+      "milestones": {
+        "0": 413.97105407714844,
+        "50": 413.87402893066405,
+        "100": 412.5316180419922,
+        "200": 412.55625305175784
+      },
+      "late_change_percent": 0.021457384622292075,
+      "physics_residual_l2_norm": {
+        "first": 163.8177490234375,
+        "last": 218.9604949951172,
+        "median_last20": 215.78721618652344
+      }
+    }
+  ],
+  "saved_samples": [
+    {
+      "file": "output/samples/darcy/both/results.pkl",
+      "sha256": "a5ab8606848f4012cfafaf012e8d969e47d84e0a2a5adeb8161d889248931eba",
+      "shape": [
+        25,
+        2,
+        128,
+        128
+      ],
+      "nonfinite_prediction": 0,
+      "unique_truths": 25,
+      "channels": [
+        {
+          "channel": 0,
+          "mse_mean": 1.6818412427132825,
+          "rel_l2_mean_standardized": 1.2929990975596888,
+          "rel_l2_median_standardized": 1.3053567424781702,
+          "rel_l2_min_standardized": 1.0871839725831416,
+          "rel_l2_max_standardized": 1.4686082594628949,
+          "rel_l2_all_standardized": [
+            1.1810734216869265,
+            1.2704097052199297,
+            1.346269745195269,
+            1.344186734440099,
+            1.4043364235020612,
+            1.4120094399154466,
+            1.1832728036601272,
+            1.2663797973215742,
+            1.0884440407062086,
+            1.0871839725831416,
+            1.398652270752685,
+            1.3986299808643827,
+            1.1747565005535776,
+            1.2444238446003515,
+            1.3053567424781702,
+            1.42125935110259,
+            1.3226690188381751,
+            1.39075310911128,
+            1.1978275223459345,
+            1.4686082594628949,
+            1.2245185774861742,
+            1.2595286174015359,
+            1.2657950637658288,
+            1.3454411505483137,
+            1.3231913454495408
+          ],
+          "correlation_mean": 0.14769099597111293,
+          "truth_mean": 0.02425633607810596,
+          "truth_std": 0.9995505111870198,
+          "prediction_mean": 0.16661156959198706,
+          "prediction_std": 0.975346464395389,
+          "fraction_exactly_equal": 0.03052001953125
+        },
+        {
+          "channel": 1,
+          "mse_mean": 0.1719607669066744,
+          "rel_l2_mean_standardized": 0.4019793969299347,
+          "rel_l2_median_standardized": 0.4180192133929556,
+          "rel_l2_min_standardized": 0.24850123955980186,
+          "rel_l2_max_standardized": 0.5269687919103533,
+          "rel_l2_all_standardized": [
+            0.32242632302034663,
+            0.3565630830808148,
+            0.5027681870768745,
+            0.407867182583102,
+            0.514572378280037,
+            0.47260859368803887,
+            0.31597320156444775,
+            0.5001784213093491,
+            0.24850123955980186,
+            0.2528857576460396,
+            0.4180192133929556,
+            0.3330133475762914,
+            0.3992067829080362,
+            0.3402344662751051,
+            0.43831361917640294,
+            0.4410385894768329,
+            0.4394950314587501,
+            0.4042653558591019,
+            0.2959801928750121,
+            0.43431099341385426,
+            0.3315357070596004,
+            0.5269687919103533,
+            0.4358493193312487,
+            0.46027472717525153,
+            0.45663441755071793
+          ],
+          "correlation_mean": 0.9304078737620638,
+          "truth_mean": -0.026711370282083802,
+          "truth_std": 0.9903963667776001,
+          "prediction_mean": -0.14471813844641185,
+          "prediction_std": 0.8309236565115101,
+          "fraction_exactly_equal": 0.02674072265625
+        }
+      ],
+      "stored_metrics": {
+        "sol_l2norm": 1.6818411350250244,
+        "coef_l2norm": 0.1719607561826706
+      },
+      "channel_semantics": [
+        "coefficient a",
+        "solution u"
+      ],
+      "archived_config_observations_per_channel": 500
+    },
+    {
+      "file": "output/samples/poisson/both/results.pkl",
+      "sha256": "ba772a2d4d9600f6d552c2a0430e5f77ac93e4ebc35b68e53c4b29b5708c6d92",
+      "shape": [
+        20,
+        2,
+        128,
+        128
+      ],
+      "nonfinite_prediction": 0,
+      "unique_truths": 20,
+      "channels": [
+        {
+          "channel": 0,
+          "mse_mean": 0.8881339943769453,
+          "rel_l2_mean_standardized": 0.8888963576245613,
+          "rel_l2_median_standardized": 0.8926570904449758,
+          "rel_l2_min_standardized": 0.7279013154887588,
+          "rel_l2_max_standardized": 1.046032693696401,
+          "rel_l2_all_standardized": [
+            0.8952110460374672,
+            0.9900989667679404,
+            0.7539195849794218,
+            1.046032693696401,
+            0.9848886288916314,
+            0.9417961734405665,
+            0.9262486001194232,
+            0.7797007398657178,
+            0.7892352236316341,
+            0.762802241140008,
+            0.8707927048586634,
+            0.8947352109641661,
+            0.9311408930039741,
+            0.874550830008433,
+            0.8905789699257853,
+            0.9663485279720635,
+            1.0095597659831703,
+            0.8849231868715254,
+            0.8574618488444766,
+            0.7279013154887588
+          ],
+          "correlation_mean": 0.47022083534599135,
+          "truth_mean": -6.128923896175919e-11,
+          "truth_std": 1.0705678117719306,
+          "prediction_mean": 0.0018928427666619215,
+          "prediction_std": 0.4297663767134129,
+          "fraction_exactly_equal": 0.01339111328125
+        },
+        {
+          "channel": 1,
+          "mse_mean": 0.9402973542341346,
+          "rel_l2_mean_standardized": 0.8682633170892128,
+          "rel_l2_median_standardized": 0.8603051733699694,
+          "rel_l2_min_standardized": 0.531657492554686,
+          "rel_l2_max_standardized": 1.3009730036619032,
+          "rel_l2_all_standardized": [
+            0.8724023937699229,
+            0.9314669317535799,
+            0.7529667458833157,
+            1.3009730036619032,
+            0.7866138235163739,
+            0.9571163653350547,
+            0.8319686460317082,
+            0.531657492554686,
+            0.7920316172083421,
+            0.6998295773462019,
+            0.8482079529700159,
+            0.9149398009608999,
+            0.838019587464611,
+            0.9052828288645725,
+            0.8784136956719081,
+            1.0406375249811337,
+            0.9721368746155626,
+            0.8197227860298116,
+            0.9169462143327018,
+            0.7739324788319488
+          ],
+          "correlation_mean": 0.544399820512964,
+          "truth_mean": -0.11853477825854693,
+          "truth_std": 1.111924560170401,
+          "prediction_mean": 0.0021817068815901145,
+          "prediction_std": 0.30442531892242974,
+          "fraction_exactly_equal": 0.013580322265625
+        }
+      ],
+      "stored_metrics": {
+        "sol_l2norm": 0.8881340026855469,
+        "coef_l2norm": 0.9402973055839539
+      },
+      "channel_semantics": [
+        "source f",
+        "solution phi"
+      ],
+      "archived_config_observations_per_channel": 250
+    }
+  ],
+  "date": "2026-09-15",
+  "server": "server197",
+  "remote_root": "/research_data/users/zhangxifeng/C01Python/CoCoGen",
+  "scope": "Recomputed eight historical training CSV summaries and two stored sample batches. No new training or inference. Errors are mean per-example relative L2 in stored standardized coordinates, not physical-space FM4PDE main metrics. Channel semantics follow the current server loader; the historical result files do not embed source commit, sample IDs, masks, normalizer, or checkpoint hash.",
+  "metric_formula": "mean_i(norm(pred_i - truth_i, 2) / max(norm(truth_i, 2), 1e-12)), evaluated separately for each channel in float64",
+  "training_window_note": "Last 50 logged epochs; log endpoints may extend beyond the last periodically saved checkpoint."
+}

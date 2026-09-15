@@ -1,0 +1,134 @@
+{
+  "source": "server197:/research_data/users/zhangxifeng/C01Python/CoCoGen",
+  "date": "2026-09-15",
+  "files": [
+    {
+      "path": "loggers.py",
+      "sha256": "9b6c31a73622fda86962322b4ff896ee45624b45c84e246f5819245611bc2154"
+    },
+    {
+      "path": "utils.py",
+      "sha256": "df4cc5c46dfd10b575a60219e200649d6ea3f68de8facc6b29af57ab2d11c4e6"
+    },
+    {
+      "path": "run_sample.sh",
+      "sha256": "ea285cad35024a539d47497601c1d6f5d2156fc2da8f8b487a7d1b6b80bfda57"
+    },
+    {
+      "path": "tool_add_controlnet.py",
+      "sha256": "c1f699c98052b8c1819aeabcb1a61562a4604090946494be830f0b0aca2a5562"
+    },
+    {
+      "path": "sample.py",
+      "sha256": "bb52f887e0ae19364d7a3fd4da8947e2fe0c422b3a50d45e287e4cee0be46ebd"
+    },
+    {
+      "path": "run_train.sh",
+      "sha256": "298f338900051bfa9ab658ed51cffdbf500f101910250994cc4476dc01b12271"
+    },
+    {
+      "path": "train.py",
+      "sha256": "d44feb3d97f25d4e7bb5757c05921364fc7b982e256d244f4ebd58e48bc21008"
+    },
+    {
+      "path": "sdes/forward.py",
+      "sha256": "ac3a5d5c8748719916e894927e7516069fc79cd2f3a798942a4bb296db48a11c"
+    },
+    {
+      "path": "sdes/backward.py",
+      "sha256": "768e624f7dbf031c0f4b95be3416daf569f0d4eab559ae299e716444110a79d2"
+    },
+    {
+      "path": "data/transform.py",
+      "sha256": "dd0c966ff88d3e4db73b223cb804d2990a764aec20de6b224c6bb8f610f6d177"
+    },
+    {
+      "path": "data/load_test.py",
+      "sha256": "acfd505133d9071c7d359342af613af7e25c51d19d4debac17b4ccb2095a0b0e"
+    },
+    {
+      "path": "data/load.py",
+      "sha256": "b351802de7c4844bcc85e2af163ce3a799080b6215a47273ae49af005a8ec886"
+    },
+    {
+      "path": "data/load_sensors.py",
+      "sha256": "12af5f0f828869eb3aca447e75d69888af8fa0d1a9eaa34bd5ae5e30d4464a24"
+    },
+    {
+      "path": "data/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "models/unets.py",
+      "sha256": "e482c20a2b3ff1f543237bf75d6049e5496aa9242c5409e2582da0f5ba839699"
+    },
+    {
+      "path": "models/score_matching.py",
+      "sha256": "d7a31e7273a1aef66fa7e7bca1754e4d35e58dfd83088adccceb7208dd55ba9e"
+    },
+    {
+      "path": "configs/nsnonbounded.yaml",
+      "sha256": "386a34bfc8a55cbb7116c7f4510e570af80276d8aef97c05164d6dbdbb3768c8"
+    },
+    {
+      "path": "configs/darcy.yaml",
+      "sha256": "32ad0145e5fe378503c4340f580389f7c348b4220fb183fc9c6e2df9df0656b5"
+    },
+    {
+      "path": "configs/poisson.yaml",
+      "sha256": "9fe811fc2f101e0cbb4acf5aeff9ca1180d58b1a83972f1e1b01a64aa0606ef2"
+    },
+    {
+      "path": "configs/helmholtz.yaml",
+      "sha256": "166f64c9da472836726f99727db5cc5c10b963146dfa0dbdb29eeaf683ba190a"
+    },
+    {
+      "path": "configs/shallow_water.yaml",
+      "sha256": "ce716d62156443b883b03f165f434e345774188c79b924a94dcdaa2933723385"
+    },
+    {
+      "path": "sensors/sensors_new.py",
+      "sha256": "12af5f0f828869eb3aca447e75d69888af8fa0d1a9eaa34bd5ae5e30d4464a24"
+    },
+    {
+      "path": "sensors/sensors.py",
+      "sha256": "ea60d539cb9eb5bf5750b40368d2bcba5654b4e0b86e3e2b6db7e74ded6defaa"
+    },
+    {
+      "path": "physics/operators.py",
+      "sha256": "223024a8c368e86a4682b528f52de9dbcccd91c1b758e7444757e9b314137d4a"
+    },
+    {
+      "path": "configs/sample/darcy_both.yaml",
+      "sha256": "10c2797f794c5c42b7fab7675920d94f34ef958abfad71ae0217c7134cf92172"
+    },
+    {
+      "path": "configs/sample/poisson_inverse.yaml",
+      "sha256": "163ee4e3fc8b93f7c7793bff3554669f5771fa8aec75df0b29b0b654ce79e16c"
+    },
+    {
+      "path": "configs/sample/poisson_both.yaml",
+      "sha256": "2421bb884ccea8a04b162b8b441843df6add7981ecf74f0ff1708fbbc121cfb3"
+    },
+    {
+      "path": "configs/sample/darcy_inverse.yaml",
+      "sha256": "d18c53a916a37b4b1df430d51874905c9e49c8a6d76680cbebad1b6a05b3ff9c"
+    },
+    {
+      "path": "configs/sample/darcy_forward.yaml",
+      "sha256": "85a0c2ac6aa7ff8d0214422f1d546bfb87a713a6ee3dbad9376b30155fe89ae9"
+    },
+    {
+      "path": "configs/sample/poisson_forward.yaml",
+      "sha256": "931cf3fb84d5cf1e0f2083d2a8631f6d8374b47f7e69c3795da83c5f967fdb52"
+    },
+    {
+      "path": "data/.ipynb_checkpoints/load-checkpoint.py",
+      "sha256": "1f56409289480487a4a696141926dbaa94223b98ba1608cc31ebc5f978a5dfdd"
+    },
+    {
+      "path": "data/.ipynb_checkpoints/transform-checkpoint.py",
+      "sha256": "e0b170ef0cadf9708c101c26635074eaa1749eca92e3b9ebf0ae0e233d449a61"
+    }
+  ]
+}

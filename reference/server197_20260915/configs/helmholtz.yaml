@@ -1,0 +1,67 @@
+model:
+  target: models.score_matching.DiffusionSDE
+  params:
+    lr: 1e-4
+    unet_config:
+      target: models.unets.UNET1
+      params:
+        in_channels: 2
+        n_feat: 256
+        pool_size: 4
+        data_size: 128
+        cond_size: 1
+        controlnet:
+          use: True
+          condition_encoder:
+            target: models.unets.CondVec2Img
+            params:
+              cond_size: 1
+              data_size: 128
+              channels: 2
+    sde_config:
+      target: sdes.forward.VP
+      params:
+        beta_min: 1e-4
+        beta_max: 10
+    sampler_config:
+      target: sdes.backward.ProbabilityFlowODEPhysics
+      params:
+        num_time_steps: 2000
+        eps: 1e-5
+        residual_config:
+          target: physics.operators.Helmholtz
+          params:
+            dx: 0.0078125
+            k: 1.0
+            eps: 1e-8
+            mu_p: 0.0
+            sigma_p: 0.028
+            mu_k: 0.0
+            sigma_k: 2.15
+    residual_config:
+      target: physics.operators.Helmholtz
+      params:
+        dx: 0.0078125
+        k: 1.0
+        eps: 1e-8
+        mu_p: 0.0
+        sigma_p: 0.028
+        mu_k: 0.0
+        sigma_k: 2.15
+
+data:
+  pde_name: helmholtz
+  data_dir: /large_storage/zhangxf/PDEdata/
+  batch_size: 32
+  num_workers: 8
+
+lightning:
+  lock_base: True
+  trainer:
+    accelerator: gpu
+    strategy: ddp
+    devices: 0,1
+    precision: 16-mixed
+  epochs: 5000
+  save_every_n_epochs: 5
+  sample_every_n_steps: 2000
