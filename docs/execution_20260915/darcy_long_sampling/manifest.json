@@ -1,0 +1,135 @@
+{
+  "status": "prepared",
+  "pde": "darcy",
+  "stage": "control",
+  "created_at": "2026-09-15T17:21:03.656743+00:00",
+  "source_study": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915",
+  "source_selected_sha256": "2c1194065f46508a19f49238905d399da3ca0acafd265661f3c6ba9318324a14",
+  "assets": {
+    "checkpoint.ckpt": {
+      "source": "/research_data/users/zhangxifeng/C01Python/CoCoGen/output/withcontrol/2025-11-27T21-17-46_cocogen4darcy/checkpoints/last.ckpt",
+      "sha256": "03b6ccbe45a258e38537a006727dd36e54bf60e5e224eaa0cc92edd4188a0b51",
+      "bytes": 139742927
+    },
+    "model.yaml": {
+      "source": "/research_data/users/zhangxifeng/C01Python/CoCoGen/output/withcontrol/2025-11-27T21-17-46_cocogen4darcy/configs/2025-11-27T21-17-46-model.yaml",
+      "sha256": "f69dc4327330790cbf35dfe06a998c7ecc91b0c7a254c923171e65f50bb86980",
+      "bytes": 1080
+    },
+    "normalizer.json": {
+      "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/inputs/darcy/normalizer.json",
+      "sha256": "c957d0166b71318767c4de0d4da4ae5e77d28f977019abfa51024685def89d05",
+      "bytes": 1913
+    }
+  },
+  "source_calibration_sha256": "e4227e2c2d41974b8263315e88c0fb8a522117403c947d56c5a9bcd89cd77858",
+  "inputs_sha256": "c6bdc04e6e77636df04d5ea070268383bd2d6f7d22a42bf38b57bc6d5e2eebad",
+  "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+  "diagnostic_source_sha256": "436e20a4b2bc47317bb1ff6fae188419ac3fbf46fcf313d491b4eeeb02cdc1d1",
+  "configs": {
+    "s100_r4": {
+      "steps": 100,
+      "repaint": 4,
+      "physics_steps": 50,
+      "physics_post": 10,
+      "max_physical_update": 0.002,
+      "correction_channels": "solution",
+      "backtracks": 4,
+      "forward_method": "euler",
+      "final_denoise": true,
+      "seed": 0
+    },
+    "s2000_r4": {
+      "steps": 2000,
+      "repaint": 4,
+      "physics_steps": 50,
+      "physics_post": 10,
+      "max_physical_update": 0.002,
+      "correction_channels": "solution",
+      "backtracks": 4,
+      "forward_method": "euler",
+      "final_denoise": true,
+      "seed": 0
+    },
+    "s2000_r10": {
+      "steps": 2000,
+      "repaint": 10,
+      "physics_steps": 50,
+      "physics_post": 10,
+      "max_physical_update": 0.002,
+      "correction_channels": "solution",
+      "backtracks": 4,
+      "forward_method": "euler",
+      "final_denoise": true,
+      "seed": 0
+    }
+  },
+  "assignments": [
+    [
+      [
+        "s100_r4",
+        "sparse_forward"
+      ],
+      [
+        "s100_r4",
+        "sparse_inverse"
+      ],
+      [
+        "s100_r4",
+        "sparse_joint"
+      ],
+      [
+        "s2000_r10",
+        "sparse_forward"
+      ]
+    ],
+    [
+      [
+        "s2000_r4",
+        "sparse_forward"
+      ],
+      [
+        "s2000_r4",
+        "sparse_inverse"
+      ],
+      [
+        "s2000_r4",
+        "sparse_joint"
+      ]
+    ],
+    [
+      [
+        "s2000_r10",
+        "sparse_inverse"
+      ]
+    ],
+    [
+      [
+        "s2000_r10",
+        "sparse_joint"
+      ]
+    ]
+  ],
+  "ids": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007
+  ],
+  "batch_size": 8,
+  "settings": [
+    "sparse_forward",
+    "sparse_inverse",
+    "sparse_joint"
+  ],
+  "seed": 0,
+  "precision": "float32",
+  "tf32": true,
+  "cudnn_benchmark": false,
+  "scope": "Exploratory ID calibration diagnostic, 8 cases x 3 sparse tasks x 3 configurations. IDs were used in prior calibration, never in formal main evaluation. No main retuning.",
+  "comparison_note": "Compare all configurations on the same A800 runtime and batch size. Do not substitute the A100/batch32 formal score for this diagnostic baseline."
+}
