@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T20:20:28.702929+00:00",
+  "scope": "First live increment from 50 to 51 completed cells, including automatic collection, one-cell numerical audit, full coverage merge and publication",
+  "final_study_complete": false,
+  "final_first60_transition_exercised": false,
+  "new_cell": "nsnonbounded/id/sparse_forward",
+  "new_cell_samples": 1000,
+  "verified_cells": 51,
+  "verified_samples": 51000,
+  "prediction_hashes_bound_to_snapshot": 1632,
+  "target_fields": 61,
+  "metrics_sha256": "ab7f146e7920fe968b9d8055be3da7f3431774e13cd49839bc32f8d272f67482",
+  "state_sha256": "bc4c0808842cccd57c6f897220576c07cd0f3beb945ff67477c44e0d13e2e3fe",
+  "coverage_sha256": "cd81c3d185348610c66b03c26002a2d6e9022bf5efaabd04f0b75726cd2c134c",
+  "new_audit_sha256": "e4198295fc2099d59a97d898be3aa73f2477ef070c3a9cc470d450e585f4d7ec",
+  "previous_state_sha256": "525c99caa7a188ed9540a4e8bf96d8d3c2c6c669bb1ea0930ef48ba188b3e3fa",
+  "published": {
+    "json": "reports/metrics_first60_partial.json",
+    "json_sha256": "ab7f146e7920fe968b9d8055be3da7f3431774e13cd49839bc32f8d272f67482",
+    "csv": "reports/metrics_first60_partial_targets.csv",
+    "csv_sha256": "5830dddb484c8f04fc3a781bf466bf46fef83e0328e5afd693ec5dbf9598adbf"
+  },
+  "observer_sha256": "7f3e9245c94d85b3a957ee0dc152d81f677f93a690a52cde52e01ea589be5bfd"
+}
