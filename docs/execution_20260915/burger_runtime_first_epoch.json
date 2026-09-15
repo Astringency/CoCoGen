@@ -1,0 +1,23 @@
+{
+  "status": "early_projection",
+  "generated_at": "2026-09-15T23:24:34.960481+00:00",
+  "final_study_complete": false,
+  "source_epoch": 1,
+  "source_sha256": "a167a48bf925c3b8721fea1558728c04a4dfe6259666d8d8b2216ce4f55cc252",
+  "actual_seconds_per_first_epoch": 284.71519504860044,
+  "includes": "First epoch training, validation, checkpoint saving; excludes pre-epoch initialization and hash time after the epoch timer",
+  "not_steady_state_estimate": true,
+  "minimum_epochs": 300,
+  "maximum_epochs": 1200,
+  "extrapolated_total_training_hours_at_first_epoch_rate": {
+    "300": 23.726266254050035,
+    "1200": 94.90506501620014
+  },
+  "extrapolated_remaining_training_hours_at_first_epoch_rate": {
+    "300": 23.64717869986987,
+    "1200": 94.82597746201998
+  },
+  "post_training_calibration_and_six_evaluations_included": false,
+  "cumulative_process_peak_allocated_bytes": 76630540800,
+  "caveat": "One epoch is insufficient to estimate steady throughput or convergence. Validation is only every ten epochs after the first; future GPU availability and stopping epoch are unknown."
+}
