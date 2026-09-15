@@ -9,10 +9,10 @@ import tempfile
 import numpy as np
 import torch
 
-from cocogen_eval.common import STUDY,save_torch,write_json
+from cocogen_eval.common import STUDY,load_network,save_torch,write_json
 from cocogen_eval.network import UNET1
 from .data import CachedDataset,require_first60
-from .train import TrainConfig,make_validation,model_config,restore_rng,rng_state,score_loss,validate
+from .train import TrainConfig,code_identity,make_validation,model_config,restore_rng,rng_state,score_loss,validate
 
 
 def checks(study):
@@ -78,10 +78,22 @@ def checks(study):
             reconstructed=torch.empty_like(whole[col])
             reconstructed[::2]=ranks[0][col];reconstructed[1::2]=ranks[1][col]
             assert torch.equal(reconstructed,whole[col])
+        import yaml
+        model_path=path/'model.yaml';model_path.write_text(yaml.safe_dump(model_config(cfg)))
+        weights_path=path/'sample.ckpt'
+        save_torch(weights_path,dict(state_dict={f'unet.{k}':v for k,v in resumed.state_dict().items()},epoch=2,global_step=3))
+        loaded,manifest=load_network('burger',stage='best',device=device,checkpoint=weights_path,config_path=model_path)
+        with torch.no_grad():
+            context=torch.full((len(fields),1),4.)
+            a=resumed(fields,context,times,torch.zeros_like(context))
+            b=loaded(fields,context,times,torch.zeros_like(context))
+            assert torch.equal(a,b) and loaded.in_channels==1 and manifest['conditioning_label']==4
     write_json(folder/'burger_training_cpu.json',dict(status='passed',synthetic=True,
+        training_code=code_identity(),
         checks=['first60 prerequisite rejects missing completion','cache items do not modify stored data',
             'score matching noise target and summed-loss scale','strict model/optimizer/RNG resume reproduces next update',
-            'fixed validation is repeatable','rank partition preserves validation fields, times and noise'],
+            'fixed validation is repeatable','rank partition preserves validation fields, times and noise',
+            'one-channel checkpoint loads into the sampling network without output changes'],
         limitation='Real two-GPU training and batch-size benchmark must wait until first60 is complete'))
 
 

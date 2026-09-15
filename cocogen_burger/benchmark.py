@@ -60,8 +60,9 @@ def benchmark(study,device):
         print(json.dumps(row),flush=True)
         del network,optimizer,x,loss
         torch.cuda.empty_cache()
-    assert results and max(r['batch'] for r in results)>=32, 'Default batch 32 was not demonstrated safe; choose and record a smaller training batch'
-    result=dict(status='passed',n_feat=cfg.n_feat,resolution=cfg.resolution,batch_size_per_rank=32,
+    assert results and max(r['batch'] for r in results)>=8, 'No safe batch of at least 8 was demonstrated'
+    chosen=max(r['batch'] for r in results)
+    result=dict(status='passed',n_feat=cfg.n_feat,resolution=cfg.resolution,batch_size_per_rank=chosen,
         training_code_sha256=code_identity()['cocogen_burger/train.py'],measurements=results,
         device=str(device),gpu=torch.cuda.get_device_name(device),total_bytes=total,torch=str(torch.__version__))
     write_json(Path(study)/'validation/burger_training_gpu.json',result)
