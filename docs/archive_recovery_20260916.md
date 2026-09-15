@@ -2,9 +2,9 @@
 
 ## 当前已验证范围
 
-截至 2026-09-16 02:33 CST，已完成的 **46 个正式单元、46,000 次预测**可以完全依靠主归档中的预测、输入副本、配置和权重标识重新核验。覆盖 Darcy、Poisson、Helmholtz 各 15 个单元，以及 NS 的 rough 稀疏正问题。
+截至 2026-09-16 07:14 CST，**四模型 60 个正式单元、60,000 次完整单元样本预测**均已完成并通过归档内独立数值复核。覆盖来自早期 46 单元审计与后续新增单元审计的联合，绑定完整快照及全部 1,920 份预测哈希；不是声称早期 46 单元任务单次检查了 60 单元。完整记录见 [validation_report_watch_60cells.json](execution_20260915/validation_report_watch_60cells.json)。
 
-该检查确认了已报告重建误差的可重算性。它不代表全部实验完成；剩余 NS、Burgers 训练和六单元评估、完整报告及最终归档仍需完成。
+这些检查确认了已报告重建误差的可重算性。四模型报告已完成，Burgers 已于 07:18 启动训练；Burgers 六单元评估、最终五 PDE 报告及全量迁移恢复仍需完成。下面的迁移实测仍只覆盖两个单元，不扩大其声明范围。
 
 ## 为什么需要专门的恢复入口
 
@@ -50,7 +50,7 @@ e5a0da22d55759835dd9bbbce8c8d4db7a43e231abb18f5d784021997ec569c4
 
 证据：`validation/archive_relocation_two_cells.json`，本地副本 SHA256 为 `1f36cd480da3f42d52fc636a12cd0ca80b3f148e70f5974c13996003bdc9ea5c`。其输入为 `validation/archive_reader_two_cells.json`，原始日志和退出码保存在主目录的 `logs/archive_reader_probe.*`、`logs/archive_reader_46.*`、`logs/archive_relocation_probe.*`。
 
-## 恢复后重新核验当前快照
+## 恢复后重新核验历史 46 单元快照
 
 主归档目录为：
 
@@ -92,3 +92,13 @@ CUDA_VISIBLE_DEVICES="" python -m cocogen_eval.verify_archived_predictions \
 - 新根目录中对历史绝对路径的明确映射，保留原始文件内容与哈希，并禁止恢复检查回退读取原目录。
 
 真实检查点尚未生成，本段只记录已经确认的路径依赖和后续验证要求，不声称训练恢复通过，不改变正在等待的 Burgers 源码或执行顺序。届时应将训练产物的恢复证据与全部 66 项预测恢复证据分别保存，再判断完整归档是否可独立使用。
+
+## 真实训练检查点初查（2026-09-16 07:32 CST）
+
+上节 06:10 的等待状态是历史记录。Burgers 已开始真实训练；第 2 轮的恢复检查点在独立 CPU 进程中通过只读检查：128 个模型张量严格加载，17,653,505 个参数有限，86 组 AdamW 状态完整、形状匹配、步数均为 1,564，两个 rank 的 Python/NumPy/CPU/CUDA 随机状态均存在。Python、NumPy 和 CPU 随机状态已实际载入，CUDA 随机状态只检查保存格式。
+
+检查点与其第 2 轮记录、训练请求、缓存清单、归一化及三份训练源文件标识相符。检查从同一个打开的文件描述符计算哈希并加载，避免训练原子替换 last.ckpt 时混入不同轮次。对应检查点 SHA256 为 `5c36e1c2295c68d5cadd8785aa1cd06ac2f2dbd4065d4bde9347f2459780949f`。
+
+记录为 [validation_burger_checkpoint_initial.json](execution_20260915/validation_burger_checkpoint_initial.json)，审计源码提交 `da51d46be2f81135782ec81d73e4ae8dff9023ad`；任务正常退出，未改变正在训练的进程。last.ckpt 仍按轮次滚动更新，本记录描述读取当时的第 2 轮状态，不把该动态路径当作永久不变的 checkpoint。
+
+该检查不执行训练更新、不重新哈希完整训练缓存、不验证 CUDA 续训或新目录迁移，也不证明收敛。最终检查仍需使用训练完成后的真实 best/last 及全部训练资产。

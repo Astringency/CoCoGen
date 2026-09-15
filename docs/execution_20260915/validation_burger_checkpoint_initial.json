@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T23:32:02.791245+00:00",
+  "scope": "CPU restore and completeness checks of one real saved checkpoint; no training updates, relocation, CUDA resume or convergence check",
+  "final_study_complete": false,
+  "training_complete": false,
+  "checkpoint": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/checkpoints/last.ckpt",
+  "checkpoint_sha256": "5c36e1c2295c68d5cadd8785aa1cd06ac2f2dbd4065d4bde9347f2459780949f",
+  "epoch": 1,
+  "global_step": 1564,
+  "model_tensors": 128,
+  "parameter_count": 17653505,
+  "optimizer_parameter_states": 86,
+  "strict_model_restore": true,
+  "finite_model_and_optimizer": true,
+  "rank_rng_states": 2,
+  "cpu_rng_formats_restored": true,
+  "cuda_rng_restored": false,
+  "cache_manifest_sha256": "2b0426707e4955636b89d24705a7fb16aa11cbfccc32b092a7b7c85f353e07e5",
+  "actual_training_cache_rehashed": false,
+  "epoch_receipt_sha256": "ba473a0c86f62c3561cb1b57c4b4b22f33be43cb6362bcfafdc802c7d74cc0ff",
+  "code": {
+    "cocogen_burger/train.py": "85481589d8dab1ec6fa7714666564a346cafe3d9964fe299a52b42e1e63e1c5c",
+    "cocogen_burger/data.py": "cf3ea75a560f1a75177fea5309e47f273893b90554641214386e0b5ce1b96d97",
+    "cocogen_eval/network.py": "8692e3a32af4715a9c51d7107a9afba0c97ef5df0c861eda827664cd07a79f7c"
+  },
+  "auditor_sha256": "7f33cfff68e3189098846960d9839780a1af1773b9f4dbd3b74c4da3069ca672"
+}
