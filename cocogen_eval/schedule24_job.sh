@@ -4,6 +4,9 @@ study=/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_202
 python=/research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python
 exec >> "$study/logs/schedule24_v2.log" 2>&1
 trap 'status=$?; echo "$status" > "$study/logs/schedule24_v2.exit"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 PYTHONUNBUFFERED=1
 code_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$code_root"

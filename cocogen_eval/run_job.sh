@@ -8,6 +8,9 @@ shift 2
 mkdir -p "$study/logs"
 exec >> "$study/logs/${job}.log" 2>&1
 trap 'status=$?; echo "$status" > "$study/logs/${job}.exit"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
+trap 'exit 129' HUP
 export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4
 export PYTHONUNBUFFERED=1
 cd "$study/code"
