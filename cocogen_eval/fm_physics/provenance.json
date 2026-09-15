@@ -1,0 +1,20 @@
+{
+  "pde_residuals.py": {
+    "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/sampling/pde_residuals.py",
+    "source_sha256": "b321f0ffdc48c43a1bac3f3a24e5d4a5a1f724d9421deebc0db1b4cd8e19020b",
+    "vendored_sha256": "009a89c3b9c9e2b2375b75231a0d32e5730d9f06c73cbedc993bc21c4b680315",
+    "change": "relative specs import only"
+  },
+  "specs.py": {
+    "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/data/specs.py",
+    "source_sha256": "4c62d45adea22485bab5775441d38ef05ff7e42301216a1fe160bf0ed1fb7709",
+    "vendored_sha256": "4c62d45adea22485bab5775441d38ef05ff7e42301216a1fe160bf0ed1fb7709",
+    "change": "none"
+  },
+  "masks.py": {
+    "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/sampling/masks.py",
+    "source_sha256": "7fd45dc2115868be39b533bf8f839e15f73a9300f5ee202f7185ebae0a7befcf",
+    "vendored_sha256": "7fd45dc2115868be39b533bf8f839e15f73a9300f5ee202f7185ebae0a7befcf",
+    "change": "none"
+  }
+}
