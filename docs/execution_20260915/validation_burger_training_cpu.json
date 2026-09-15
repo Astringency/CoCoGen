@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "synthetic": true,
+  "checks": [
+    "first60 prerequisite rejects missing completion",
+    "cache items do not modify stored data",
+    "score matching noise target and summed-loss scale",
+    "strict model/optimizer/RNG resume reproduces next update",
+    "fixed validation is repeatable",
+    "rank partition preserves validation fields, times and noise"
+  ],
+  "limitation": "Real two-GPU training and batch-size benchmark must wait until first60 is complete"
+}

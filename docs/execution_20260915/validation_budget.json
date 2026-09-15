@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "synthetic": true,
+  "checks": [
+    "all four PDEs assigned exactly once",
+    "balanced two-GPU assignment",
+    "15 percent margin included",
+    "over-24-hour projection cannot launch a GPU job"
+  ]
+}
