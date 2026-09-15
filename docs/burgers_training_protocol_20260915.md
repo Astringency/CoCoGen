@@ -68,3 +68,11 @@ rough 和 smooth 的 MAT 元数据均确认 128 个等间隔时刻覆盖 `[0,1]`
 记录为 [validation_burger_observation_axes.json](execution_20260915/validation_burger_observation_axes.json)，SHA256 为 `9ccf25cdf8d0853eb122f17d64c265aa0063b9e0562d9543b85be4761af1316f`。其中保留 308 个归档来源的哈希、三个原始数据文件的读取范围和初始条件哈希，以及生成器源码和标识。审计源码提交为 `5c0f14d51ba9d0eaad8bb2d412e1c4bb0e1802a0`，CPU 任务 `cocogen_burger_observation_axes_v2` 正常退出。首轮因旧 ID 文件缺少元数据而退出，日志与退出码保留；修订后的审计明确区分“缺失”和“已验证”。
 
 本检查只读已有正式输入及初始条件，不创建训练缓存、不启动训练；Burgers 训练接续仍等待前 60 个单元全部完成。
+
+## 训练分片轴向核查（2026-09-16 06:54 CST）
+
+使用实际 `read_fields('burger', ...)` 加载五个原始训练分片，共 **50,000 例**。每例 `[1,T,X]` 的第一时间层与原始 `input` 初始条件逐值相同；若把两个轴互换，没有任何样本的第一层能与初始条件匹配。该结果排除了当前加载器将这五个分片的时间、空间轴互换的问题。
+
+五个训练 MAT 都缺少 `tspan` 和 `viscosity` 元数据。因此本检查不独立证明训练文件的时间跨度或黏性常数，也未重算 PDE 残差、整个文件哈希或完整场的有限性；后续正式缓存准备仍执行训练统计与完整 float32 字段核验。
+
+CPU 任务 `cocogen_burger_training_axes` 于 06:52:41–06:54:48 正常运行并以 0 退出，检查代码内实测 124.885 秒，会话已结束。没有创建训练缓存或启动训练。审计源码提交为 `5bc1f45f5db46164ad97d1fc496f4038b052ac7a`，结果为 [validation_burger_training_axes.json](execution_20260915/validation_burger_training_axes.json)，SHA256 `954e5d83200c45b096b904929c814fc9b76ccb02583c1e75ff4e59358530c638`。结果、日志、退出码和源码 bundle 均已保存到 197 的本研究目录。
