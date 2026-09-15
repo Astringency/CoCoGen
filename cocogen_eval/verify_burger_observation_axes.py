@@ -30,16 +30,20 @@ def verify(root, original_study, generator):
             before = path.stat()
             raw = scipy.io.loadmat(path, variable_names=['input', 'tspan', 'viscosity'])
             initial = np.asarray(raw['input'], dtype=np.float32)
-            times = np.asarray(raw['tspan'], dtype=np.float64).reshape(-1)
             require(initial.shape == (10000, 128), 'Unexpected initial-field layout')
-            require(times.shape == (128,) and np.allclose(times, np.linspace(0, 1, 128), rtol=0, atol=1e-12), 'Unexpected physical time grid')
-            require(float(np.asarray(raw['viscosity']).reshape(-1)[0]) == .01, 'Unexpected viscosity')
+            times = np.asarray(raw['tspan'], dtype=np.float64).reshape(-1) if 'tspan' in raw else None
+            viscosity = float(np.asarray(raw['viscosity']).reshape(-1)[0]) if 'viscosity' in raw else None
+            if times is not None:
+                require(times.shape == (128,) and np.allclose(times, np.linspace(0, 1, 128), rtol=0, atol=1e-12), 'Unexpected stored physical time grid')
+            if viscosity is not None:
+                require(viscosity == .01, 'Unexpected stored viscosity')
             after = path.stat()
             require((before.st_size, before.st_mtime_ns) == (after.st_size, after.st_mtime_ns), 'Dataset changed during metadata read')
             datasets[source] = dict(initial=initial, bytes=after.st_size, mtime_ns=after.st_mtime_ns,
                 initial_first1000_sha256=sha_tensor(torch.from_numpy(initial[:1000])),
-                tspan=times.tolist(), viscosity=.01,
-                scope='Only input, tspan and viscosity variables read; the entire MAT file is not hashed')
+                stored_tspan=None if times is None else times.tolist(), stored_viscosity=viscosity,
+                missing_metadata=[key for key in ('tspan','viscosity') if key not in raw],
+                scope='Initial fields read; tspan and viscosity checked only when stored; entire MAT file is not hashed')
         initial = datasets[source]['initial']
         ids, full_rows, full_columns, observed = [], set(), set(), set()
         column_sets = set()
@@ -81,6 +85,7 @@ def verify(root, original_study, generator):
         original_dataset_metadata_read=True,full_dataset_files_hashed=False,
         layout='B,1,T,X; axis -2 contains physical time, axis -1 contains periodic space',
         sensor_column_meaning='Five fixed spatial locations, each observed at all 128 time levels; 640 scalar values',
+        physics_parameter_limit='Absent MAT metadata is not inferred as measured. Frozen FM4PDE defaults use T=1 and nu=0.01; this audit does not independently establish those constants or recompute residuals.',
         cells=cells,datasets={key:{k:v for k,v in value.items() if k!='initial'} for key,value in datasets.items()},
         generator=dict(path=str(generator),sha256=sha_file(generator),source_text=Path(generator).read_text()),
         archived_sources={key:{k:v for k,v in value.items() if k!='mtime_ns'} for key,value in reader.opened.items()},
