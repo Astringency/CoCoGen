@@ -114,7 +114,17 @@ def watch(study, output, baseline_metrics, baseline_coverage, interval, once):
         require(known <= observed, 'A previously completed summary disappeared')
         ready = len(observed) < 60 or (study / 'reports/first60_complete.json').exists()
         if observed != known and ready:
-            metrics = collect(study, allow_partial=len(observed) < 60)
+            try:
+                metrics = collect(study, allow_partial=len(observed) < 60)
+            except FileNotFoundError as error:
+                # The last summary can arrive while collection is reading the
+                # preceding cells, before the scheduler commits its aggregate.
+                if error.filename != str(study / 'reports/first60_complete.json'):
+                    raise
+                if once:
+                    return
+                time.sleep(interval)
+                continue
             current = {row['cell'] for row in metrics['cells']}
             require(known < current <= expected, 'Invalid completion transition')
             metrics_path = output / f'metrics_{len(current):04d}_{time.time_ns()}.json'
