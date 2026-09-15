@@ -147,3 +147,18 @@ CPU 调度检查已通过，记录在 `docs/execution_20260915/validation_cell_b
 `protocol/selected/<pde>.json` 保存选定配置及独立验证结果。正式预测按 `main/<pde>/<dist>/<setting>/batches/<offset>/` 分批保存，每批有预测、配置、输入与模型哈希、采样收据和误差；支持校验后恢复。
 
 每个 PDE 必须完成 15×1,000 个样本后才产生 `main/<pde>/complete.json`。汇总器核验全部 60 单元和预测文件哈希后，写出 `reports/first60.csv` 与 `first60_complete.json`。这才满足启动 Burgers 补训的前置条件。任务已启动不等于评估已完成。
+
+### 目标场指标收集
+
+`cocogen_eval/collect_metrics.py` 仅使用 Python 标准库读取已保存结果，不加载模型或使用 GPU。正问题只统计 u，反问题只统计 a，联合任务分别保留 a/u，Burgers 只统计 u。逐例相对 L2 与主实验一致，计算区域为完整目标场，包含稀疏观测位置。
+
+每个单元内先对目标场等权平均，再对一个完整 PDE 的所有单元等权平均；整体指标对 PDE 等权平均，避免 Burgers 的 6 个单元因数量较少而被赋予更低 PDE 权重。逐场原始均值、误差比、配对均值差和逐例胜率同时保留，不能只依据整体平均判断所有任务的效果。这里只使用一个冻结采样种子，未将其解释为多种子稳定性结论。
+
+收集器重新核对冻结参考记录、样本编号、配置/checkpoint/实现哈希、每个预测文件哈希、实际 NFE，以及逐批误差和摘要/历史参考的配对汇总。完整模式还要求 60/66 个单元及汇总完成收据、CSV 哈希全部匹配。`--allow-partial` 允许收集已完成的完整单元，输出文件名和状态标明 partial；未完成的 PDE 和整体均不产生宏平均。
+
+```bash
+python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915
+python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915 --include-burger
+```
+
+截至 2026-09-15 12:41 CST，真实两个 Darcy 完整单元的收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，此次快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
