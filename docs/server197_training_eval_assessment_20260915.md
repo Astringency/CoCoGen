@@ -1,6 +1,6 @@
 # CoCoGen 使用 server197 数据训练并对齐 FM4PDE 主实验
 
-核查日期：2026-09-15。核查范围：本地 CoCoGen、相邻 FM4PDE 仓库、server197 的代码、数据文件元信息、历史训练日志和 checkpoint 元信息。未启动训练、GPU 性能测试或正式采样，未修改服务器文件。
+核查日期：2026-09-15。核查范围：本地 CoCoGen、相邻 FM4PDE 仓库、server197 的代码、数据文件元信息、历史训练日志和 checkpoint 元信息。以下是最初只读核查的记录。用户随后授权执行采样，最新进展与方法见 [采样核查与主实验协议](sampler_audit_and_main_protocol_20260915.md)。
 
 ## 结论
 
