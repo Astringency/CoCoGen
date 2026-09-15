@@ -1,0 +1,94 @@
+{
+  "status": "complete_for_poisson_id_only",
+  "pde": "poisson",
+  "dist": "id",
+  "cells": 5,
+  "samples_per_cell": 1000,
+  "sample_evaluations": 5000,
+  "unique_sample_ids_per_distribution": 1000,
+  "generated_at": "2026-09-15T10:11:19.194385+00:00",
+  "metric": "Physical relative L2 averaged per sample, then equally across target fields within a task, then equally across the five ID tasks",
+  "cocogen_macro": 0.36226065177526023,
+  "fm4pde_macro": 0.1589076053852257,
+  "cell_metrics": [
+    {
+      "cell": "poisson/id/full_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.061970340112382415,
+      "fm4pde": 0.07988018867548542,
+      "sampler_seconds": 2468.7281060777605
+    },
+    {
+      "cell": "poisson/id/full_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.3042058942686812,
+      "fm4pde": 0.2454804535265956,
+      "sampler_seconds": 2470.145962432027
+    },
+    {
+      "cell": "poisson/id/sparse_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.48048789947196124,
+      "fm4pde": 0.10149484516710883,
+      "sampler_seconds": 2463.189952388406
+    },
+    {
+      "cell": "poisson/id/sparse_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.7674410223772838,
+      "fm4pde": 0.24544033337791174,
+      "sampler_seconds": 2464.3075438551605
+    },
+    {
+      "cell": "poisson/id/sparse_joint",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_joint",
+      "task": "both",
+      "n": 1000,
+      "target_fields": [
+        "a",
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.19719810264599244,
+      "fm4pde": 0.12224220617902698,
+      "sampler_seconds": 2465.556019052863
+    }
+  ],
+  "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/snapshots/metrics_first60_18cells.json",
+  "source_sha256": "c79afd20801ec8b3a385e704ba8ceb0405c372f1ab9266994a18a6bfab3c7636",
+  "scope_note": "All five Poisson ID tasks complete. Poisson smooth/rough coverage and the overall four-PDE study remain incomplete. The five tasks reuse the same 1000 sample IDs within this distribution. No retuning on formal results."
+}
