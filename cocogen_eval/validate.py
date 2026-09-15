@@ -77,7 +77,8 @@ def gpu_audit(pde, device, study):
     native_module = importlib.util.module_from_spec(spec); spec.loader.exec_module(native_module)
     for stage in ('base', 'control'):
         network, manifest = load_network(pde, stage, device)
-        params = yaml.safe_load(Path(manifest['config_path']).read_text())['model']['params']['unet_config']['params']
+        raw = yaml.safe_load(Path(manifest['config_path']).read_text())
+        params = raw.get('model', raw)['params']['unet_config']['params']
         native = native_module.UNET1(**OmegaConf.create(params)).to(device).eval()
         native.load_state_dict(network.state_dict(), strict=True)
         with torch.no_grad():
