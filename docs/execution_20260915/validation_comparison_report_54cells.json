@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T21:22:33.961933+00:00",
+  "scope": "Actual audited 54-cell snapshot; compare the three completed PDE summaries, and reject partial input by default. No synthetic completion or model sampling.",
+  "complete_first60_path_exercised": false,
+  "all66_path_exercised": false,
+  "final_study_complete": false,
+  "checks": {
+    "darcy": {
+      "existing_summary_sha256": "5cf9ce6551aa59c84ab41a425bfce8d66cac677296fc33953723fc9e5aabd165",
+      "macro_distribution_win_count_and_time_match": true
+    },
+    "poisson": {
+      "existing_summary_sha256": "7b26f9fa9649b6750156da166eed476802225f759468e49232952048c7725703",
+      "macro_distribution_win_count_and_time_match": true
+    },
+    "helmholtz": {
+      "existing_summary_sha256": "d3907ed4f7d720e6bcc0162ec637555ac54431b84d3b4431f17189715874da28",
+      "macro_distribution_win_count_and_time_match": true
+    }
+  },
+  "incomplete_ns_and_overall_macros_are_null": true,
+  "partial_input_requires_explicit_flag": true,
+  "files": {
+    "docs/execution_20260915/metrics_first60_54cells.json": "ecbbf737fe45ceca0876331d34e1b671e60e8d89662f4455c7d4b0c61d3e86a7",
+    "docs/execution_20260915/auto_first60_20260916/coverage_0054_1789506457645594806.json": "55e9896103bce91dfd6dac5472cc0aad31db55eb323916da714fd8c9b9eab057",
+    "cocogen_eval/summarize_main_results.py": "baca0cca531ced74948308ee3337415cd070e7ae7e1712e443456a55d14ef8f8",
+    "docs/execution_20260915/comparison_54cells/comparison.json": "baca5acb5bb99acdf7e987c8de583012223415d720088b14d9b53b2eafbb1a6e",
+    "docs/execution_20260915/comparison_54cells/comparison.md": "700e4baf2aafcbd8014d63d9e2877cbe82c6d2d166b4cd0b508dddab5ddfa135"
+  }
+}

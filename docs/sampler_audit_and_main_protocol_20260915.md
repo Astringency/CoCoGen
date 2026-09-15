@@ -8,6 +8,8 @@
 
 已完成 PDE 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结](darcy_complete_results_20260915.md)、[Poisson 完整评估总结](poisson_complete_results_20260916.md) 与 [Helmholtz 完整评估总结](helmholtz_complete_results_20260916.md)。
 
+跨 PDE 的可复现比较表已在 [54 单元快照](execution_20260915/comparison_54cells/comparison.md) 上生成，包含已完成 PDE 的任务/分布均值及全部已完成目标场。`cocogen_eval/summarize_main_results.py` 读取不可变指标快照及绑定它的归档复核覆盖文件，核对目标场、单元、PDE 与总体权重，默认拒绝未完成快照。真实 54 单元数据与此前三份完整 PDE 报告的均值、分布、胜出单元数和耗时一致，NS/总体均值仍为空，见 `validation_comparison_report_54cells.json`。该工具只制表，不重新读取预测或修改正式采样；完整 60/66 单元路径尚待真实结果验证。
+
 针对稀疏引导的补充核查见 [当前方法与论文的关系](sparse_guidance_audit_20260916.md)：Darcy 全部九个稀疏单元、9,000 次任务评估的观测点均逐值满足，逐例误差通过 CPU float64 重算；正文观测条件模型与本次附录 D 短采样适配的区别单独列明。
 
 用户另要求测试 2,000 步并增加 RePaint。[Darcy 长采样诊断](darcy_long_sampling_diagnostic_20260916.md) 已完成全部 72 次生成、独立指标复核、24 页对照图、197 主归档和源码独立恢复。八个校准样本上，100 步/r=4、2,000 步/r=4、2,000 步/r=10 的三任务平均误差分别为 32.70%、33.17%、31.54%；r=10 的实测采样成本为基线的 37.95 倍。四卡并行采样约 18.13 分钟。改善幅度较小，属于单种子 ID 小样本诊断；正式配置及 Burgers 接续顺序保持冻结。
