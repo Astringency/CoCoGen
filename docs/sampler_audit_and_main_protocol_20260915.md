@@ -666,3 +666,8 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 02:33 CST，另将 Darcy ID 稀疏联合任务与 NS rough 稀疏正问题的 224 个必要文件、约 1.34 GB 数据复制到独立目录，从 Git bundle 恢复源码，在 Python 层禁止旧路径读取后，2,000 例结果仍一致。两个主动旧路径读取探测均被拦截，实际复核未尝试旧路径。临时数据及源码恢复仓库已清理。迁移测试范围为两个单元，不等同于全 66 单元最终恢复检查。
 
 复核入口、命令、源文件标识和证据见 [归档恢复说明](archive_recovery_20260916.md)。该阶段没有重算 PDE 残差、训练损失或 FM4PDE 原始预测；剩余 NS、Burgers 训练/六单元评估及最终完整归档仍按原顺序执行。
+
+
+### Burgers 观测轴向核查（2026-09-16 03:18 CST）
+
+六个 Burgers 正式输入单元、共 6,000 例完成只读核查。`sensor_column` 的含义已确认是五个固定空间位置的完整时间轨迹，每例 640 个值；张量第一时刻与原始初始条件逐值一致。当前代码与归档 mask 一致，未改变采样协议。旧 ID 文件缺少时间网格与黏性元数据，局限已记录在 [Burgers 协议](burgers_training_protocol_20260915.md)。这项输入审计没有训练模型；Burgers 仍等待前 60 单元完成。
