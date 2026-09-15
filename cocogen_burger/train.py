@@ -161,6 +161,8 @@ def train(study, cfg, *, resume=True):
         start_epoch, global_step = 0, 0
         best, plateau_reference, stale = float('inf'), float('inf'), 0
         saved_rng = None
+        latest_validation = None
+        stopped = False
         if last.exists():
             if not resume:
                 raise FileExistsError(f'Existing training checkpoint: {last}')
@@ -171,6 +173,8 @@ def train(study, cfg, *, resume=True):
             start_epoch, global_step = checkpoint['epoch']+1, checkpoint['global_step']
             best, plateau_reference, stale = checkpoint['best'], checkpoint['plateau_reference'], checkpoint['stale_checks']
             saved_rng = checkpoint['rank_rng'][rank]
+            latest_validation = checkpoint['latest_validation']
+            stopped = checkpoint['stop_condition_met']
         if rank==0:
             import yaml
             (out/'model.yaml').write_text(yaml.safe_dump(model_cfg,sort_keys=False))
@@ -188,10 +192,10 @@ def train(study, cfg, *, resume=True):
             restore_rng(saved_rng,device)
         if world>1: dist.barrier()
         run_start = time.monotonic()
-        latest_validation = None
-        stopped = False
         completed_epoch = start_epoch-1
         for epoch in range(start_epoch,cfg.max_epochs):
+            if stopped:
+                break
             epoch_start = time.monotonic()
             sampler.set_epoch(epoch); wrapped.train()
             total = torch.zeros(3,dtype=torch.float64,device=device)
@@ -240,9 +244,9 @@ def train(study, cfg, *, resume=True):
                     latest_validation=latest_validation, stop_condition_met=stopped)
                 # Record every epoch's receipt and retain 100-epoch snapshots;
                 # `last` is the atomic resume point, and `best` follows validation.
-                save_torch(last,payload)
                 if improved:
                     save_torch(out/'checkpoints/best.ckpt',payload)
+                save_torch(last,payload)
                 if (epoch+1)%100==0:
                     save_torch(out/'checkpoints'/f'epoch_{epoch+1:04d}.ckpt',payload)
                 seconds = time.monotonic()-epoch_start

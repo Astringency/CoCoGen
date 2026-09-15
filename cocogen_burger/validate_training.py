@@ -9,7 +9,7 @@ import tempfile
 import numpy as np
 import torch
 
-from cocogen_eval.common import STUDY,load_network,save_torch,write_json
+from cocogen_eval.common import STUDY,load_network,save_torch,sha_file,write_json
 from cocogen_eval.network import UNET1
 from .data import CachedDataset,require_first60
 from .train import TrainConfig,code_identity,make_validation,model_config,restore_rng,rng_state,score_loss,validate
@@ -88,13 +88,72 @@ def checks(study):
             a=resumed(fields,context,times,torch.zeros_like(context))
             b=loaded(fields,context,times,torch.zeros_like(context))
             assert torch.equal(a,b) and loaded.in_channels==1 and manifest['conditioning_label']==4
+        stopped_resume_check(path/'stopped_resume',resumed,resumed_opt,cfg)
     write_json(folder/'burger_training_cpu.json',dict(status='passed',synthetic=True,
         training_code=code_identity(),
         checks=['first60 prerequisite rejects missing completion','cache items do not modify stored data',
             'score matching noise target and summed-loss scale','strict model/optimizer/RNG resume reproduces next update',
             'fixed validation is repeatable','rank partition preserves validation fields, times and noise',
-            'one-channel checkpoint loads into the sampling network without output changes'],
+            'one-channel checkpoint loads into the sampling network without output changes',
+            'actual training entry recovers a stopped checkpoint without reading training data or updating weights'],
         limitation='Real two-GPU training and batch-size benchmark must wait until first60 is complete'))
+
+
+def stopped_resume_check(study,network,optimizer,cfg):
+    """Exercise the actual train entry using CPU stand-ins for its CUDA gate.
+
+    No real training data or CUDA kernels are used. Dataset access fails if the
+    resumed entry accidentally attempts another epoch after the recorded stop.
+    """
+    import importlib
+    import json
+    from types import SimpleNamespace
+    from unittest.mock import patch
+    training=importlib.import_module('cocogen_burger.train')
+    cfg=replace(cfg,min_epochs=300,max_epochs=301)
+    inputs=study/'inputs/burger';inputs.mkdir(parents=True)
+    normalizer=dict(mean=[0.],std=[1.],eps=1e-8)
+    write_json(inputs/'normalizer.json',normalizer)
+    data=inputs/'synthetic.npy';np.save(data,np.zeros((1,1,cfg.resolution,cfg.resolution),dtype=np.float32))
+    validation=inputs/'validation.pt'
+    save_torch(validation,dict(fields=torch.zeros(256,1,cfg.resolution,cfg.resolution),ids=list(range(1096,1352))))
+    norm_sha=sha_file(inputs/'normalizer.json')
+    write_json(inputs/'training_cache.json',dict(training_path=str(data),training_sha256=sha_file(data),
+        validation_path=str(validation),validation_sha256=sha_file(validation),normalizer_sha256=norm_sha))
+    from dataclasses import asdict
+    request=dict(config=asdict(cfg),world_size=1,cache_sha256=sha_file(inputs/'training_cache.json'),
+        normalizer_sha256=norm_sha,code=code_identity(),torch_version=str(torch.__version__),precision='float32',
+        tf32=True,checkpoint_panel='1096..1351',sampler_panel='1000..1095',main_ids='0..999')
+    write_json(study/'validation/burger_training_gpu.json',dict(status='passed',batch_size_per_rank=cfg.batch_size_per_rank,
+        n_feat=cfg.n_feat,resolution=cfg.resolution,training_code_sha256=code_identity()['cocogen_burger/train.py']))
+    out=study/'training/burger'
+    latest=dict(uniform=dict(loss_per_pixel=.25,loss_sum=.25*cfg.resolution**2))
+    payload=dict(state_dict={f'unet.{k}':v for k,v in network.state_dict().items()},optimizer=optimizer.state_dict(),
+        epoch=299,global_step=300,best=.25,plateau_reference=.25,stale_checks=cfg.patience_checks,
+        rank_rng=[rng_state(torch.device('cpu'))],request=request,latest_validation=latest,stop_condition_met=True)
+    last=out/'checkpoints/last.ckpt';best=out/'checkpoints/best.ckpt'
+    save_torch(last,payload);save_torch(best,payload)
+    before=(sha_file(last),sha_file(best))
+    class ForbiddenTrainingDataset:
+        def __init__(self,path): pass
+        def __len__(self): return 50000
+        def __getitem__(self,index):
+            raise AssertionError('Stopped checkpoint caused another training epoch')
+    class CpuRuntime:
+        cuda=SimpleNamespace(is_available=lambda:True,set_device=lambda device:None,
+                             mem_get_info=lambda device:(80*1024**3,80*1024**3))
+        device=staticmethod(lambda *args,**kwargs:torch.device('cpu'))
+        def __getattr__(self,name): return getattr(torch,name)
+    with patch.object(training,'torch',CpuRuntime()), \
+         patch.object(training,'CachedDataset',ForbiddenTrainingDataset), \
+         patch.object(training,'require_first60',return_value=dict(synthetic_gate=True)), \
+         patch.dict('os.environ',{'RANK':'0','LOCAL_RANK':'0','WORLD_SIZE':'1'}):
+        training.train(study,cfg)
+    complete=json.loads((out/'complete.json').read_text())
+    assert complete['status']=='trained' and complete['epochs_completed']==300
+    assert complete['reason']=='validation_plateau'
+    assert (sha_file(last),sha_file(best))==before
+    assert not list((out/'epochs').glob('*.json')), 'A new epoch receipt was emitted'
 
 
 if __name__=='__main__':

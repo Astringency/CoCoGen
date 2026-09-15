@@ -22,7 +22,8 @@ def launch(code,study,name,module,args=()):
     command=shlex.join(['bash',str(code/'cocogen_burger/job.sh'),name,module,*map(str,args)])
     if has_session(name):
         actual=subprocess.check_output(['tmux','display-message','-p','-t',name,'#{pane_start_command}'],text=True).strip()
-        if actual!=command:
+        # tmux can quote the entire shell command when formatting this field.
+        if actual!=command and shlex.split(actual)!=[command]:
             raise RuntimeError(f'Existing session command differs: {name}: {actual}')
         return
     exit_path=study/'logs'/f'{name}.exit'
