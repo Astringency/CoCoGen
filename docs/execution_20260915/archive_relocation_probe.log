@@ -1,0 +1,7 @@
+2026-09-16T02:33:08+08:00
+85f481e2d1af6146eef7b783c88515b0597ca56e
+{"event": "archive_cell_verified", "cell": "darcy/id/sparse_joint", "done": 1, "total": 2}
+{"event": "archive_cell_verified", "cell": "nsnonbounded/rough/sparse_forward", "done": 2, "total": 2}
+{"status": "passed", "verified_cells": 2, "output": "/tmp/cocogen-archive-relocation-1259wt3f/relocated_audit.json"}
+{"status": "passed", "copied_files": 224, "copied_bytes": 1335178039, "output": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/validation/archive_relocation_two_cells.json"}
+2026-09-16T02:33:20+08:00

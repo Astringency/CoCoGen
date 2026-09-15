@@ -1,0 +1,50 @@
+2026-09-16T02:30:45+08:00
+5094909b66d22a78ded57dd3a6f161ae51379303
+{"event": "archive_cell_verified", "cell": "darcy/id/full_forward", "done": 1, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/id/full_inverse", "done": 2, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/id/sparse_forward", "done": 3, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/id/sparse_inverse", "done": 4, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/id/sparse_joint", "done": 5, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/rough/full_forward", "done": 6, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/rough/full_inverse", "done": 7, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/rough/sparse_forward", "done": 8, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/rough/sparse_inverse", "done": 9, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/rough/sparse_joint", "done": 10, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/smooth/full_forward", "done": 11, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/smooth/full_inverse", "done": 12, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/smooth/sparse_forward", "done": 13, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/smooth/sparse_inverse", "done": 14, "total": 46}
+{"event": "archive_cell_verified", "cell": "darcy/smooth/sparse_joint", "done": 15, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/id/full_forward", "done": 16, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/id/full_inverse", "done": 17, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/id/sparse_forward", "done": 18, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/id/sparse_inverse", "done": 19, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/id/sparse_joint", "done": 20, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/rough/full_forward", "done": 21, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/rough/full_inverse", "done": 22, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/rough/sparse_forward", "done": 23, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/rough/sparse_inverse", "done": 24, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/rough/sparse_joint", "done": 25, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/smooth/full_forward", "done": 26, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/smooth/full_inverse", "done": 27, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/smooth/sparse_forward", "done": 28, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/smooth/sparse_inverse", "done": 29, "total": 46}
+{"event": "archive_cell_verified", "cell": "helmholtz/smooth/sparse_joint", "done": 30, "total": 46}
+{"event": "archive_cell_verified", "cell": "nsnonbounded/rough/sparse_forward", "done": 31, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/id/full_forward", "done": 32, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/id/full_inverse", "done": 33, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/id/sparse_forward", "done": 34, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/id/sparse_inverse", "done": 35, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/id/sparse_joint", "done": 36, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/rough/full_forward", "done": 37, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/rough/full_inverse", "done": 38, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/rough/sparse_forward", "done": 39, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/rough/sparse_inverse", "done": 40, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/rough/sparse_joint", "done": 41, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/smooth/full_forward", "done": 42, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/smooth/full_inverse", "done": 43, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/smooth/sparse_forward", "done": 44, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/smooth/sparse_inverse", "done": 45, "total": 46}
+{"event": "archive_cell_verified", "cell": "poisson/smooth/sparse_joint", "done": 46, "total": 46}
+{"status": "passed", "verified_cells": 46, "output": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/validation/archive_reader_46cells.json"}
+2026-09-16T02:32:28+08:00

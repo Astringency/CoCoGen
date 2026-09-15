@@ -648,3 +648,11 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 最终归档仍须等待全部 66 单元、完整指标和 Burgers 权重齐备后，再保存最终代码包并核验恢复；之后才清理本任务的临时传输包、重复中间文件、临时检出和 tmux 会话。当前各临时检出共享 `code/.git`，不能在完成独立恢复核验前删除它。
 
 2026-09-15 19:17:32 CST 补充运行环境清单：Python 3.12.11、PyTorch `2.8.0+cu128`、CUDA 构建版本 12.8、cuDNN 版本标识 91002、NVIDIA 驱动 580.65.06，两张 A100-SXM4-80GB。两个实际评估进程的可执行文件均为 `fm4pde/bin/python3.12`，工作目录均为冻结的 `code_cell24`，PyTorch 版本与正式批次收据一致。`docs/execution_20260915/runtime_environment_first60.json` 保存采集时间、编译配置、119 个 Python 分发包版本和 30 个 conda 包的构建标识，`runtime_packages_first60.txt` 提供便于查看的版本列表。这是正式评估期间采集的环境信息，不是包含安装包二进制的完整环境镜像；最终恢复还需安装相应依赖。
+
+### 归档内重算与独立目录迁移验证
+
+2026-09-16 02:32 CST，已完成的 46 个单元、46,000 次预测通过只读取归档副本的 CPU 复核：4,976 个文件、24,869,469,966 字节的读取来源均在归档根目录内，全部输入/掩码、观测一致性和 NumPy float64 逐例误差检查通过。记录为 `validation/archive_reader_46cells.json`，绑定固定 46 单元快照。
+
+02:33 CST，另将 Darcy ID 稀疏联合任务与 NS rough 稀疏正问题的 224 个必要文件、约 1.34 GB 数据复制到独立目录，从 Git bundle 恢复源码，在 Python 层禁止旧路径读取后，2,000 例结果仍一致。两个主动旧路径读取探测均被拦截，实际复核未尝试旧路径。临时数据及源码恢复仓库已清理。迁移测试范围为两个单元，不等同于全 66 单元最终恢复检查。
+
+复核入口、命令、源文件标识和证据见 [归档恢复说明](archive_recovery_20260916.md)。该阶段没有重算 PDE 残差、训练损失或 FM4PDE 原始预测；剩余 NS、Burgers 训练/六单元评估及最终完整归档仍按原顺序执行。
