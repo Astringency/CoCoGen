@@ -1,0 +1,182 @@
+{
+  "status": "complete_for_helmholtz_rough_only",
+  "pde": "helmholtz",
+  "dist": "rough",
+  "cells": 5,
+  "samples_per_cell": 1000,
+  "sample_evaluations": 5000,
+  "unique_sample_ids_per_distribution": 1000,
+  "generated_at": "2026-09-15T16:18:32.960360+00:00",
+  "metric": "Physical relative L2 averaged per sample, then equally across target fields within a task, then equally across the five rough tasks",
+  "cocogen_macro": 0.44710127557106105,
+  "fm4pde_macro": 0.3234976332350571,
+  "cocogen_smaller_error_cells": 2,
+  "cell_metrics": [
+    {
+      "cell": "helmholtz/rough/full_forward",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "full_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.08139507929893547,
+      "fm4pde": 0.14316458303362564,
+      "sampler_seconds": 1739.1662038750947
+    },
+    {
+      "cell": "helmholtz/rough/full_inverse",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.50845935989438,
+      "fm4pde": 0.5003147359426684,
+      "sampler_seconds": 1739.2160203233361
+    },
+    {
+      "cell": "helmholtz/rough/sparse_forward",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.5547049175367786,
+      "fm4pde": 0.17059872476915636,
+      "sampler_seconds": 1739.350742854178
+    },
+    {
+      "cell": "helmholtz/rough/sparse_inverse",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.8235386350005601,
+      "fm4pde": 0.5292683489411281,
+      "sampler_seconds": 1741.1035026349127
+    },
+    {
+      "cell": "helmholtz/rough/sparse_joint",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "n": 1000,
+      "target_fields": [
+        "a",
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.267408386124651,
+      "fm4pde": 0.2741417734887069,
+      "sampler_seconds": 1738.4721010029316
+    }
+  ],
+  "target_field_metrics": [
+    {
+      "cell": "helmholtz/rough/full_forward",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "full_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.08139507929893547,
+      "fm4pde": 0.14316458303362564,
+      "paired_difference": -0.06176950373469016,
+      "ratio": 0.5685420065088157,
+      "smaller_error_fraction": 0.914
+    },
+    {
+      "cell": "helmholtz/rough/full_inverse",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.50845935989438,
+      "fm4pde": 0.5003147359426684,
+      "paired_difference": 0.008144623951711574,
+      "ratio": 1.016279000730142,
+      "smaller_error_fraction": 0.375
+    },
+    {
+      "cell": "helmholtz/rough/sparse_forward",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.5547049175367786,
+      "fm4pde": 0.17059872476915636,
+      "paired_difference": 0.38410619276762237,
+      "ratio": 3.251518546151919,
+      "smaller_error_fraction": 0.011
+    },
+    {
+      "cell": "helmholtz/rough/sparse_inverse",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.8235386350005601,
+      "fm4pde": 0.5292683489411281,
+      "paired_difference": 0.29427028605943206,
+      "ratio": 1.5559944905985008,
+      "smaller_error_fraction": 0.0
+    },
+    {
+      "cell": "helmholtz/rough/sparse_joint",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.43072139458687214,
+      "fm4pde": 0.45596494013504285,
+      "paired_difference": -0.025243545548170786,
+      "ratio": 0.9446370908677884,
+      "smaller_error_fraction": 0.797
+    },
+    {
+      "cell": "helmholtz/rough/sparse_joint",
+      "pde": "helmholtz",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.10409537766242989,
+      "fm4pde": 0.09231860684237096,
+      "paired_difference": 0.01177677082005892,
+      "ratio": 1.1275666003080735,
+      "smaller_error_fraction": 0.307
+    }
+  ],
+  "sampler_seconds": 8697.308570690453,
+  "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/snapshots/metrics_first60_38cells.json",
+  "source_sha256": "27bc774fed0c1fcb1a7eb57c7c3038f58fbfe18b906a28679224aa9b54028018",
+  "scope_note": "All five Helmholtz rough tasks complete. Helmholtz smooth coverage and the overall four-PDE study remain incomplete. The five tasks reuse the same 1000 sample IDs within this distribution. One fixed sampling seed; no retuning on formal results."
+}

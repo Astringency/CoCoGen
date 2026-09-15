@@ -1,0 +1,556 @@
+{
+  "status": "complete_for_three_finished_id_groups_only",
+  "generated_at": "2026-09-15T15:55:55.850590+00:00",
+  "scope": [
+    "darcy/id",
+    "poisson/id",
+    "helmholtz/id"
+  ],
+  "pending_pdes": [
+    "nsnonbounded"
+  ],
+  "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/snapshots/metrics_first60_30cells.json",
+  "source_sha256": "7985e533f08e7fac07298074d0da32c7c6b9d65ed74798e24f7a3937648cd707",
+  "metric": "CoCoGen physical per-sample relative L2; equal target-field weight within each task, equal weight for the five ID tasks",
+  "groups": [
+    {
+      "pde": "darcy",
+      "stage": "control",
+      "checkpoint_sha256": "03b6ccbe45a258e38537a006727dd36e54bf60e5e224eaa0cc92edd4188a0b51",
+      "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+      "config": {
+        "steps": 100,
+        "repaint": 4,
+        "physics_steps": 50,
+        "physics_post": 10,
+        "max_physical_update": 0.002,
+        "correction_channels": "solution",
+        "backtracks": 4,
+        "forward_method": "euler",
+        "final_denoise": true,
+        "seed": 0
+      },
+      "validation_samples_per_task": 64,
+      "formal_samples_per_task": 1000,
+      "validation_sample_ids": [
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039,
+        1040,
+        1041,
+        1042,
+        1043,
+        1044,
+        1045,
+        1046,
+        1047,
+        1048,
+        1049,
+        1050,
+        1051,
+        1052,
+        1053,
+        1054,
+        1055,
+        1056,
+        1057,
+        1058,
+        1059,
+        1060,
+        1061,
+        1062,
+        1063,
+        1064,
+        1065,
+        1066,
+        1067,
+        1068,
+        1069,
+        1070,
+        1071,
+        1072,
+        1073,
+        1074,
+        1075,
+        1076,
+        1077,
+        1078,
+        1079,
+        1080,
+        1081,
+        1082,
+        1083,
+        1084,
+        1085,
+        1086,
+        1087,
+        1088,
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094,
+        1095
+      ],
+      "formal_sample_id_range": [
+        0,
+        999
+      ],
+      "tasks": [
+        {
+          "setting": "full_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.0071236825502446885
+          },
+          "formal_target_field_means": {
+            "u": 0.006988410493747866
+          },
+          "validation_task_mean": 0.0071236825502446885,
+          "formal_task_mean": 0.006988410493747866,
+          "formal_minus_validation_percentage_points": -0.01352720564968225
+        },
+        {
+          "setting": "full_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.5111865724333569
+          },
+          "formal_target_field_means": {
+            "a": 0.491599166681047
+          },
+          "validation_task_mean": 0.5111865724333569,
+          "formal_task_mean": 0.491599166681047,
+          "formal_minus_validation_percentage_points": -1.9587405752309883
+        },
+        {
+          "setting": "sparse_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.21756570478764878
+          },
+          "formal_target_field_means": {
+            "u": 0.19986911811538266
+          },
+          "validation_task_mean": 0.21756570478764878,
+          "formal_task_mean": 0.19986911811538266,
+          "formal_minus_validation_percentage_points": -1.769658667226612
+        },
+        {
+          "setting": "sparse_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.6420860390649292
+          },
+          "formal_target_field_means": {
+            "a": 0.6242992775437657
+          },
+          "validation_task_mean": 0.6420860390649292,
+          "formal_task_mean": 0.6242992775437657,
+          "formal_minus_validation_percentage_points": -1.778676152116354
+        },
+        {
+          "setting": "sparse_joint",
+          "target_fields": [
+            "a",
+            "u"
+          ],
+          "validation_target_field_means": {
+            "a": 0.5469660721683803,
+            "u": 0.17507320827652179
+          },
+          "formal_target_field_means": {
+            "a": 0.5302547822544413,
+            "u": 0.16101747091641086
+          },
+          "validation_task_mean": 0.36101964022245103,
+          "formal_task_mean": 0.3456361265854261,
+          "formal_minus_validation_percentage_points": -1.5383513637024948
+        }
+      ],
+      "validation_macro": 0.3477963278117261,
+      "formal_id_macro": 0.33367841988387387,
+      "formal_minus_validation_percentage_points": -1.4117907927852225,
+      "maximum_absolute_task_difference_percentage_points": 1.9587405752309883,
+      "evidence": {
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/protocol/selected/darcy.json": "2c1194065f46508a19f49238905d399da3ca0acafd265661f3c6ba9318324a14",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/darcy/4cc051f5c1/32-96/control_s100_r4_p0.002_N50_M10_euler/receipt.json": "f13583e135bdfb85c252ccff7c86219de1b84f0e7767fbfba550e02c269c50c2",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/darcy/4cc051f5c1/32-96/control_s100_r4_p0.002_N50_M10_euler/predictions.pt": "c8bccdaa57e8fa19099c26a8acc9364005c66158326cf86926b309f7570beba9"
+      }
+    },
+    {
+      "pde": "poisson",
+      "stage": "control",
+      "checkpoint_sha256": "02bed539ee52d86651a9add9efb6dafd36ea1ce81b82b4297fd88bbf6af7771b",
+      "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+      "config": {
+        "steps": 100,
+        "repaint": 4,
+        "physics_steps": 50,
+        "physics_post": 10,
+        "max_physical_update": 0.002,
+        "correction_channels": "solution",
+        "backtracks": 4,
+        "forward_method": "euler",
+        "final_denoise": true,
+        "seed": 0
+      },
+      "validation_samples_per_task": 64,
+      "formal_samples_per_task": 1000,
+      "validation_sample_ids": [
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039,
+        1040,
+        1041,
+        1042,
+        1043,
+        1044,
+        1045,
+        1046,
+        1047,
+        1048,
+        1049,
+        1050,
+        1051,
+        1052,
+        1053,
+        1054,
+        1055,
+        1056,
+        1057,
+        1058,
+        1059,
+        1060,
+        1061,
+        1062,
+        1063,
+        1064,
+        1065,
+        1066,
+        1067,
+        1068,
+        1069,
+        1070,
+        1071,
+        1072,
+        1073,
+        1074,
+        1075,
+        1076,
+        1077,
+        1078,
+        1079,
+        1080,
+        1081,
+        1082,
+        1083,
+        1084,
+        1085,
+        1086,
+        1087,
+        1088,
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094,
+        1095
+      ],
+      "formal_sample_id_range": [
+        0,
+        999
+      ],
+      "tasks": [
+        {
+          "setting": "full_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.059364763331975365
+          },
+          "formal_target_field_means": {
+            "u": 0.061970340112382415
+          },
+          "validation_task_mean": 0.059364763331975365,
+          "formal_task_mean": 0.061970340112382415,
+          "formal_minus_validation_percentage_points": 0.26055767804070495
+        },
+        {
+          "setting": "full_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.29377228637027725
+          },
+          "formal_target_field_means": {
+            "a": 0.3042058942686812
+          },
+          "validation_task_mean": 0.29377228637027725,
+          "formal_task_mean": 0.3042058942686812,
+          "formal_minus_validation_percentage_points": 1.0433607898403974
+        },
+        {
+          "setting": "sparse_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.5078881613152395
+          },
+          "formal_target_field_means": {
+            "u": 0.48048789947196124
+          },
+          "validation_task_mean": 0.5078881613152395,
+          "formal_task_mean": 0.48048789947196124,
+          "formal_minus_validation_percentage_points": -2.740026184327826
+        },
+        {
+          "setting": "sparse_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.7549171669247592
+          },
+          "formal_target_field_means": {
+            "a": 0.7674410223772838
+          },
+          "validation_task_mean": 0.7549171669247592,
+          "formal_task_mean": 0.7674410223772838,
+          "formal_minus_validation_percentage_points": 1.2523855452524657
+        },
+        {
+          "setting": "sparse_joint",
+          "target_fields": [
+            "a",
+            "u"
+          ],
+          "validation_target_field_means": {
+            "a": 0.3005277310649414,
+            "u": 0.09289968262634236
+          },
+          "formal_target_field_means": {
+            "a": 0.30172967056369887,
+            "u": 0.09266653472828602
+          },
+          "validation_task_mean": 0.19671370684564188,
+          "formal_task_mean": 0.19719810264599244,
+          "formal_minus_validation_percentage_points": 0.04843958003505622
+        }
+      ],
+      "validation_macro": 0.3625312169575786,
+      "formal_id_macro": 0.36226065177526023,
+      "formal_minus_validation_percentage_points": -0.0270565182318383,
+      "maximum_absolute_task_difference_percentage_points": 2.740026184327826,
+      "evidence": {
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/protocol/selected/poisson.json": "8ffb2a1a87add3fac4b53dad96279af9f041cd8501751da65a970c4e3f8e2a0a",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/poisson/4cc051f5c1/32-96/control_s100_r4_p0.002_N50_M10_euler/receipt.json": "1a7f2137249a6e166e266b05b74f419c6e3fe359fe031ec07b4357f58e9ff14c",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/poisson/4cc051f5c1/32-96/control_s100_r4_p0.002_N50_M10_euler/predictions.pt": "d57cb812bc4cbe977f6b77c22ba18d78f40b7342e50ac1017a797ab67dd03721"
+      }
+    },
+    {
+      "pde": "helmholtz",
+      "stage": "base",
+      "checkpoint_sha256": "6ad2a075185b220eaf86185d2ca6b7b170cbf767e0e55a8a47ad3828de82b864",
+      "implementation_sha256": "4cc051f5c1cb48fe74605f2e14033f8ba5310fc6a214b2a4af6e11241637639c",
+      "config": {
+        "steps": 100,
+        "repaint": 4,
+        "physics_steps": 50,
+        "physics_post": 10,
+        "max_physical_update": 0.002,
+        "correction_channels": "solution",
+        "backtracks": 4,
+        "forward_method": "euler",
+        "final_denoise": true,
+        "seed": 0
+      },
+      "validation_samples_per_task": 64,
+      "formal_samples_per_task": 1000,
+      "validation_sample_ids": [
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037,
+        1038,
+        1039,
+        1040,
+        1041,
+        1042,
+        1043,
+        1044,
+        1045,
+        1046,
+        1047,
+        1048,
+        1049,
+        1050,
+        1051,
+        1052,
+        1053,
+        1054,
+        1055,
+        1056,
+        1057,
+        1058,
+        1059,
+        1060,
+        1061,
+        1062,
+        1063,
+        1064,
+        1065,
+        1066,
+        1067,
+        1068,
+        1069,
+        1070,
+        1071,
+        1072,
+        1073,
+        1074,
+        1075,
+        1076,
+        1077,
+        1078,
+        1079,
+        1080,
+        1081,
+        1082,
+        1083,
+        1084,
+        1085,
+        1086,
+        1087,
+        1088,
+        1089,
+        1090,
+        1091,
+        1092,
+        1093,
+        1094,
+        1095
+      ],
+      "formal_sample_id_range": [
+        0,
+        999
+      ],
+      "tasks": [
+        {
+          "setting": "full_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.026379356067144345
+          },
+          "formal_target_field_means": {
+            "u": 0.028947317520778365
+          },
+          "validation_task_mean": 0.026379356067144345,
+          "formal_task_mean": 0.028947317520778365,
+          "formal_minus_validation_percentage_points": 0.256796145363402
+        },
+        {
+          "setting": "full_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.2976867726906366
+          },
+          "formal_target_field_means": {
+            "a": 0.3121808122729079
+          },
+          "validation_task_mean": 0.2976867726906366,
+          "formal_task_mean": 0.3121808122729079,
+          "formal_minus_validation_percentage_points": 1.44940395822713
+        },
+        {
+          "setting": "sparse_forward",
+          "target_fields": [
+            "u"
+          ],
+          "validation_target_field_means": {
+            "u": 0.5727397949690667
+          },
+          "formal_target_field_means": {
+            "u": 0.5642895902167624
+          },
+          "validation_task_mean": 0.5727397949690667,
+          "formal_task_mean": 0.5642895902167624,
+          "formal_minus_validation_percentage_points": -0.8450204752304291
+        },
+        {
+          "setting": "sparse_inverse",
+          "target_fields": [
+            "a"
+          ],
+          "validation_target_field_means": {
+            "a": 0.7738191867679978
+          },
+          "formal_target_field_means": {
+            "a": 0.7964095034801321
+          },
+          "validation_task_mean": 0.7738191867679978,
+          "formal_task_mean": 0.7964095034801321,
+          "formal_minus_validation_percentage_points": 2.2590316712134295
+        },
+        {
+          "setting": "sparse_joint",
+          "target_fields": [
+            "a",
+            "u"
+          ],
+          "validation_target_field_means": {
+            "a": 0.2867841406526057,
+            "u": 0.09182278800481461
+          },
+          "formal_target_field_means": {
+            "a": 0.30033506041693747,
+            "u": 0.09547217982013453
+          },
+          "validation_task_mean": 0.18930346432871015,
+          "formal_task_mean": 0.19790362011853602,
+          "formal_minus_validation_percentage_points": 0.860015578982587
+        }
+      ],
+      "validation_macro": 0.3719857149647111,
+      "formal_id_macro": 0.37994616872182335,
+      "formal_minus_validation_percentage_points": 0.796045375711224,
+      "maximum_absolute_task_difference_percentage_points": 2.2590316712134295,
+      "evidence": {
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/protocol/selected/helmholtz.json": "377a5c74db21def2d9bc6e7c464513b07ab8cbf0c5eb37f0ee4ce6bad3e4154f",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/helmholtz/4cc051f5c1/32-96/base_s100_r4_p0.002_N50_M10_euler/receipt.json": "56351f23f454fde26ae1642cf65c2afa39308ba0cc5743a020b746da5b0ba459",
+        "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/calibration/helmholtz/4cc051f5c1/32-96/base_s100_r4_p0.002_N50_M10_euler/predictions.pt": "6e0d02c683cbb32fc513aa293b957d343f7dfea101a376b8342bc3e7b793a6a2"
+      }
+    }
+  ],
+  "method": "Recomputed validation target means from 64 per-sample receipt errors, checked selected config/checkpoint/core identity, exact held-out IDs and validation prediction SHA256; compared to the five complete 1000-sample ID cells from a verified immutable formal snapshot.",
+  "scope_note": "Different disjoint samples, not paired cases. Validation uses 1032..1095 after selection on 1000..1031; formal ID uses 0..999. IDs are reused across the five tasks within each split. Descriptive single-seed comparison; no equivalence test or confidence interval. This is not an OOD assessment, an all-PDE score or a causal attribution, and no formal results were used to retune sampling."
+}
