@@ -8,7 +8,7 @@ import tempfile
 
 import torch
 
-from . import evaluate
+from . import evaluate, main_inputs
 from .common import STUDY, write_json
 from .sampler import SamplerConfig
 
@@ -19,6 +19,16 @@ def validate(study):
     truth = torch.randn(1000, 2, 4, 4, generator=gen)
     masks = torch.zeros_like(truth, dtype=torch.bool); masks[..., 0, :] = True
     ids = list(range(1000))
+    original_archive = main_inputs.archived_input
+    raw_masks = torch.ones_like(truth, dtype=torch.bool)
+    main_inputs.archived_input = lambda _: (truth, raw_masks, ids, {})
+    try:
+        for task, channels in [('forward', [True, False]), ('inverse', [False, True]), ('both', [True, True])]:
+            _, effective, _, _ = main_inputs.historical_input(dict(pde='poisson', task=task))
+            assert all(torch.all(effective[:, i] == active) for i, active in enumerate(channels))
+        assert raw_masks.all(), 'Task gating changed the archived masks'
+    finally:
+        main_inputs.archived_input = original_archive
     record = dict(cell='poisson/id/synthetic_receipt_test', pde='poisson', dist='id',
         setting='synthetic_receipt_test', task='both', config=dict(residual_mode='auto'),
         rows=[dict(sample_id=i, error_a=.5, error_u=.5) for i in ids])
@@ -59,7 +69,7 @@ def validate(study):
         evaluate.historical_input = original_input
         evaluate.physics_function = original_physics
     write_json(folder/'evaluator.json', dict(status='passed', synthetic=True,
-        checks=['1000 IDs and partial final batch', 'physical per-sample metrics',
+        checks=['forward/inverse/both observation gating', '1000 IDs and partial final batch', 'physical per-sample metrics',
                 'resume without new network calls', 'prediction tamper detection']))
 
 

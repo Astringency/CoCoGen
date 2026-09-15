@@ -12,11 +12,12 @@ cd "$study/code"
 date -Iseconds
 git rev-parse HEAD
 echo 'Waiting for successful calibration and frozen-input audit'
-while [[ ! -f "$study/logs/calibrate_${group}.exit" || ! -f "$study/logs/validate_inputs.exit" ]]; do
+while [[ ! -f "$study/logs/calibrate_${group}.exit" || ! -f "$study/logs/validate_inputs_v2.exit" || ! -f "$study/logs/validate_evaluator_v2.exit" ]]; do
   sleep 20
 done
 [[ $(cat "$study/logs/calibrate_${group}.exit") == 0 ]]
-[[ $(cat "$study/logs/validate_inputs.exit") == 0 ]]
+[[ $(cat "$study/logs/validate_inputs_v2.exit") == 0 ]]
+[[ $(cat "$study/logs/validate_evaluator_v2.exit") == 0 ]]
 for pde in "$@"; do
   "$python" -u -m cocogen_eval.evaluate --pde "$pde" --device "$device" --batch-size 32 --study "$study"
 done

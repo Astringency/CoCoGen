@@ -7,7 +7,8 @@ from pathlib import Path
 import torch
 
 from .common import STUDY, write_json
-from .inputs import historical_input, identity, physics_function, records_for, scores
+from .inputs import identity, physics_function, records_for, scores
+from .main_inputs import historical_input
 from .prepare import read_fields
 
 

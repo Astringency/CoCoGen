@@ -14,7 +14,8 @@ import torch
 
 from .calibrate import implementation_hash
 from .common import STUDY, load_network, save_torch, sha_file, write_json
-from .inputs import historical_input, identity, physics_function, records_for, scores
+from .inputs import identity, physics_function, records_for, scores
+from .main_inputs import historical_input
 from .sampler import SamplerConfig, sample
 
 
@@ -37,6 +38,8 @@ def evaluate_cell(pde, record, network, manifest, selected, normalizer, batch_si
         normalizer=normalizer, selected=selected, batch_size=batch_size,
         input=identity(truth, masks, ids), physics_config=record['config'],
         implementation_sha256=implementation_hash(),
+        evaluation_code_sha256={name:sha_file(Path(__file__).parent/name)
+            for name in ['evaluate.py', 'main_inputs.py']},
         git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
         torch_version=torch.__version__, precision='float32', tf32=True)
     receipts = []

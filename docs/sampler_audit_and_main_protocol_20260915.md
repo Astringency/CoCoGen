@@ -47,7 +47,7 @@
 
 - 正式样本、掩码、分布、任务复用 FM4PDE 的冻结输入目录 `outputs/pretrained/resume_main_20260911/evaluation_inputs`。
 - 四个 PDE 各有 ID / smooth / rough × sparse_forward / sparse_inverse / sparse_joint / full_forward / full_inverse，共 60 单元。
-- 正式 ID 为 `0..999`；NS 为 `2000..2999`。稀疏观测每个活动场 500 点，全观测为 128×128。保留原主实验中 shared-mask 设置的例外，直接读取历史 mask。
+- 正式 ID 为 `0..999`；NS 为 `2000..2999`。稀疏观测每个活动场 500 点，全观测为 128×128。保留原主实验中 shared-mask 设置的例外，直接读取历史 mask。历史文件同时保存两个场的候选 mask；FM4PDE 在观测损失中按 task 屏蔽非活动场。本适配在输入端做同样的屏蔽，避免 forward 额外看到解观测，或 inverse 额外看到系数观测。
 - 原训练归一化从各 PDE 的 50,000 个训练样本恢复；不使用正式测试集统计。保留 sample std 的 correction=1 和原训练的 `std+1e-8`。
 - 每个 PDE 另取 ID 文件的 `1000..1095` 作为校准与验证池。这些是未进入正式评估的测试文件行，应明确称为“独立留出的 ID 校准样本”，不是训练集。
 - `1000..1031` 用于配置选择；`1032..1095` 在配置冻结后用于验证，不根据后者重新调参。不同分布使用同一 PDE 的冻结配置。
