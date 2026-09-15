@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T20:26:24.598952+00:00",
+  "scope": "Automatic report increment 51 to 52 with all seven audit receipts checked against the new snapshot",
+  "final_study_complete": false,
+  "verified_cells": 52,
+  "verified_samples": 52000,
+  "prediction_hashes_bound_to_snapshot": 1664,
+  "target_fields": 62,
+  "new_cell": "nsnonbounded/smooth/full_forward",
+  "state_sha256": "f11cb6f93e86f971109bb42c61dbc5d4622ba05cb2bdecd86c46cb937b4b8b22",
+  "metrics_sha256": "8278ed45cc27e15ae7a510ef4d1b0fc3d06ddc3f2b1b157bb925e46664217251",
+  "coverage_sha256": "872e0d8ca7492135dfa5dee16da1e2ef35333f170941a905266aa27bfc097c93",
+  "source_audits": {
+    "validation/archive_reader_46cells.json": "e5a0da22d55759835dd9bbbce8c8d4db7a43e231abb18f5d784021997ec569c4",
+    "validation/archive_reader_ns_id_full_forward.json": "4712fad983d0e970d9afcdb6486767936002442d267ac7283df1b43f3a7e0e28",
+    "validation/archive_reader_ns_rough_sparse_inverse.json": "bcfc694f694e5875622deb8738db1ef91dfd48523fe2f86ee97fd4747756285f",
+    "validation/archive_reader_ns_id_full_inverse.json": "340b5289d3979272e8441822ba367bf69657f75878445e9f867eb34a2c8eceab",
+    "validation/archive_reader_ns_rough_sparse_joint.json": "833ab40f5c537bf0f41a6c4d477cbeeec62189cb17760ff1073f2ab7f28e087d",
+    "reports/auto_first60_20260916/audit_0051_1789503479169074305.json": "e4198295fc2099d59a97d898be3aa73f2477ef070c3a9cc470d450e585f4d7ec",
+    "reports/auto_first60_20260916/audit_0052_1789503911126709301.json": "47c5f7d32307cd8f41bb1c90a71abe03307ad769efc852661f015be874865bfe"
+  },
+  "published": {
+    "json": "reports/metrics_first60_partial.json",
+    "json_sha256": "8278ed45cc27e15ae7a510ef4d1b0fc3d06ddc3f2b1b157bb925e46664217251",
+    "csv": "reports/metrics_first60_partial_targets.csv",
+    "csv_sha256": "2763658d34b65deb83b59581f1a9fda4da0ae679ccc23e77b60397da85f5a77e"
+  }
+}
