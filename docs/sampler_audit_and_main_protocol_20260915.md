@@ -65,6 +65,8 @@ CPU 准备任务已完成。GPU 校准分别在以下 tmux 中运行：
 - `cocogen_calibrate_ph`：GPU 0，Poisson 后 Helmholtz。
 - `cocogen_calibrate_dn`：GPU 1，Darcy 后 NS。
 
+正式任务使用固定 Git 版本的 `code_phase1` 检出目录，分别在 `cocogen_main_ph`、`cocogen_main_dn` 排队。它们等待对应校准组及输入/恢复检查成功退出后，按各 PDE 的已冻结配置执行。`cocogen_aggregate60` 等待两组正式任务成功结束，再核验并汇总 60 单元。训练 Burgers 的前置条件仍是 `first60_complete.json`，不是校准或任务启动完成。
+
 已验证的 Darcy / Poisson：基础网络与 ControlNet 在三个时间点与服务器原类输出逐值相等；小型回归验证了时间区间、NFE、精确观测、无隐藏真值依赖、随机数分批独立性、仅解通道修正、残差下降及邻点梯度。
 
 首轮 A100 float32、TF32 开启的网络测速如下；不包含完整采样的额外操作：

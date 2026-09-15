@@ -8,7 +8,7 @@ shift 2
 exec >> "$study/logs/main_${group}.log" 2>&1
 trap 'status=$?; echo "$status" > "$study/logs/main_${group}.exit"' EXIT
 export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 PYTHONUNBUFFERED=1
-cd "$study/code"
+cd "$study/code_phase1"
 date -Iseconds
 git rev-parse HEAD
 echo 'Waiting for successful calibration and frozen-input audit'
@@ -18,6 +18,8 @@ done
 [[ $(cat "$study/logs/calibrate_${group}.exit") == 0 ]]
 [[ $(cat "$study/logs/validate_inputs_v2.exit") == 0 ]]
 [[ $(cat "$study/logs/validate_evaluator_v2.exit") == 0 ]]
+nvidia-smi --query-gpu=index,name,memory.used,memory.total,utilization.gpu --format=csv
+free -h
 for pde in "$@"; do
   "$python" -u -m cocogen_eval.evaluate --pde "$pde" --device "$device" --batch-size 32 --study "$study"
 done

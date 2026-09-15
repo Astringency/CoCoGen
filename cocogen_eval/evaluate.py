@@ -116,6 +116,9 @@ def evaluate(pde, device, study, batch_size):
     selected = json.loads((Path(study)/'protocol/selected'/f'{pde}.json').read_text())
     assert selected['status'] == 'validated', 'Calibration and held-out validation must finish first'
     assert selected['implementation_sha256'] == implementation_hash()
+    free_bytes, total_bytes = torch.cuda.mem_get_info(device)
+    if free_bytes < 20*1024**3:
+        raise RuntimeError(f'Insufficient free GPU headroom: {free_bytes}/{total_bytes} bytes')
     network, manifest = load_network(pde, selected['stage'], device)
     assert manifest['checkpoint_sha256'] == selected['checkpoint_sha256']
     normalizer = json.loads((Path(study)/'inputs'/pde/'normalizer.json').read_text())
