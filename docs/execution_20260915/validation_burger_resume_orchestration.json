@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "time_unix": 1789445470.519454,
+  "pipeline_sha256": "55040a2bb082add22d7083abb284f2722cb1c21f26c88cf1651514ee650eff4d",
+  "training_code": {
+    "cocogen_burger/train.py": "85481589d8dab1ec6fa7714666564a346cafe3d9964fe299a52b42e1e63e1c5c",
+    "cocogen_burger/data.py": "cf3ea75a560f1a75177fea5309e47f273893b90554641214386e0b5ce1b96d97",
+    "cocogen_eval/network.py": "8692e3a32af4715a9c51d7107a9afba0c97ef5df0c861eda827664cd07a79f7c"
+  },
+  "checks": [
+    "existing real tmux task recognized despite quoted pane command",
+    "different live command rejected",
+    "stopped-checkpoint recovery exercised by actual train entry with CPU runtime stand-ins and forbidden training-data access"
+  ],
+  "real_training_started": false,
+  "cpu_validation_sha256": "ee148f726b77dbc8eb80c6bbcdda063ada687b600fc6bfad8e9efb50c5621347"
+}
