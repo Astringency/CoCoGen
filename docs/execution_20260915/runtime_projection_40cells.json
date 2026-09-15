@@ -1,0 +1,176 @@
+{
+  "status": "runtime_projection_only",
+  "captured_at": "2026-09-16T00:47:35.992433+08:00",
+  "completed_cells": 40,
+  "saved_samples": 40608,
+  "assignment_sha256": "c63299ad2b6acfeb964a1d2d472854414b28b00a84c62c612255d6baf67f5889",
+  "elapsed_hours": 12.927995737393697,
+  "remaining_compute_hours": 6.429566633452383,
+  "estimated_compute_finish": "2026-09-16T07:13:22.432313+08:00",
+  "estimated_compute_finish_with_15pct_remaining_margin": "2026-09-16T08:11:14.398295+08:00",
+  "workers": [
+    {
+      "worker": 0,
+      "completed_cells": 22,
+      "rates_seconds_per_sample": {
+        "darcy": 2.4853025603890417,
+        "poisson": 2.4672417090354224,
+        "helmholtz": 1.7402027162147518,
+        "nsnonbounded": 2.5337925187079238
+      },
+      "rate_sources": {
+        "darcy": "same_worker_completed_cells",
+        "poisson": "same_worker_completed_cells",
+        "helmholtz": "same_worker_completed_cells",
+        "nsnonbounded": "frozen_independent_validation"
+      },
+      "pending": [
+        {
+          "cell": "helmholtz/smooth/full_inverse",
+          "saved": 64,
+          "remaining": 936,
+          "estimated_seconds": 1628.8297423770077
+        },
+        {
+          "cell": "helmholtz/smooth/sparse_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 1740.2027162147517
+        },
+        {
+          "cell": "helmholtz/smooth/sparse_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 1740.2027162147517
+        },
+        {
+          "cell": "nsnonbounded/id/full_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/id/full_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/id/sparse_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/id/sparse_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/id/sparse_joint",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/rough/full_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/rough/full_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        }
+      ],
+      "remaining_seconds": 22845.782805761977
+    },
+    {
+      "worker": 1,
+      "completed_cells": 18,
+      "rates_seconds_per_sample": {
+        "darcy": 2.516078922641548,
+        "poisson": 2.4910022248913135,
+        "helmholtz": 1.7402027162147518,
+        "nsnonbounded": 2.5337925187079238
+      },
+      "rate_sources": {
+        "darcy": "same_worker_completed_cells",
+        "poisson": "same_worker_completed_cells",
+        "helmholtz": "pooled_completed_cells",
+        "nsnonbounded": "frozen_independent_validation"
+      },
+      "pending": [
+        {
+          "cell": "poisson/smooth/sparse_joint",
+          "saved": 544,
+          "remaining": 456,
+          "estimated_seconds": 1135.897014550439
+        },
+        {
+          "cell": "helmholtz/smooth/sparse_joint",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 1740.2027162147517
+        },
+        {
+          "cell": "nsnonbounded/rough/sparse_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/rough/sparse_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/rough/sparse_joint",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/smooth/full_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/smooth/full_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/smooth/sparse_forward",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/smooth/sparse_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        },
+        {
+          "cell": "nsnonbounded/smooth/sparse_joint",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2533.7925187079236
+        }
+      ],
+      "remaining_seconds": 23146.43988042858
+    }
+  ],
+  "live_processes": "    PID STAT     ELAPSED COMMAND\n 848262 Rl+     12:55:41 /research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python -u -m cocogen_eval.cell_worker --worker-id 0 --device cuda:0 --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915\n 848266 Rl+     12:55:41 /research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python -u -m cocogen_eval.cell_worker --worker-id 1 --device cuda:1 --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915\n 864647 Ss+     12:35:36 bash /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/code_burger_v3/cocogen_burger/job.sh burger_pipeline cocogen_burger.pipeline\n",
+  "metrics_snapshot_sha256": "454b660f41509ad7af7babd45a108ce57d30bf3b7f09e6d52e4ef97a49d38c72",
+  "method": "Remaining unpersisted samples times observed seconds per sample; same worker/PDE preferred, then pooled PDE, then frozen validation.",
+  "limitations": "NS still uses calibration speed. In-flight unsaved work is included. Future model loading, I/O and final verification overhead are unmeasured before the 15% remaining-time margin. Burgers training, calibration and six evaluations are separate; no actual Burgers training speed is available.",
+  "metrics_snapshot": "reports/snapshots/metrics_first60_40cells.json"
+}
