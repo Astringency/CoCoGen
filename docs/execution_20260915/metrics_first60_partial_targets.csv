@@ -38,6 +38,7 @@ helmholtz/smooth/sparse_joint,helmholtz,smooth,sparse_joint,both,u,1000,0.115357
 nsnonbounded/id/full_forward,nsnonbounded,id,full_forward,forward,u,1000,0.025824625027472427,0.09706059514167815,-0.07123597011420571,0.2660670377074913,1.0
 nsnonbounded/id/full_inverse,nsnonbounded,id,full_inverse,inverse,a,1000,0.12066384362384883,0.11911310136720832,0.0015507422566405093,1.0130190737949119,0.421
 nsnonbounded/id/sparse_forward,nsnonbounded,id,sparse_forward,forward,u,1000,0.5657184261554902,0.11430857376467471,0.4514098523908155,4.949046318433873,0.0
+nsnonbounded/id/sparse_inverse,nsnonbounded,id,sparse_inverse,inverse,a,1000,0.7482590151804566,0.12680069139032427,0.6214583237901323,5.901064158058318,0.0
 nsnonbounded/rough/sparse_forward,nsnonbounded,rough,sparse_forward,forward,u,1000,0.5625458536545374,0.19504127333918217,0.36750458031535516,2.884240058647764,0.0
 nsnonbounded/rough/sparse_inverse,nsnonbounded,rough,sparse_inverse,inverse,a,1000,0.7665114398879507,0.40906300305768256,0.35744843683026817,1.8738224531634404,0.0
 nsnonbounded/rough/sparse_joint,nsnonbounded,rough,sparse_joint,both,a,1000,0.503291037751048,0.4375649349257001,0.0657261028253479,1.1502087977787991,0.0
