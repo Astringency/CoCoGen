@@ -1,0 +1,30 @@
+{
+  "status": "waiting_for_new_cells",
+  "updated_at": "2026-09-15T21:49:32.026883+00:00",
+  "final_study_complete": false,
+  "verified_cells": 56,
+  "metrics": "reports/auto_first60_20260916/metrics_0056_1789508969621458172.json",
+  "metrics_sha256": "151795c9574fcd053dbbc7a12daeee7d9db7b9253529c203982796a02c526306",
+  "coverage": "reports/auto_first60_20260916/coverage_0056_1789508972017661909.json",
+  "coverage_sha256": "2f7c60ca94988b08a7dfc6e92b84c0cb1f8a39703f6fbbdc710adf11b00cf2a4",
+  "audits": {
+    "validation/archive_reader_46cells.json": "e5a0da22d55759835dd9bbbce8c8d4db7a43e231abb18f5d784021997ec569c4",
+    "validation/archive_reader_ns_id_full_forward.json": "4712fad983d0e970d9afcdb6486767936002442d267ac7283df1b43f3a7e0e28",
+    "validation/archive_reader_ns_rough_sparse_inverse.json": "bcfc694f694e5875622deb8738db1ef91dfd48523fe2f86ee97fd4747756285f",
+    "validation/archive_reader_ns_id_full_inverse.json": "340b5289d3979272e8441822ba367bf69657f75878445e9f867eb34a2c8eceab",
+    "validation/archive_reader_ns_rough_sparse_joint.json": "833ab40f5c537bf0f41a6c4d477cbeeec62189cb17760ff1073f2ab7f28e087d",
+    "reports/auto_first60_20260916/audit_0051_1789503479169074305.json": "e4198295fc2099d59a97d898be3aa73f2477ef070c3a9cc470d450e585f4d7ec",
+    "reports/auto_first60_20260916/audit_0052_1789503911126709301.json": "47c5f7d32307cd8f41bb1c90a71abe03307ad769efc852661f015be874865bfe",
+    "reports/auto_first60_20260916/audit_0053_1789505993206314062.json": "b33a347175fa5c7e3c3f67ee75050c314f86afdfc4b2549f6ebd4fa4a0960ddd",
+    "reports/auto_first60_20260916/audit_0054_1789506455047082379.json": "d3e02d55c84b6eb2f278bbbe8c94e6f4609aeecd763dfa3aa760f6aecab276be",
+    "reports/auto_first60_20260916/audit_0055_1789508507428840537.json": "945fead7e9cab640d5db6fa1a39d2eecf2551983d3c820445affc74387e0f007",
+    "reports/auto_first60_20260916/audit_0056_1789508969628527803.json": "495f1ee92659d9fdab3d711dd839390ef648ac9de73f5f7540693c2c5ba4d284"
+  },
+  "published": {
+    "json": "reports/metrics_first60_partial.json",
+    "json_sha256": "151795c9574fcd053dbbc7a12daeee7d9db7b9253529c203982796a02c526306",
+    "csv": "reports/metrics_first60_partial_targets.csv",
+    "csv_sha256": "b0234f4e0f7871d575c7eda9c0503cee8d6c4ee73e79a19c5a651e796ea09a52"
+  },
+  "observer_sha256": "7f3e9245c94d85b3a957ee0dc152d81f677f93a690a52cde52e01ea589be5bfd"
+}
