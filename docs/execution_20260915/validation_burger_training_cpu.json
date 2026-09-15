@@ -1,13 +1,19 @@
 {
   "status": "passed",
   "synthetic": true,
+  "training_code": {
+    "cocogen_burger/train.py": "d3f83c0018d507ae9410a6e0d37692b6aebbe874e6a3cda2de9b49ab0e3e6766",
+    "cocogen_burger/data.py": "cf3ea75a560f1a75177fea5309e47f273893b90554641214386e0b5ce1b96d97",
+    "cocogen_eval/network.py": "8692e3a32af4715a9c51d7107a9afba0c97ef5df0c861eda827664cd07a79f7c"
+  },
   "checks": [
     "first60 prerequisite rejects missing completion",
     "cache items do not modify stored data",
     "score matching noise target and summed-loss scale",
     "strict model/optimizer/RNG resume reproduces next update",
     "fixed validation is repeatable",
-    "rank partition preserves validation fields, times and noise"
+    "rank partition preserves validation fields, times and noise",
+    "one-channel checkpoint loads into the sampling network without output changes"
   ],
   "limitation": "Real two-GPU training and batch-size benchmark must wait until first60 is complete"
 }
