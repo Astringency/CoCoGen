@@ -1,0 +1,189 @@
+{
+  "status": "runtime_projection_only",
+  "captured_at": "2026-09-16T05:54:57.889962+08:00",
+  "completed_cells": 56,
+  "saved_samples": 56448,
+  "assignment_sha256": "c63299ad2b6acfeb964a1d2d472854414b28b00a84c62c612255d6baf67f5889",
+  "budget_file_sha256": "caf87266ed87141f552b8537f81d407285597215d7c258450a5fcf542f066503",
+  "elapsed_hours": 18.05074505097336,
+  "remaining_compute_hours": 1.3182031610781202,
+  "estimated_compute_finish": "2026-09-16T07:14:03.421342+08:00",
+  "estimated_compute_finish_with_15pct_remaining_margin": "2026-09-16T07:25:55.251049+08:00",
+  "workers": [
+    {
+      "worker": 0,
+      "completed_cells": 30,
+      "actual_completed_ns_cells": 5,
+      "rate_seconds_per_sample": 2.5048144563019274,
+      "rate_source": "same_worker_completed_NS_cells",
+      "pending": [
+        {
+          "cell": "nsnonbounded/rough/full_forward",
+          "saved": 320,
+          "remaining": 680,
+          "estimated_seconds": 1703.2738302853106
+        },
+        {
+          "cell": "nsnonbounded/rough/full_inverse",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2504.8144563019273
+        }
+      ],
+      "remaining_seconds": 4208.088286587238
+    },
+    {
+      "worker": 1,
+      "completed_cells": 26,
+      "actual_completed_ns_cells": 6,
+      "rate_seconds_per_sample": 2.535006078996385,
+      "rate_source": "same_worker_completed_NS_cells",
+      "pending": [
+        {
+          "cell": "nsnonbounded/smooth/sparse_inverse",
+          "saved": 128,
+          "remaining": 872,
+          "estimated_seconds": 2210.5253008848476
+        },
+        {
+          "cell": "nsnonbounded/smooth/sparse_joint",
+          "saved": 0,
+          "remaining": 1000,
+          "estimated_seconds": 2535.006078996385
+        }
+      ],
+      "remaining_seconds": 4745.531379881233
+    }
+  ],
+  "live_processes": {
+    "848262": true,
+    "848266": true,
+    "864647": true,
+    "1687058": true
+  },
+  "metrics_snapshot": "reports/snapshots/metrics_first60_56cells.json",
+  "metrics_snapshot_sha256": "151795c9574fcd053dbbc7a12daeee7d9db7b9253529c203982796a02c526306",
+  "actual_pending_batches": {
+    "nsnonbounded/rough/full_forward": [
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0000/receipt.json",
+        "receipt_sha256": "20408879570148989d7d9dc5f6c87855a024f8f336ff29afe2381bb284c4936c",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0000/prediction.pt",
+        "prediction_sha256": "709ec9f5865a4089771fe3ba35bf476f002a4f5b5e1eb5975c36445893a9c3a6",
+        "n": 32,
+        "seconds": 80.08976043388247
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0032/receipt.json",
+        "receipt_sha256": "8915870009a30ea870d66dbd9618e8b49667d4ad1985f26fe9c7ffb4905e37e5",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0032/prediction.pt",
+        "prediction_sha256": "2b6290ae8e80b22ebcfd5d075a00e9ac1d8dcb46923612823b3dc8ea9330582d",
+        "n": 32,
+        "seconds": 80.08870716020465
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0064/receipt.json",
+        "receipt_sha256": "fa9f9a6f843f038b612b1ae12fee55cc3036bbfb0485db3ee11423dd32364965",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0064/prediction.pt",
+        "prediction_sha256": "aebbf892693a72b6a6d4dd24ad6b36603ee3fbb7a732896e6221ab72e232aa00",
+        "n": 32,
+        "seconds": 80.08460311964154
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0096/receipt.json",
+        "receipt_sha256": "551f948d877f711732ffb36cb01b4bdb21f23a77d906e4f90bffed22f26af5ac",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0096/prediction.pt",
+        "prediction_sha256": "ad7ba9368616234c066c2b302e7b48779bb4f37a8dae3b5b45b16ba2436b93d3",
+        "n": 32,
+        "seconds": 80.08642945066094
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0128/receipt.json",
+        "receipt_sha256": "ffc50cf1b8e4cf94dd6183356700a5f6f1ea70c62806c5be89aba8eb9124c10c",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0128/prediction.pt",
+        "prediction_sha256": "83b946c847fa45d19fa1f573c0c1d1c8c7d9185c8b00ad8ffa4e6685365611c0",
+        "n": 32,
+        "seconds": 80.11599954590201
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0160/receipt.json",
+        "receipt_sha256": "a2f49261cfaee80aedc5c6119a67ced42c538746b13c24f703ad26ba3acfff13",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0160/prediction.pt",
+        "prediction_sha256": "f8b7ce84688c5d7aa226c1011bcf87aada1e72975486e9c6484916bd888e443c",
+        "n": 32,
+        "seconds": 80.14637668430805
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0192/receipt.json",
+        "receipt_sha256": "e6aa4678e9c7b0ac7fdee604898abd75db47da8097ea84c480c5c91df9e18fbc",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0192/prediction.pt",
+        "prediction_sha256": "8423d2ceee76c5149a286c6c30d0c9e3de445cba244cb9212bc4d91385458691",
+        "n": 32,
+        "seconds": 80.15090230107307
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0224/receipt.json",
+        "receipt_sha256": "e58797377d68c64688dec30fc9c9a9a2f41113ac9ad0fd33f4dc011b0d8f3145",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0224/prediction.pt",
+        "prediction_sha256": "c7100ea58ad59f63213d3edffbb0785cf1c8a1e269c2420b5e8dba7f3e78cc53",
+        "n": 32,
+        "seconds": 80.17961274087429
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0256/receipt.json",
+        "receipt_sha256": "b9a2f015497c63781db9c17776abfbfd96513a06df657616e08322d4df127a1e",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0256/prediction.pt",
+        "prediction_sha256": "7ba4caba13403eeee41a607bad8d3f9782ba5b52d625c4cae30c825bf50d3d86",
+        "n": 32,
+        "seconds": 80.24037884920835
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0288/receipt.json",
+        "receipt_sha256": "641e89195652bbf732150fc8ff0b34a85e2a404cdc55b648d91f769eb130a8d9",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/rough/full_forward/batches/0288/prediction.pt",
+        "prediction_sha256": "dd82a8ca2159950330d3ec6b5a6a3d966ede83b78af02fb352bcdb67b78f2d8d",
+        "n": 32,
+        "seconds": 80.2252054437995
+      }
+    ],
+    "nsnonbounded/rough/full_inverse": [],
+    "nsnonbounded/smooth/sparse_inverse": [
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0000/receipt.json",
+        "receipt_sha256": "cb1ae4ea96192d80a732e22bbe2312c7a3c66c8c6da2e571e66451f5b47c9b1d",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0000/prediction.pt",
+        "prediction_sha256": "2002c75a2d509bd55ab9e655849ed49b2af649c4993d97c7350a30103af263cf",
+        "n": 32,
+        "seconds": 80.9379005022347
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0032/receipt.json",
+        "receipt_sha256": "05d4cb6becafc4b78e97696994228a6980c98bca2da8fdd3c33b35d69a14dbb1",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0032/prediction.pt",
+        "prediction_sha256": "44ba449a8cf6a7380b52ece18c0d7ba8998a79eda357179d587596c69c3bb070",
+        "n": 32,
+        "seconds": 81.0533557832241
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0064/receipt.json",
+        "receipt_sha256": "3bbe5f2ac0681d91ff0cab97ddbd570e397206bc4d28b6166568fdabd00b1d39",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0064/prediction.pt",
+        "prediction_sha256": "b0d706bc858aa2d6c85b540a644184fdc3395f05800d7162035756b74b82d0eb",
+        "n": 32,
+        "seconds": 81.00590329617262
+      },
+      {
+        "receipt": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0096/receipt.json",
+        "receipt_sha256": "8cc1785ebd677f8e014dc613f9e8633014d9dadffc6806cbb88b23155c536334",
+        "prediction": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/main/nsnonbounded/smooth/sparse_inverse/batches/0096/prediction.pt",
+        "prediction_sha256": "ee94358e265bd58d85bcc1590e44cf3fd30fdde37e88e4dea185ecdedaacb96d",
+        "n": 32,
+        "seconds": 81.02365721389651
+      }
+    ],
+    "nsnonbounded/smooth/sparse_joint": []
+  },
+  "method": "Remaining unpersisted samples times the mean actual seconds per sample of completed NS cells on the same GPU. Partial-batch IDs and saved prediction hashes checked; in-flight unsaved work is still included.",
+  "limitations": "Forecast, not a deadline. Uses five completed NS cells on GPU0 and six on GPU1. Task and distribution differences or later hardware contention can affect speed. Future I/O and verification are not separately timed; 15% applies only to current remaining time and is not a statistical confidence interval. Excludes Burgers training, calibration, six evaluations and final recovery/cleanup.",
+  "final_study_complete": false
+}
