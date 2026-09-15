@@ -1,0 +1,17 @@
+{
+  "status": "passed_for_initialization_and_resume",
+  "generated_at": "2026-09-15T19:54:17.382714+00:00",
+  "scope": "Existing 50-cell baseline only; automatic processing of a newly completed cell and final60 gate are not yet exercised",
+  "final_study_complete": false,
+  "verified_cells": 50,
+  "prediction_hash_bindings": 1600,
+  "probe_exit_code": 0,
+  "probe_state_sha256": "da6b3a0492bfa142c745eacd6c89001922e73fc1e361987fd116dd295339e223",
+  "resumed_state_sha256": "525c99caa7a188ed9540a4e8bf96d8d3c2c6c669bb1ea0930ef48ba188b3e3fa",
+  "resumed_coverage_sha256": "8ed9bcb8743c7e69ce01f69fd2be62f70d909863e3faae960cdf2ee9f15ce3d8",
+  "observer_sha256": "7f3e9245c94d85b3a957ee0dc152d81f677f93a690a52cde52e01ea589be5bfd",
+  "observer_code": "5257f2fbe5dfb1e0940ffc2ef2802ce219244e6d",
+  "live_observer_pid_at_0353": 1687058,
+  "tmux_session": "cocogen_first60_report_watch",
+  "canonical_state": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/auto_first60_20260916/state.json"
+}

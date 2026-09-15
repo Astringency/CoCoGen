@@ -687,3 +687,17 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 ### Burgers 观测轴向核查（2026-09-16 03:18 CST）
 
 六个 Burgers 正式输入单元、共 6,000 例完成只读核查。`sensor_column` 的含义已确认是五个固定空间位置的完整时间轨迹，每例 640 个值；张量第一时刻与原始初始条件逐值一致。当前代码与归档 mask 一致，未改变采样协议。旧 ID 文件缺少时间网格与黏性元数据，局限已记录在 [Burgers 协议](burgers_training_protocol_20260915.md)。这项输入审计没有训练模型；Burgers 仍等待前 60 单元完成。
+
+### 后续单元自动收集与复核（2026-09-16 03:53 CST）
+
+`cocogen_first60_report_watch` 已在独立 tmux 中启动，固定检出为 `code_report_watch`，源码提交 `5257f2fbe5dfb1e0940ffc2ef2802ce219244e6d`。任务使用 CPU 四线程、隐藏 GPU、降低调度优先级；不控制模型进程，也不改变采样或训练配置。
+
+每有新的完整单元，流程先运行原指标收集器，保存带时间标识的不可覆盖快照，再对新增单元执行归档输入与预测的独立 NumPy float64 重算。合并旧审计时同时核对每个预测文件哈希与当前快照一致。只有全部已完成单元都有匹配的审计，才发布新的 `reports/metrics_first60_partial.json` 和对应 CSV。
+
+全部 60 个单元出现后，还须等待调度器的 `reports/first60_complete.json`，并通过收集器的完整模式检查。自动收集器不创建或修改这个训练前置标志。其最终状态 `first60_reports_verified` 仅表示第一阶段报告核验完成，仍不代表 Burgers 或整个 66 单元任务完成。
+
+权威进度在 `reports/auto_first60_20260916/state.json`，其中记录当前快照、合并覆盖记录、各独立审计及公开 JSON/CSV 的哈希。逐次快照和审计保存在同一目录，日志为 `logs/first60_report_watch.log`，终止后才生成 `.exit`。正常恢复从最后一次已提交状态继续；未提交的快照保留，后续尝试使用新的文件名。观察器遇到校验错误会退出，由人工检查，不会重启模型。
+
+启动前的真实 50 单元一次性检查已正常退出；随后通过读取已提交状态恢复常驻任务。两次指标快照相同，覆盖 50,000 次完整单元预测和 1,600 个预测文件哈希关联。记录见 `docs/execution_20260915/validation_report_watch_initialization.json`。截至本段时间，新增单元的自动处理路径及最终 60 单元完成路径尚未实际执行，须等相应结果到达后确认。
+
+自动任务运行期间，应读取上述状态及其引用文件，避免同时手工运行收集器写入相同的公开指标文件。原 GPU 采样任务和 Burgers 接续任务继续按冻结顺序运行。
