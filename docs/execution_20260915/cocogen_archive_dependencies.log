@@ -1,0 +1,33 @@
+2026-09-15T19:06:02+08:00
+2efdaa134007b302217713387b393dfb21942ac6
+{"stage": "copying_dependencies", "source_files": 2723, "unique_objects": 2723, "missing_bytes": 27452355947}
+{"stage": "verified_dependency_objects", "done": 100, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 200, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 300, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 400, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 500, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 600, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 700, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 800, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 900, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1000, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1100, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1200, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1300, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1400, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1500, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1600, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1700, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1800, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 1900, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2000, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2100, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2200, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2300, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2400, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2500, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2600, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2700, "total": 2723}
+{"stage": "verified_dependency_objects", "done": 2723, "total": 2723}
+{"stage": "dependencies_verified", "manifest": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/archive/dependencies/manifest.json", "manifest_sha256": "3c1c634b533b19b94918d5e7e3360b5350be50bbc819bffb96af6ddf17a7523f", "final_study_complete": false}
+2026-09-15T19:07:40+08:00

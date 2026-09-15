@@ -280,3 +280,24 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 ```
 
 2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 18:56 CST 共二十个完整单元、二十三个目标场比较，仍不产生未完成 PDE 或整体的宏平均；上面的 Darcy ID/rough 与 Poisson ID 五任务比较是独立声明范围的完整子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
+
+## 固定依赖归档与代码恢复检查
+
+2026-09-15 19:07:40 CST，`cocogen_archive_dependencies` 退出码为 0。独立检出 `code_archive`（`2efdaa134007b302217713387b393dfb21942ac6`）中的 `cocogen_eval/archive_dependencies.py` 已将以下固定依赖复制到主结果目录的 `archive/dependencies/objects/`，每个副本均按预期 SHA256 核验；原文件保持原位。
+
+| 归档内容 | 文件数 |
+|---|---:|
+| 66 单元引用的 FM4PDE 历史结果，包含正式真值和观测掩码 | 2,640 |
+| 历史单元输入记录 | 66 |
+| 历史输入总目录 | 1 |
+| 校准中使用的四个 PDE 的基础与 ControlNet 权重 | 8 |
+| 对应模型配置 | 8 |
+| 合计 | **2,723** |
+
+副本合计 **27,452,355,947 字节**（约 27.45 GB）。任务以 CPU nice 10 和空闲 I/O 优先级运行，不使用 GPU。文件清单绑定冻结输入目录、四份选定配置以及归档程序版本；每项保留原始绝对路径、归档相对路径、角色、大小和 SHA256。清单为 `archive/dependencies/manifest.json`，SHA256 为 `3c1c634b533b19b94918d5e7e3360b5350be50bbc819bffb96af6ddf17a7523f`；本地副本为 `docs/execution_20260915/archive_dependencies_manifest.json`，对应日志和退出记录也已保存。
+
+恢复时可按清单将内容寻址的副本映射回输入记录中的原始路径；不能仅移动副本而忽略记录中的绝对路径。原训练数据、原模型和其他实验目录仍保留。这份清单只表示固定输入与已有权重的归档通过，不表示正式采样或 Burgers 阶段完成。
+
+初步代码恢复检查也已通过：在本地新建临时空裸仓库，从 `source/archive_dependencies_code.bundle` 独立导入完整历史，运行 `git fsck --full`，确认没有 Git alternates，并恢复正式采样版本 `ae7cd742211afdfbc4ee0859671b9d75fb613283`、Burgers 版本 `ca487a4115bda9df5383a339b4438d1a21a24d43` 和归档版本 `2efdaa134007b302217713387b393dfb21942ac6`。关键源文件与相应原提交逐字节一致，临时恢复仓库已自动清理。检查记录保存在 `docs/execution_20260915/validation_code_bundle_recovery_preliminary.json`；源代码包 SHA256 为 `53f26f02705fa34ef6de2cdc4f1c994c71fa926b27f229cd22f27abdec63eba2`。
+
+最终归档仍须等待全部 66 单元、完整指标和 Burgers 权重齐备后，再保存最终代码包并核验恢复；之后才清理本任务的临时传输包、重复中间文件、临时检出和 tmux 会话。当前各临时检出共享 `code/.git`，不能在完成独立恢复核验前删除它。
