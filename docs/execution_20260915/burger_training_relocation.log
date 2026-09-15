@@ -1,0 +1,8 @@
+2026-09-16T07:44:06+08:00
+e68d7e33c024f3dd5c25fdb089c2e029d3d78e32
+Copied training prerequisite: darcy
+Copied training prerequisite: poisson
+Copied training prerequisite: helmholtz
+Copied training prerequisite: nsnonbounded
+{"status": "passed", "checkpoint_epoch": 5, "copied_files": 3919, "output": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/validation/burger_training_relocation_initial.json"}
+2026-09-16T07:45:23+08:00

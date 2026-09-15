@@ -102,3 +102,38 @@ CUDA_VISIBLE_DEVICES="" python -m cocogen_eval.verify_archived_predictions \
 记录为 [validation_burger_checkpoint_initial.json](execution_20260915/validation_burger_checkpoint_initial.json)，审计源码提交 `da51d46be2f81135782ec81d73e4ae8dff9023ad`；任务正常退出，未改变正在训练的进程。last.ckpt 仍按轮次滚动更新，本记录描述读取当时的第 2 轮状态，不把该动态路径当作永久不变的 checkpoint。
 
 该检查不执行训练更新、不重新哈希完整训练缓存、不验证 CUDA 续训或新目录迁移，也不证明收敛。最终检查仍需使用训练完成后的真实 best/last 及全部训练资产。
+
+## 真实训练资产迁移（2026-09-16 07:44–07:45 CST）
+
+为解决历史清单中的绝对路径依赖，新增 `cocogen_burger/archive_paths.py`。它只在进程内把旧研究目录的读取映射到新根目录，不改写清单、checkpoint 或已绑定的哈希。通过旧路径写入会被拒绝，缺失的新副本不能回退到旧文件；越出新根目录的链接也会被拒绝。训练入口和三个训练核心源文件保持原样。
+
+本地九项路径行为检查通过，覆盖 `Path.read_text`、NumPy 内存映射、原目录及原数据文件的直接读取拒绝、旧路径写入拒绝、缺失副本与链接越界、退出后还原读取函数，以及原始文件不变。记录为 [validation_burger_archive_paths_local.json](execution_20260915/validation_burger_archive_paths_local.json)。
+
+实际 CPU 迁移任务随后于 **07:44:06–07:45:23 CST** 完成，退出码 0。它复制 **3,919 个文件、11,644,806,792 字节**到独立临时目录，其中包含前 60 单元的训练前置文件、50,000 例标准化缓存、256 例验证面板、归一化/配置/请求，以及当时一致的 best/last 检查点。
+
+从归档 bundle 恢复全新 Git 仓库，通过 `git fsck --full` 和无 alternates 检查后，在独立子进程中完成：
+
+- 未改动的 `require_first60` 核验全部 60 单元、样本 ID、批次收据及预测哈希；本步骤不重新计算预测误差。
+- 完整训练缓存与验证面板的 SHA256 与原始清单一致。缓存以真实 `CachedDataset` 内存映射读取，形状为 `[50000,1,128,128]`；抽读索引 0、24999、49999。256 例验证面板的 ID、形状与有限性通过。
+- 第 **5** 轮恢复检查点与对应 epoch 记录一致，128 个模型张量严格加载，86 组优化器状态及双 rank 随机状态通过先前 CPU 检查。CUDA 随机状态只检查保存格式。
+- 两次主动直接读取原路径的探测均被拒绝；之后没有意外直接读取原目录或原训练 MAT 文件。发生了 3,907 次路径映射，涉及 3,903 个文件。
+- 全部复制文件在检查后仍与复制时哈希一致。数据副本与恢复源码目录已删除，对应 tmux 已结束；原训练进程继续运行。
+
+证据为 [validation_burger_training_relocation_initial.json](execution_20260915/validation_burger_training_relocation_initial.json)，SHA256 `cca344a90776ac2ba2844688990c26d6817ac61d64a37269d6408851231664b1`。源码提交为 `e68d7e33c024f3dd5c25fdb089c2e029d3d78e32`，归档为 `source/burger_training_relocation_code.bundle`。
+
+范围仍有限：本次使用已安装的 Python/系统库和 Python 层读取保护，不是系统沙箱或二进制环境恢复；没有运行优化步骤或 CUDA 续训，也没有验证训练完成后的最终 best/last。早期 last 在原训练中继续滚动更新，最终归档须使用最终资产再核验。
+
+### 迁移后的训练入口
+
+`cocogen_burger/resume_archive.py` 在路径映射上下文中调用未改动的真实训练入口，要求已有 last.ckpt 和相同的 DDP world size。应从 bundle 恢复出的独立源码目录运行；该目录也应位于旧研究根目录之外。示例：
+
+```bash
+recovered_study=/path/to/moved/cocogen_main_20260915
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run \
+  --standalone --nnodes=1 --nproc-per-node=2 \
+  --module cocogen_burger.resume_archive \
+  --root "$recovered_study" \
+  --original-study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915
+```
+
+**此 CUDA 命令尚未实际执行。** 当前验证证明的是路径映射、真实训练资产读取和 CPU 状态加载，不能用它代替最终 CUDA 恢复证据，也不能据此宣告五 PDE 研究已完成。
