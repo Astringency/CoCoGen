@@ -4,9 +4,9 @@
 
 用户已明确：先完成 Darcy、Poisson、Helmholtz、NS 四个已有模型的 **60 个评估单元，每单元 1,000 个样本**；之后补训 Burgers，再完成它的 6 个单元。
 
-**当前进度（2026-09-16 00:46 CST）：已完成并核验 40/60 个正式单元，即 Darcy 全部 15 个、Poisson 的 14 个和 Helmholtz 的 11 个，共 40,000 次完整单元样本评估。目前只有 Darcy 完整覆盖三分布五任务，其宏平均相对 L2 为 CoCoGen 33.61%、FM4PDE 16.07%。Poisson 仅剩 smooth 联合重建。新增 Helmholtz smooth 完整观测正问题为 3.83% 对 18.60%；该任务现已在三个分布上均优于 FM4PDE，其余 smooth 四任务尚未完成。两张 A100 继续执行 Helmholtz 和 Poisson。正式评估于 9 月 15 日 11:51:55 启动，启动前含 15% 余量的预计耗时为 22.15 小时；9 月 16 日 00:47 按当前进度与实测速度更新，预计剩余纯计算 6.43 小时，约 07:13 完成，给剩余时间添加 15% 余量后约 08:11。NS 仍使用校准速度，因此该时间是预测。Burgers 仍在等待前 60 单元全部完成，其真实训练轮速尚未测量。**
+**当前进度（2026-09-16 01:07 CST）：已完成并核验 41/60 个正式单元，即 Darcy 和 Poisson 各全部 15 个、Helmholtz 的 11 个，共 41,000 次完整单元样本评估。Poisson 总体宏平均相对 L2 为 CoCoGen 40.34%、FM4PDE 20.75%，仅 ID、smooth 的完整观测正问题两个单元领先；Darcy 为 33.61% 对 16.07%。Helmholtz 其余四个 smooth 单元及 NS 十五个单元待完成，尚不产生四模型总体宏平均。GPU 1 已从 Poisson 接续 Helmholtz smooth 联合重建。正式评估于 9 月 15 日 11:51:55 启动；9 月 16 日 00:47 按当时进度与实测速度更新，预计约 07:13 完成纯计算，给剩余时间添加 15% 余量后约 08:11。NS 仍使用校准速度，因此该时间是预测。Burgers 仍在等待前 60 单元全部完成，其真实训练轮速尚未测量。**
 
-Darcy 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结](darcy_complete_results_20260915.md)。
+已完成 PDE 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结](darcy_complete_results_20260915.md) 与 [Poisson 完整评估总结](poisson_complete_results_20260916.md)。
 
 针对稀疏引导的补充核查见 [当前方法与论文的关系](sparse_guidance_audit_20260916.md)：Darcy 全部九个稀疏单元、9,000 次任务评估的观测点均逐值满足，逐例误差通过 CPU float64 重算；正文观测条件模型与本次附录 D 短采样适配的区别单独列明。
 
@@ -51,6 +51,7 @@ Darcy 的全部目标场结果、结论和耗时另见 [Darcy 完整评估总结
 
 ## 输入与公平性
 
+- 统一字段名 a 表示输入场，u 表示解场；a 在 Darcy 中是系数场，在当前 Poisson 和 Helmholtz 算子中是源项场，不能把所有 PDE 的 a 都解释为材料系数。
 - 正式样本、掩码、分布、任务复用 FM4PDE 的冻结输入目录 `outputs/pretrained/resume_main_20260911/evaluation_inputs`。
 - 四个 PDE 各有 ID / smooth / rough × sparse_forward / sparse_inverse / sparse_joint / full_forward / full_inverse，共 60 单元。
 - 正式 ID 为 `0..999`；NS 为 `2000..2999`。稀疏观测每个活动场 500 点，全观测为 128×128。保留原主实验中 shared-mask 设置的例外，直接读取历史 mask。历史文件同时保存两个场的候选 mask；FM4PDE 在观测损失中按 task 屏蔽非活动场。本适配在输入端做同样的屏蔽，避免 forward 额外看到解观测，或 inverse 额外看到系数观测。
@@ -394,7 +395,7 @@ CoCoGen 的平均误差约为 FM4PDE 的 3.29 倍，1,000 个配对样本中均�
 | 稀疏联合重建 | a | 30.03% | 22.85% | 5.1% |
 | 稀疏联合重建 | u | 9.55% | 7.04% | 16.4% |
 
-联合任务先对 a/u 等权平均、再对五任务等权平均，Helmholtz ID 的宏平均相对 L2 为 **CoCoGen 37.99%、FM4PDE 18.15%**，前者约为后者的 **2.09 倍**。完整观测正问题领先，另外四个任务的平均误差均更高。新增联合重建的系数场误差约为 FM4PDE 的 1.31 倍，解场约为 1.36 倍；稀疏单向任务的差距更大。该结论只适用于 ID 五任务，Helmholtz 的另外两个分布尚未完成。
+联合任务先对 a/u 等权平均、再对五任务等权平均，Helmholtz ID 的宏平均相对 L2 为 **CoCoGen 37.99%、FM4PDE 18.15%**，前者约为后者的 **2.09 倍**。完整观测正问题领先，另外四个任务的平均误差均更高。新增联合重建的输入场 a 误差约为 FM4PDE 的 1.31 倍，解场约为 1.36 倍；稀疏单向任务的差距更大。该结论只适用于 ID 五任务，Helmholtz 的另外两个分布尚未完成。
 
 本次快照生成于 2026-09-15 21:52:06 CST，独立保留为 `docs/execution_20260915/metrics_first60_30cells.json`，SHA256 为 `7985e533f08e7fac07298074d0da32c7c6b9d65ed74798e24f7a3937648cd707`；服务器对应 `reports/snapshots/metrics_first60_30cells.json`。子组结果保存为 `docs/execution_20260915/helmholtz_id_complete_comparison.json`，绑定该快照。五任务复用 ID 分布的 1,000 个样本，合计 5,000 次任务评估；仍不产生 Helmholtz 总体或四模型宏平均。新增联合任务纯采样 1,741.19 秒（29.02 分钟），正式配置继续冻结。
 
@@ -419,7 +420,7 @@ CoCoGen 的平均误差约为 FM4PDE 的 3.29 倍，1,000 个配对样本中均�
 |---|---|---:|---:|---:|---:|
 | Helmholtz rough，完整观测反问题 | a | 50.85% | 50.03% | 37.5% | 28.99 |
 
-CoCoGen 的平均误差高约 **0.81 个百分点**，约为 FM4PDE 的 **1.016 倍**；375/1,000 个样本误差更低。两者均值较接近，但系数场重建误差都在 50% 左右。此前 Helmholtz ID 完整观测反问题为 31.22% 对 23.87%，rough 上双方误差都更高，而两者的均值差距较小；这不代表统计等价性检验通过。Helmholtz rough 的正问题领先、反问题略落后，三个稀疏任务仍待完成。
+CoCoGen 的平均误差高约 **0.81 个百分点**，约为 FM4PDE 的 **1.016 倍**；375/1,000 个样本误差更低。两者均值较接近，但输入场 a 重建误差都在 50% 左右。此前 Helmholtz ID 完整观测反问题为 31.22% 对 23.87%，rough 上双方误差都更高，而两者的均值差距较小；这不代表统计等价性检验通过。Helmholtz rough 的正问题领先、反问题略落后，三个稀疏任务仍待完成。
 
 本次快照生成于 2026-09-15 22:49:44 CST，更新到 `docs/execution_20260915/metrics_first60_partial.json` 及目标场 CSV，JSON 的 SHA256 为 `32df080978a658c9be88f1c5035b5a1a4a9b0777cc1e25cbba28b6fd0eb22a82`。该单元纯采样 1,739.22 秒，保持在原预计速度附近。正式配置继续冻结，两个采样进程接续后续任务。
 
@@ -443,7 +444,7 @@ CoCoGen 的平均误差高约 **10.76 个百分点**，约为 FM4PDE 的 **1.45 
 |---|---|---:|---:|---:|---:|
 | Helmholtz rough，稀疏正问题 | u | 55.47% | 17.06% | 1.1% | 28.99 |
 
-CoCoGen 的平均误差高约 **38.41 个百分点**，约为 FM4PDE 的 **3.25 倍**；11/1,000 个样本误差更低。同分布完整观测正问题此前为 8.14% 对 14.32%，其优势没有延续到稀疏系数观测。Helmholtz 的 ID 和 rough 两个分布都呈现完整观测正问题领先、稀疏正问题落后的结果。rough 的稀疏反问题和联合重建尚待完成，仍不计算该分布的五任务宏平均或 Helmholtz 总体指标。
+CoCoGen 的平均误差高约 **38.41 个百分点**，约为 FM4PDE 的 **3.25 倍**；11/1,000 个样本误差更低。同分布完整观测正问题此前为 8.14% 对 14.32%，其优势没有延续到稀疏输入场观测。Helmholtz 的 ID 和 rough 两个分布都呈现完整观测正问题领先、稀疏正问题落后的结果。rough 的稀疏反问题和联合重建尚待完成，仍不计算该分布的五任务宏平均或 Helmholtz 总体指标。
 
 本次快照生成于 2026-09-15 23:18:46 CST，更新到 `docs/execution_20260915/metrics_first60_partial.json` 及目标场 CSV，JSON 的 SHA256 为 `85c5679e740743813dc6c224a7a8be2790f6b5dcd84ede59d2b25195bf1225d7`。该单元纯采样 1,739.35 秒，保持在原预计速度附近。正式配置继续冻结，Helmholtz 接续 rough 稀疏反问题，Poisson 继续 smooth 稀疏正问题。
 
@@ -477,7 +478,7 @@ Poisson smooth 稀疏正问题的 CoCoGen 平均误差约为 FM4PDE 的 **3.88 �
 
 联合任务先对 a/u 等权平均、再对五任务等权平均，Helmholtz rough 的宏平均相对 L2 为 **CoCoGen 44.71%、FM4PDE 32.35%**，前者约为后者的 **1.38 倍**。完整观测正问题和联合任务的平均误差更低，另外三个任务更高。
 
-新增联合任务的两场均值为 **26.74% 对 27.41%**，CoCoGen 低约 **0.67 个百分点**。其系数场误差低约 2.52 个百分点，797/1,000 个样本更优；解场误差高约 1.18 个百分点，仅 307/1,000 个样本更优。因此这个联合任务呈现系数重建更好、解场重建更差的结果；小幅的两场平均优势来自系数场的改善。该结论为本次固定种子结果，尚无多种子不确定性估计。
+新增联合任务的两场均值为 **26.74% 对 27.41%**，CoCoGen 低约 **0.67 个百分点**。其输入场 a 误差低约 2.52 个百分点，797/1,000 个样本更优；解场误差高约 1.18 个百分点，仅 307/1,000 个样本更优。因此这个联合任务呈现输入场重建更好、解场重建更差的结果；小幅的两场平均优势来自输入场 a 的改善。该结论为本次固定种子结果，尚无多种子不确定性估计。
 
 本次快照生成于 2026-09-16 00:17:16 CST，独立保留为 `docs/execution_20260915/metrics_first60_38cells.json`，SHA256 为 `27bc774fed0c1fcb1a7eb57c7c3038f58fbfe18b906a28679224aa9b54028018`；服务器对应 `reports/snapshots/metrics_first60_38cells.json`。子组结果保存为 `docs/execution_20260915/helmholtz_rough_complete_comparison.json`，绑定该快照。五任务复用 rough 分布的 1,000 个样本，合计 5,000 次任务评估；Helmholtz smooth 和其他剩余任务尚未完成，因此仍不产生 Helmholtz 总体或四模型宏平均。新增联合任务纯采样 1,738.47 秒（28.97 分钟），正式配置继续冻结。
 
@@ -503,11 +504,28 @@ CoCoGen 的平均误差高约 **64.79 个百分点**，约为 FM4PDE 的 **3.68 
 | smooth | 3.83% | 18.60% | 99.6% |
 | rough | 8.14% | 14.32% | 91.4% |
 
-新增 smooth 单元中 CoCoGen 的平均误差低约 **14.77 个百分点**，相对降低约 **79.42%**，996/1,000 个样本误差更低。至此，Helmholtz 在已知完整系数场、预测解场的任务上，三个分布均有优势。该结论仅覆盖完整观测正问题；Helmholtz smooth 的其余四任务仍未完成，不产生该 PDE 总体或四模型总体宏平均。
+新增 smooth 单元中 CoCoGen 的平均误差低约 **14.77 个百分点**，相对降低约 **79.42%**，996/1,000 个样本误差更低。至此，Helmholtz 在已知完整输入场、预测解场的任务上，三个分布均有优势。该结论仅覆盖完整观测正问题；Helmholtz smooth 的其余四任务仍未完成，不产生该 PDE 总体或四模型总体宏平均。
 
 本次快照生成于 2026-09-16 00:46:14 CST，更新到 `docs/execution_20260915/metrics_first60_partial.json` 及目标场 CSV，并独立保留为 `metrics_first60_40cells.json`。JSON 的 SHA256 为 `454b660f41509ad7af7babd45a108ce57d30bf3b7f09e6d52e4ef97a49d38c72`。新增单元纯采样 1,740.80 秒（29.01 分钟），正式配置继续冻结。
 
 00:47:35 CST 再次核实两个实际评估进程存活，累计保存 40,608 次评估。按各卡已完成同 PDE 单元的实测速度估算剩余样本，预计还需 **6.43 小时**纯计算，约 **07:13** 完成前 60 单元；对剩余时间添加 15% 余量后约 **08:11**。尚未开始正式采样的 NS 使用冻结独立验证的速度，未来模型加载、I/O 和最终核验耗时在加余量前没有单独计入。此估算不包含 Burgers 的训练、校准和六单元评估，也不是完成收据。详细分卡计算保存为 `docs/execution_20260915/runtime_projection_40cells.json`，绑定上述独立快照和冻结分工。
+
+### 9 月 16 日 01:07 CST 更新：Poisson 全部十五单元完成
+
+新增 `poisson/smooth/sparse_joint` 完成 1,000 个正式样本，累计 41/60 个单元、49 个目标场比较、1,312 个预测文件通过收集器核验。Poisson 与 Darcy 均具备完整 PDE 宏平均。
+
+| Poisson 分布 | 五任务 CoCoGen 宏平均 | 五任务 FM4PDE 宏平均 | CoCoGen 误差更低的单元数 |
+|---|---:|---:|---:|
+| ID | 36.23% | 15.89% | 1/5 |
+| smooth | 41.72% | 17.58% | 1/5 |
+| rough | 43.06% | 28.78% | 0/5 |
+| 三分布总体 | **40.34%** | **20.75%** | **2/15** |
+
+Poisson 总体平均误差约为 FM4PDE 的 **1.94 倍**。ID、smooth 完整观测正问题领先，其余十三个单元均落后；全部稀疏任务均落后。新增 smooth 联合任务的 a/u 误差分别为 **33.99% / 10.78%**，对应 FM4PDE 为 **20.37% / 8.60%**；两目标等权均值为 22.38% 对 14.48%。该 Poisson 的 a 表示源项输入场，对应 `laplace(u)=a`。
+
+新增单元纯采样 2,488.54 秒（41.48 分钟），Poisson 全部十五单元累计 **10.3323 GPU 小时**，每单元 41.05–41.53 分钟。GPU 1 已接续 `helmholtz/smooth/sparse_joint`，首批 32 例落盘、耗时 56.24 秒；两张卡实际 worker 进程均存活。Burgers 仍等待完整前 60 单元，不因 Poisson 完成而启动。
+
+完整 Poisson 比较保存在 `docs/execution_20260915/poisson_complete_comparison.json`，并绑定独立的 `metrics_first60_41cells.json` 快照（生成时间 2026-09-16 01:07:02 CST，SHA256 为 `858479a1b786215bcfd2e92dde860d227f9cf01c48eefb5d3d43adf24540a228`）。服务器分别对应 `reports/poisson_complete_comparison.json` 与 `reports/snapshots/metrics_first60_41cells.json`。完整解读见 [Poisson 完整评估总结](poisson_complete_results_20260916.md)。本次继续使用正式前冻结的配置，尚不产生 Helmholtz、NS 或四模型总体宏平均。
 
 ### 独立验证与正式 ID 结果对照
 
@@ -544,7 +562,7 @@ python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/
 python -m cocogen_eval.collect_metrics --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915 --include-burger
 ```
 
-2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 00:46 CST 共四十个完整单元、四十七个目标场比较；Darcy 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
+2026-09-15 12:41 CST，真实两个 Darcy 完整单元的首次收集检查已通过：恰好产生三个目标场比较，不包含 full_forward 的已观测 a；宏平均为空，默认完整模式拒绝其余 58 个单元缺失。后续在新增完整单元后更新收集，截至 9 月 16 日 01:07 CST 共四十一个完整单元、四十九个目标场比较；Darcy 和 Poisson 已具备完整 PDE 宏平均，仍不产生其余未完成 PDE 或四模型总体宏平均。Darcy、Poisson、Helmholtz 的 ID/rough 五任务比较均保留为独立声明范围的子组。完整 60/66 模式仍待实际结果齐备后验证。服务器独立脚本由 Git 标签 `cocogen-metrics-collector-20260915-v1` 提取到 `source/collect_metrics.py`，运行中的采样检出保持冻结；局部快照写入 `reports/metrics_first60_partial.json`，最新快照同步到 `docs/execution_20260915/metrics_first60_partial.json`。
 
 ## 固定依赖归档与代码恢复检查
 

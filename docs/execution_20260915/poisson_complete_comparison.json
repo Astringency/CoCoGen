@@ -1,0 +1,530 @@
+{
+  "status": "complete_for_poisson_only",
+  "pde": "poisson",
+  "cells": 15,
+  "samples_per_cell": 1000,
+  "sample_evaluations": 15000,
+  "sample_ids_per_distribution": 1000,
+  "generated_at": "2026-09-15T17:07:02.266847+00:00",
+  "metric": "Mean physical per-sample relative L2 on the full target field, including its observed locations",
+  "weighting": "Equal target-field weight inside each task, equal weight across all 15 cells; equivalently, equal weight for five tasks then three distributions",
+  "field_meaning": {
+    "a": "forcing/source field in laplace(u)=a",
+    "u": "solution field"
+  },
+  "cocogen_macro": 0.40335730098462713,
+  "fm4pde_macro": 0.2075344571403648,
+  "cocogen_smaller_error_cells": 2,
+  "distribution_metrics": [
+    {
+      "dist": "id",
+      "cells": 5,
+      "cocogen": 0.36226065177526023,
+      "fm4pde": 0.1589076053852257,
+      "cocogen_smaller_error_cells": 1
+    },
+    {
+      "dist": "smooth",
+      "cells": 5,
+      "cocogen": 0.4172260619531863,
+      "fm4pde": 0.1758478102041006,
+      "cocogen_smaller_error_cells": 1
+    },
+    {
+      "dist": "rough",
+      "cells": 5,
+      "cocogen": 0.4305851892254348,
+      "fm4pde": 0.28784795583176803,
+      "cocogen_smaller_error_cells": 0
+    }
+  ],
+  "cell_metrics": [
+    {
+      "cell": "poisson/id/full_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.061970340112382415,
+      "fm4pde": 0.07988018867548542,
+      "sampler_seconds": 2468.7281060777605
+    },
+    {
+      "cell": "poisson/id/full_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.3042058942686812,
+      "fm4pde": 0.2454804535265956,
+      "sampler_seconds": 2470.145962432027
+    },
+    {
+      "cell": "poisson/id/sparse_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.48048789947196124,
+      "fm4pde": 0.10149484516710883,
+      "sampler_seconds": 2463.189952388406
+    },
+    {
+      "cell": "poisson/id/sparse_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.7674410223772838,
+      "fm4pde": 0.24544033337791174,
+      "sampler_seconds": 2464.3075438551605
+    },
+    {
+      "cell": "poisson/id/sparse_joint",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_joint",
+      "task": "both",
+      "n": 1000,
+      "target_fields": [
+        "a",
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.19719810264599244,
+      "fm4pde": 0.12224220617902698,
+      "sampler_seconds": 2465.556019052863
+    },
+    {
+      "cell": "poisson/rough/full_forward",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "full_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.08850159147075216,
+      "fm4pde": 0.07946777182309726,
+      "sampler_seconds": 2469.3916440978646
+    },
+    {
+      "cell": "poisson/rough/full_inverse",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.494495067347554,
+      "fm4pde": 0.4929257550092082,
+      "sampler_seconds": 2469.3727353438735
+    },
+    {
+      "cell": "poisson/rough/sparse_forward",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.5000738828093539,
+      "fm4pde": 0.12597951900001667,
+      "sampler_seconds": 2491.3431779518723
+    },
+    {
+      "cell": "poisson/rough/sparse_inverse",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.8047071807158731,
+      "fm4pde": 0.494328295455744,
+      "sampler_seconds": 2491.450219631195
+    },
+    {
+      "cell": "poisson/rough/sparse_joint",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "n": 1000,
+      "target_fields": [
+        "a",
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.2651482237836409,
+      "fm4pde": 0.24653843787077417,
+      "sampler_seconds": 2491.9637919552624
+    },
+    {
+      "cell": "poisson/smooth/full_forward",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "full_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.08896398126587986,
+      "fm4pde": 0.11369321143739246,
+      "sampler_seconds": 2490.3573575615883
+    },
+    {
+      "cell": "poisson/smooth/full_inverse",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.349161292834832,
+      "fm4pde": 0.24158331135099861,
+      "sampler_seconds": 2490.764137096703
+    },
+    {
+      "cell": "poisson/smooth/sparse_forward",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "n": 1000,
+      "target_fields": [
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.5349839183161176,
+      "fm4pde": 0.13781002570741563,
+      "sampler_seconds": 2490.4571057334542
+    },
+    {
+      "cell": "poisson/smooth/sparse_inverse",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "n": 1000,
+      "target_fields": [
+        "a"
+      ],
+      "NFE": 500,
+      "cocogen": 0.8891760378720288,
+      "fm4pde": 0.2413085474423667,
+      "sampler_seconds": 2490.679784309119
+    },
+    {
+      "cell": "poisson/smooth/sparse_joint",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_joint",
+      "task": "both",
+      "n": 1000,
+      "target_fields": [
+        "a",
+        "u"
+      ],
+      "NFE": 500,
+      "cocogen": 0.22384507947707327,
+      "fm4pde": 0.14484395508232953,
+      "sampler_seconds": 2488.5449231490493
+    }
+  ],
+  "target_field_metrics": [
+    {
+      "cell": "poisson/id/full_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.061970340112382415,
+      "fm4pde": 0.07988018867548542,
+      "paired_difference": -0.01790984856310301,
+      "ratio": 0.7757911084078424,
+      "smaller_error_fraction": 0.702
+    },
+    {
+      "cell": "poisson/id/full_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.3042058942686812,
+      "fm4pde": 0.2454804535265956,
+      "paired_difference": 0.05872544074208563,
+      "ratio": 1.239226544918059,
+      "smaller_error_fraction": 0.06
+    },
+    {
+      "cell": "poisson/id/sparse_forward",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.48048789947196124,
+      "fm4pde": 0.10149484516710883,
+      "paired_difference": 0.3789930543048525,
+      "ratio": 4.734111359851325,
+      "smaller_error_fraction": 0.003
+    },
+    {
+      "cell": "poisson/id/sparse_inverse",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.7674410223772838,
+      "fm4pde": 0.24544033337791174,
+      "paired_difference": 0.522000688999372,
+      "ratio": 3.1267926172330944,
+      "smaller_error_fraction": 0.0
+    },
+    {
+      "cell": "poisson/id/sparse_joint",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.30172967056369887,
+      "fm4pde": 0.18777368869290617,
+      "paired_difference": 0.11395598187079269,
+      "ratio": 1.6068793911651893,
+      "smaller_error_fraction": 0.001
+    },
+    {
+      "cell": "poisson/id/sparse_joint",
+      "pde": "poisson",
+      "dist": "id",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.09266653472828602,
+      "fm4pde": 0.056710723665147796,
+      "paired_difference": 0.03595581106313823,
+      "ratio": 1.6340213761940632,
+      "smaller_error_fraction": 0.062
+    },
+    {
+      "cell": "poisson/rough/full_forward",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "full_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.08850159147075216,
+      "fm4pde": 0.07946777182309726,
+      "paired_difference": 0.009033819647654897,
+      "ratio": 1.1136790354178425,
+      "smaller_error_fraction": 0.359
+    },
+    {
+      "cell": "poisson/rough/full_inverse",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.494495067347554,
+      "fm4pde": 0.4929257550092082,
+      "paired_difference": 0.0015693123383457377,
+      "ratio": 1.0031836687825664,
+      "smaller_error_fraction": 0.494
+    },
+    {
+      "cell": "poisson/rough/sparse_forward",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.5000738828093539,
+      "fm4pde": 0.12597951900001667,
+      "paired_difference": 0.37409436380933725,
+      "ratio": 3.9694855701845295,
+      "smaller_error_fraction": 0.004
+    },
+    {
+      "cell": "poisson/rough/sparse_inverse",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.8047071807158731,
+      "fm4pde": 0.494328295455744,
+      "paired_difference": 0.310378885260129,
+      "ratio": 1.627880071024412,
+      "smaller_error_fraction": 0.0
+    },
+    {
+      "cell": "poisson/rough/sparse_joint",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.4277700031359374,
+      "fm4pde": 0.41071559497390114,
+      "paired_difference": 0.01705440816203624,
+      "ratio": 1.041523644027006,
+      "smaller_error_fraction": 0.271
+    },
+    {
+      "cell": "poisson/rough/sparse_joint",
+      "pde": "poisson",
+      "dist": "rough",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.10252644443134445,
+      "fm4pde": 0.08236128076764718,
+      "paired_difference": 0.020165163663697288,
+      "ratio": 1.2448379077613674,
+      "smaller_error_fraction": 0.194
+    },
+    {
+      "cell": "poisson/smooth/full_forward",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "full_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.08896398126587986,
+      "fm4pde": 0.11369321143739246,
+      "paired_difference": -0.024729230171512614,
+      "ratio": 0.7824915853913559,
+      "smaller_error_fraction": 0.682
+    },
+    {
+      "cell": "poisson/smooth/full_inverse",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "full_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.349161292834832,
+      "fm4pde": 0.24158331135099861,
+      "paired_difference": 0.10757798148383338,
+      "ratio": 1.4453038617702045,
+      "smaller_error_fraction": 0.011
+    },
+    {
+      "cell": "poisson/smooth/sparse_forward",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_forward",
+      "task": "forward",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.5349839183161176,
+      "fm4pde": 0.13781002570741563,
+      "paired_difference": 0.39717389260870184,
+      "ratio": 3.8820391736370587,
+      "smaller_error_fraction": 0.012
+    },
+    {
+      "cell": "poisson/smooth/sparse_inverse",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_inverse",
+      "task": "inverse",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.8891760378720288,
+      "fm4pde": 0.2413085474423667,
+      "paired_difference": 0.6478674904296621,
+      "ratio": 3.6848095407163166,
+      "smaller_error_fraction": 0.0
+    },
+    {
+      "cell": "poisson/smooth/sparse_joint",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "a",
+      "n": 1000,
+      "cocogen": 0.33987389479758373,
+      "fm4pde": 0.20372955444318322,
+      "paired_difference": 0.1361443403544005,
+      "ratio": 1.668260138920438,
+      "smaller_error_fraction": 0.001
+    },
+    {
+      "cell": "poisson/smooth/sparse_joint",
+      "pde": "poisson",
+      "dist": "smooth",
+      "setting": "sparse_joint",
+      "task": "both",
+      "field": "u",
+      "n": 1000,
+      "cocogen": 0.10781626415656281,
+      "fm4pde": 0.08595835572147582,
+      "paired_difference": 0.021857908435086983,
+      "ratio": 1.2542848598210914,
+      "smaller_error_fraction": 0.228
+    }
+  ],
+  "sampler_seconds": 37196.2524606362,
+  "sampler_gpu_hours": 10.332292350176722,
+  "source": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/snapshots/metrics_first60_41cells.json",
+  "source_sha256": "858479a1b786215bcfd2e92dde860d227f9cf01c48eefb5d3d43adf24540a228",
+  "scope_note": "All 15 Poisson cells complete and verified. Darcy is also complete, but Helmholtz/NS and the four-PDE study remain incomplete. Tasks reuse sample IDs within each distribution; 15000 task evaluations are not 15000 independent examples. One fixed sampling seed, no retuning on formal results."
+}
