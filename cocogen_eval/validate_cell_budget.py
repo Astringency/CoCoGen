@@ -19,7 +19,7 @@ from .schedule_24h import PDES, allocation
 
 def validate(study):
     records = [dict(pde=pde, cell=f'{pde}/id/synthetic_{i:02d}') for pde in PDES for i in range(15)]
-    hours = dict(zip(PDES, [10.46, 10.27, 7.4, 10.8]))
+    hours = dict(zip(PDES, [10.46, 10.5, 7.4, 10.8]))
     groups, totals = cell_schedule.cell_allocation(hours, records)
     _, whole = allocation(hours)
     assert max(totals) < max(whole) and max(totals)*1.15 < 24 < max(whole)*1.15
