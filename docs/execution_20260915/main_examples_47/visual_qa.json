@@ -1,0 +1,23 @@
+{
+  "status": "passed_for_stated_scope",
+  "generated_at": "2026-09-15T19:11:17.018428+00:00",
+  "provenance_sha256": "8faeab3affa2f6971b148567cef377c377ad7b8291119593dd8c282a63f33478",
+  "metrics_sha256": "c156ad2f3e26f481d09d11927e2aff4664e34b6da812bfe915d703910b25a12b",
+  "pdf_pages_verified": 16,
+  "all_16_pages_visually_inspected": false,
+  "visually_inspected_pngs": {
+    "darcy_id_full_forward_sample_0.png": "ca4192a2ee6d3311856c041876b4233f0f12895d47f65ff26d7d4bb79d3375bb",
+    "darcy_id_sparse_joint_sample_0.png": "41038bf554f0a8ed1f9951299a60c704de79c8cbb0a1421dcf649386cfcb8cac",
+    "poisson_id_sparse_inverse_sample_0.png": "5f0fb477ed2304af6eb393e24ae0d24cc55b82591228f5c99e7e97fbe5e5b1b5",
+    "helmholtz_id_sparse_forward_sample_0.png": "b94ff0a812a5eefa88a2e227e3a90f6dfb4f80ff9f821d865b2b530f599ed42d",
+    "helmholtz_id_full_inverse_sample_0.png": "89f125db6cdc0aef18fec599613c1db07857dfbacce26315e8c1ba59b93a5498",
+    "nsnonbounded_id_full_forward_sample_2000.png": "af2cf38f8094d6743c926bd11c690424436d2e6c144b6be331d96a44ce21f4ad"
+  },
+  "checks": [
+    "Four PDEs and all five task types covered by the six inspected images",
+    "Titles, physical-field labels, observed counts, shared colorbars and footnotes readable",
+    "Only target fields carry task error annotations; other fields explicitly excluded",
+    "All 17 output hashes match the original renderer provenance"
+  ],
+  "scope": "Six PNG images visually inspected; 16 PDF pages counted; numerical/source checks for all examples are recorded by renderer"
+}
