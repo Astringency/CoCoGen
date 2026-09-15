@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-15T23:43:34.483250+00:00",
+  "scope": "Local path mapping behavior; synthetic files and real NumPy mmap, not actual training asset recovery",
+  "checks": [
+    "Path.read_text maps to new root",
+    "direct old root access denied",
+    "original external dataset access denied",
+    "old path writes denied",
+    "missing new copy cannot fall back",
+    "symlink escape denied",
+    "NumPy mmap reads relocated bytes",
+    "context restores open and preserves original bytes",
+    "relative historical root rejected"
+  ],
+  "source_sha256": "c5208c74e2989d819424759aca86cde66bf44a6f28025d4131bb1b285e39bc05",
+  "cuda_resume_exercised": false,
+  "final_study_complete": false
+}
