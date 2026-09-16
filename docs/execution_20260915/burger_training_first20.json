@@ -1,0 +1,155 @@
+{
+  "status": "early_training_milestone",
+  "generated_at": "2026-09-16T00:49:25.531950+00:00",
+  "epochs_completed": 20,
+  "global_step": 15640,
+  "training_complete": false,
+  "final_study_complete": false,
+  "actual_validation_epochs": [
+    1,
+    10,
+    20
+  ],
+  "sources_sha256": {
+    "training/burger/epochs/0001.json": "a167a48bf925c3b8721fea1558728c04a4dfe6259666d8d8b2216ce4f55cc252",
+    "training/burger/epochs/0002.json": "ba473a0c86f62c3561cb1b57c4b4b22f33be43cb6362bcfafdc802c7d74cc0ff",
+    "training/burger/epochs/0003.json": "a71900688613301385c2ba0bd3a944c03aaa036e4e2ea477e41f8c4382881607",
+    "training/burger/epochs/0004.json": "4830e7b951602cb79ee2dedda2598defe86d0d9c8abb719e5818710e9f9fab32",
+    "training/burger/epochs/0005.json": "156bceca6ecac04b7044135e62f6894431185c04b91cf8e927eeb5d3ca29bd86",
+    "training/burger/epochs/0006.json": "5a7954ec503cd1bb14bc6bcfb3a6ac68535a4bc4d0b54e8eae8b0310e4ec7edb",
+    "training/burger/epochs/0007.json": "2b77454fbb7d0c24ef49232ea1377632e459b090b42827fdc2bcde1d99a70f59",
+    "training/burger/epochs/0008.json": "a29e9b26f773fda6cb7442994faf1cfeb6b113a71f838d314e549873b6f7d111",
+    "training/burger/epochs/0009.json": "9b461188fd23c4db7f11aa0226893d40ab062c0addc03e58dcb206efbda9c29f",
+    "training/burger/epochs/0010.json": "ea28a2869263e365a65dfb83890f6188fa0b3f0e608729cbc44b74f2c6b20448",
+    "training/burger/epochs/0011.json": "c63bce89246a0bbcb8084c3b170bd0ea10a940556aa6de4b02ce23ec843fcf47",
+    "training/burger/epochs/0012.json": "53ed7c8961ebfa79b8d46676deb327eb82e5bb633492ca9d1fb78db5b4a90b32",
+    "training/burger/epochs/0013.json": "042d6976d45d4abceb978ef2b49f812bc402f985156edb8694902c781a471c75",
+    "training/burger/epochs/0014.json": "d202c4462da8a1d7c70b06563e726ed5a45d7018fa548d7bd4e40508b05ffbbf",
+    "training/burger/epochs/0015.json": "fa0ebb4ea992fd245c1c6b22e0abb9920b77926d930a67980c5199d142d79134",
+    "training/burger/epochs/0016.json": "3dc1c2ec8345de8c236dbee901a00bcc501624aec56e342c8ed0c37648dcfef3",
+    "training/burger/epochs/0017.json": "827b9e32d21ab7847f161118ec7275eda902bc2d24389e7ab112cdc116846b06",
+    "training/burger/epochs/0018.json": "c859f0cae332773b1854470f667db9ee10fb0d21ee50e773c98ed35a9159763e",
+    "training/burger/epochs/0019.json": "5e32293fc50257113eff0f8926e179beac462385861f704f10bce3db7cce6c38",
+    "training/burger/epochs/0020.json": "c4d6476322216320e6068dfda48241eb19998ea52d213cef753594853cc0dd6f"
+  },
+  "training_request_sha256": "1580d4872149a86e3147ac83d4663492a41466fd6de96de5bed88ee6eb68abda",
+  "previous_milestone_sha256": "c1a21938073e4ada827b0967917fc34399fe1551bfd91d6e12d848dfd379467b",
+  "all_prior_local_epoch_receipts_byte_identical": true,
+  "per_epoch_optimizer_steps": 782,
+  "validation_losses": {
+    "1": {
+      "uniform": {
+        "loss_sum": 438.6899022459984,
+        "loss_per_pixel": 0.026775506728881737
+      },
+      "t001": {
+        "loss_sum": 16323.409362792969,
+        "loss_per_pixel": 0.9963018409907818
+      },
+      "t01": {
+        "loss_sum": 12517.834396362305,
+        "loss_per_pixel": 0.7640279782935977
+      },
+      "t1": {
+        "loss_sum": 180.5067282319069,
+        "loss_per_pixel": 0.011017256361810723
+      },
+      "t5": {
+        "loss_sum": 82.26174466311932,
+        "loss_per_pixel": 0.005020858438911091
+      },
+      "t10": {
+        "loss_sum": 97.34316445887089,
+        "loss_per_pixel": 0.005941355252616631
+      }
+    },
+    "10": {
+      "uniform": {
+        "loss_sum": 426.0146810412407,
+        "loss_per_pixel": 0.02600187262214604
+      },
+      "t001": {
+        "loss_sum": 16003.81587600708,
+        "loss_per_pixel": 0.9767954025883228
+      },
+      "t01": {
+        "loss_sum": 1190.8598909378052,
+        "loss_per_pixel": 0.0726843195152469
+      },
+      "t1": {
+        "loss_sum": 321.07524597644806,
+        "loss_per_pixel": 0.01959687780617969
+      },
+      "t5": {
+        "loss_sum": 362.0336984395981,
+        "loss_per_pixel": 0.02209678335202625
+      },
+      "t10": {
+        "loss_sum": 185.6865147948265,
+        "loss_per_pixel": 0.011333405444020173
+      }
+    },
+    "20": {
+      "uniform": {
+        "loss_sum": 114.54832904785872,
+        "loss_per_pixel": 0.00699147516161247
+      },
+      "t001": {
+        "loss_sum": 12098.410919189453,
+        "loss_per_pixel": 0.7384284008294344
+      },
+      "t01": {
+        "loss_sum": 297.2712035179138,
+        "loss_per_pixel": 0.01814399435534142
+      },
+      "t1": {
+        "loss_sum": 205.4891684949398,
+        "loss_per_pixel": 0.012542063506771228
+      },
+      "t5": {
+        "loss_sum": 89.43981581926346,
+        "loss_per_pixel": 0.005458973133499967
+      },
+      "t10": {
+        "loss_sum": 37.03824830800295,
+        "loss_per_pixel": 0.002260635272705258
+      }
+    }
+  },
+  "validation_relative_reduction_10_to_20": {
+    "uniform": 0.7311164752165671,
+    "t001": 0.24402961063008788,
+    "t01": 0.7503726460349487,
+    "t1": 0.35999685098734424,
+    "t5": 0.752951683214137,
+    "t10": 0.8005334509674642
+  },
+  "training_loss_per_pixel_epoch20": 0.00440991072822595,
+  "best_validation_per_pixel": 0.00699147516161247,
+  "stale_checks": 0,
+  "runtime": {
+    "nonvalidation_mean_seconds_11_to_19": 265.1694217791988,
+    "epoch20_validation_seconds": 268.00222823023796,
+    "mean_seconds_per_epoch_for_cycle_11_to_20": 265.71210261322557,
+    "cycle_includes": "Ten epoch loops, including one scheduled validation and inter-epoch hash/receipt/barrier gaps; epoch20 tail is excluded",
+    "elapsed_epoch_loop_seconds": 5332.840171076357,
+    "projected_total_training_loop_hours": {
+      "300": 22.1478413618832,
+      "1200": 88.5758670151896
+    },
+    "projected_remaining_training_loop_hours_at_epoch20": {
+      "300": 20.666496869917545,
+      "1200": 87.09452252322394
+    },
+    "limitation": "Early throughput estimate; does not predict stopping epoch and excludes initialization, final writes, extra 100-epoch snapshots, sampler calibration, formal evaluation and archive recovery."
+  },
+  "processes_at_collection": "    PID     ELAPSED COMMAND\n 864653    20:37:25 /research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python -u -m cocogen_burger.pipeline --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915\n1852582    01:31:01 /research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python -u -m cocogen_burger.train --config /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/train_config.json --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915\n1852583    01:31:01 /research_data/users/zhangxifeng/.conda/envs/fm4pde/bin/python -u -m cocogen_burger.train --config /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/train_config.json --study /research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915\n",
+  "checks": [
+    "Twenty consecutive immutable epoch records, 782 optimizer steps per epoch",
+    "Per-pixel and summed losses agree at all saved validation times",
+    "Only epochs 1, 10 and 20 ran validation; other records carry the previous panel",
+    "Best validation is the minimum of actual uniform validation results",
+    "Training request matches startup and previously saved epoch receipts are unchanged"
+  ],
+  "quality_limit": "Score-matching validation loss is not physical-field relative L2; no Burgers formal sampling result yet."
+}
