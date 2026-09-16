@@ -61,6 +61,9 @@ def verify(study, source):
     receipt = json.loads(receipt_path.read_text())
     require(receipt['last_sha256'] == checkpoint_sha, 'Checkpoint differs from its epoch receipt')
     require(receipt['global_step'] == checkpoint['global_step'], 'Epoch receipt step differs')
+    require(receipt['stop_condition_met'] == checkpoint['stop_condition_met'], 'Saved stop state differs')
+    require(receipt['best_validation_per_pixel'] == checkpoint['best'], 'Saved best loss differs')
+    require(receipt['stale_checks'] == checkpoint['stale_checks'], 'Saved plateau counter differs')
     network = UNET1(**checkpoint['model_config']['model']['params']['unet_config']['params'])
     network.load_state_dict({k.removeprefix('unet.'):v for k,v in checkpoint['state_dict'].items()}, strict=True)
     for name, value in network.state_dict().items():
@@ -85,6 +88,8 @@ def verify(study, source):
         scope='CPU restore and completeness checks of one real saved checkpoint; no training updates, relocation, CUDA resume or convergence check',
         final_study_complete=False, training_complete=False,
         checkpoint=str(source), checkpoint_sha256=checkpoint_sha, epoch=checkpoint['epoch'],
+        stop_condition_met=checkpoint['stop_condition_met'], stale_checks=checkpoint['stale_checks'],
+        best_validation_per_pixel=checkpoint['best'],
         global_step=checkpoint['global_step'], model_tensors=len(network.state_dict()),
         parameter_count=sum(p.numel() for p in network.parameters()), optimizer_parameter_states=states,
         strict_model_restore=True, finite_model_and_optimizer=True, rank_rng_states=world,

@@ -18,8 +18,9 @@ def has_session(name):
     return subprocess.run(['tmux','has-session','-t',name],capture_output=True).returncode==0
 
 
-def launch(code,study,name,module,args=()):
-    command=shlex.join(['bash',str(code/'cocogen_burger/job.sh'),name,module,*map(str,args)])
+def launch(code,study,name,module,args=(),*,clear_cuda_mask=False):
+    prefix=['env','-u','CUDA_VISIBLE_DEVICES'] if clear_cuda_mask else []
+    command=shlex.join([*prefix,'bash',str(code/'cocogen_burger/job.sh'),name,module,*map(str,args)])
     if has_session(name):
         actual=subprocess.check_output(['tmux','display-message','-p','-t',name,'#{pane_start_command}'],text=True).strip()
         # tmux can quote the entire shell command when formatting this field.
@@ -85,19 +86,38 @@ def pipeline(study):
     launch(code,study,'cocogen_burger_train','torch.distributed.run',
         ['--standalone','--nnodes=1','--nproc-per-node=2','--module','cocogen_burger.train','--config',config_path])
     wait_job(study,'cocogen_burger_train',study/'training/burger/complete.json')
+    evaluate_trained(study)
+
+
+def evaluate_trained(study):
+    """Resume only the calibrated-evaluation phase after verified training end."""
+    study=Path(study)
+    code=Path(__file__).resolve().parents[1]
+    def status(stage,**extra):
+        write_json(study/'protocol/burger_pipeline.json',
+            dict(stage=stage,code=str(code),updated_unix=time.time(),**extra))
+        print(json.dumps(dict(stage=stage,**extra)),flush=True)
     trained=json.loads((study/'training/burger/complete.json').read_text())
     assert trained['status']=='trained'
+    if trained.get('reason')=='user_authorized_validation_plateau':
+        from .external_stop import verify_completion
+        verify_completion(study)
+    else:
+        assert (study/'logs/cocogen_burger_train.exit').read_text().strip()=='0'
+        assert trained['reason'] in {'validation_plateau','max_epochs'}
+        assert trained['epochs_completed']>=trained['request']['config']['min_epochs']
     for kind in ['best','last']:
         assert sha_file(trained[f'{kind}_checkpoint'])==trained[f'{kind}_sha256']
-    status('calibrating_sampler',epochs_completed=trained['epochs_completed'])
-    launch(code,study,'cocogen_burger_calibrate','cocogen_burger.evaluate',['--mode','calibrate','--device','cuda:0'])
+    status('calibrating_sampler',epochs_completed=trained['epochs_completed'],free_mib=free_memory_gate())
+    launch(code,study,'cocogen_burger_calibrate','cocogen_burger.evaluate',
+        ['--mode','calibrate','--device','cuda:0'],clear_cuda_mask=True)
     wait_job(study,'cocogen_burger_calibrate',study/'protocol/selected/burger.json')
     selected=json.loads((study/'protocol/selected/burger.json').read_text())
     assert selected['status']=='validated'
     status('evaluating_six_cells',estimated_gpu_hours=selected['estimated_main_gpu_hours'])
     for i in [0,1]:
         launch(code,study,f'cocogen_burger_main{i}','cocogen_burger.evaluate',
-            ['--mode','worker','--worker-id',i,'--device',f'cuda:{i}'])
+            ['--mode','worker','--worker-id',i,'--device',f'cuda:{i}'],clear_cuda_mask=True)
     for i in [0,1]:
         wait_job(study,f'cocogen_burger_main{i}',study/'main/burger/workers'/f'{i}_complete.json')
     launch(code,study,'cocogen_burger_finish','cocogen_burger.evaluate',['--mode','finish'])
@@ -108,4 +128,9 @@ def pipeline(study):
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--study',type=Path,default=STUDY)
-    pipeline(parser.parse_args().study)
+    parser.add_argument('--evaluation-only',action='store_true')
+    args=parser.parse_args()
+    if args.evaluation_only:
+        evaluate_trained(args.study)
+    else:
+        pipeline(args.study)

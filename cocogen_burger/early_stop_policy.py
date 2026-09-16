@@ -62,7 +62,7 @@ def assess(rows, *, minimum_epochs=100, patience_checks=6,
                 requires_checkpoint_and_evaluation_handoff=eligible)
 
 
-def decide(study, policy_path):
+def decide(study, policy_path, *, epochs_completed=None):
     study, policy_path = Path(study).resolve(), Path(policy_path).resolve()
     policy = json.loads(policy_path.read_text())
     if policy['status'] != 'authorized' or policy['study'] != str(study):
@@ -75,7 +75,9 @@ def decide(study, policy_path):
     if cfg['relative_min_delta'] != policy['relative_min_delta']:
         raise ValueError('Improvement definition must remain the frozen definition')
     progress = json.loads((study/'training/burger/progress.json').read_text())
-    end = progress['epochs_completed']
+    end = progress['epochs_completed'] if epochs_completed is None else epochs_completed
+    if not isinstance(end,int) or not 1 <= end <= progress['epochs_completed']:
+        raise ValueError('Decision cutoff must be an already completed epoch')
     rows, sources = [], []
     expected_steps = math.ceil(math.ceil(50000/request['world_size'])/cfg['batch_size_per_rank'])
     for epoch in range(1, end+1):
@@ -86,7 +88,7 @@ def decide(study, policy_path):
             raise ValueError('Wrong epoch/optimization-step relationship')
         rows.append(row)
         sources.append(dict(path=str(path), sha256=hashlib.sha256(raw).hexdigest()))
-    if rows[-1] != progress:
+    if end == progress['epochs_completed'] and rows[-1] != progress:
         raise ValueError('Progress does not match its immutable epoch receipt')
     decision = assess(rows, minimum_epochs=policy['minimum_epochs'],
                       patience_checks=policy['patience_checks'],
@@ -95,7 +97,8 @@ def decide(study, policy_path):
     decision.update(generated_at=datetime.now(timezone.utc).isoformat(),
                     policy_sha256=digest(policy_path), training_request_sha256=digest(request_path),
                     original_min_epochs=cfg['min_epochs'], original_patience_checks=cfg['patience_checks'],
-                    global_step=progress['global_step'], sources=sources,
+                    global_step=rows[-1]['global_step'], sources=sources,
+                    observed_progress_epochs=progress['epochs_completed'],
                     checker_sha256=digest(__file__),
                     scope='Read-only external early-stop decision; live training settings unchanged')
     return decision
