@@ -1,0 +1,39 @@
+2026-09-16T13:18:43+08:00
+bc3d968302932869597ab1311ac92ea5e22c7008
+test_carried_validation_not_counted (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_carried_validation_not_counted) ... ok
+test_current_three_checks_do_not_stop (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_current_three_checks_do_not_stop) ... ok
+test_improvement_restarts_wait (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_improvement_restarts_wait) ... ok
+test_minimum_epoch_applies_even_if_plateau_longer (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_minimum_epoch_applies_even_if_plateau_longer) ... ok
+test_mislabeled_validation_rejected (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_mislabeled_validation_rejected) ... ok
+test_missing_history_rejected (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_missing_history_rejected) ... ok
+test_small_best_improvement_does_not_reset_plateau (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_small_best_improvement_does_not_reset_plateau) ... ok
+test_stops_at_first_eligible_complete_epoch (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_stops_at_first_eligible_complete_epoch) ... ok
+test_tampered_counter_rejected (cocogen_burger.validate_early_stop_policy.PlateauDecisions.test_tampered_counter_rejected) ... ok
+test_only_evaluation_jobs_and_gpu_mask_reset (cocogen_burger.validate_external_stop.EvaluationPhase.test_only_evaluation_jobs_and_gpu_mask_reset) ... {"stage": "calibrating_sampler", "epochs_completed": 100, "free_mib": {"0": 80000, "1": 80000}}
+{"stage": "evaluating_six_cells", "estimated_gpu_hours": 1}
+{"stage": "all66_complete", "completion_receipt": "/tmp/tmpi30d7w9s/reports/all66_complete.json"}
+ok
+test_bound_signal_targets_only_own_child (cocogen_burger.validate_external_stop.Handoff.test_bound_signal_targets_only_own_child) ... ok
+test_completed_stop_metadata_survives_relocation_without_original (cocogen_burger.validate_external_stop.Handoff.test_completed_stop_metadata_survives_relocation_without_original) ... ok
+test_finalize_preserves_originals_and_internal_stop_false (cocogen_burger.validate_external_stop.Handoff.test_finalize_preserves_originals_and_internal_stop_false) ... ok
+test_finalize_rejects_live_process_or_natural_exit (cocogen_burger.validate_external_stop.Handoff.test_finalize_rejects_live_process_or_natural_exit) ... ok
+test_historical_cutoff_does_not_override_live_improvement (cocogen_burger.validate_external_stop.Handoff.test_historical_cutoff_does_not_override_live_improvement) ... ok
+test_ineligible_and_missing_process_never_signal (cocogen_burger.validate_external_stop.Handoff.test_ineligible_and_missing_process_never_signal) ... ok
+test_inflight_epoch_does_not_change_selected_cutoff (cocogen_burger.validate_external_stop.Handoff.test_inflight_epoch_does_not_change_selected_cutoff) ... ok
+test_inspect_is_current_and_read_only (cocogen_burger.validate_external_stop.Handoff.test_inspect_is_current_and_read_only) ... ok
+test_legacy_resume_cannot_restart_authorized_completed_run (cocogen_burger.validate_external_stop.Handoff.test_legacy_resume_cannot_restart_authorized_completed_run) ... ok
+test_missing_checkpoint_never_signals (cocogen_burger.validate_external_stop.Handoff.test_missing_checkpoint_never_signals) ... ok
+test_resume_after_receipt_before_complete (cocogen_burger.validate_external_stop.Handoff.test_resume_after_receipt_before_complete) ... ok
+test_snapshot_is_independent_and_detects_source_change (cocogen_burger.validate_external_stop.Handoff.test_snapshot_is_independent_and_detects_source_change) ... ok
+test_tampered_checkpoint_exit_policy_or_receipt_rejected (cocogen_burger.validate_external_stop.Handoff.test_tampered_checkpoint_exit_policy_or_receipt_rejected) ... ok
+test_watch_waits_for_eligibility_and_applies_once (cocogen_burger.validate_external_stop.Handoff.test_watch_waits_for_eligibility_and_applies_once) ... {"event": "watching_plateau", "epochs_completed": 99, "stale_checks": 5, "eligible": false}
+{"event": "watching_plateau", "epochs_completed": 100, "stale_checks": 6, "eligible": true}
+ok
+test_write_new_never_overwrites (cocogen_burger.validate_external_stop.Handoff.test_write_new_never_overwrites) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 2.064s
+
+OK
+{"tests": 25, "skipped": 0, "failures": 0, "errors": 0, "status": "passed"}
+2026-09-16T13:18:45+08:00

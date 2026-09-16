@@ -147,3 +147,5 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run \
 可追加 `--cuda-restore`，在同一个独立副本中以两 rank 启动 `terminal_restore`：恢复实际 best/last 的模型、优化器及各 rank 的 Python/NumPy/CPU/CUDA 随机状态，逐值检查恢复结果，执行一次前向及分布式通信，不执行反向或优化步骤。输出应分别记录 CPU 文件迁移证据和 CUDA 状态恢复证据；这不等于恢复后继续训练。所有复制文件仍需在检查结束后重算哈希。
 
 此入口为后续最终产物核验准备；训练尚未结束，**最终真实产物迁移和 CUDA 状态恢复仍未执行**。本地已通过合成停止记录的异路径读取检查（原目录被移走、缺失副本不得回退），以及旧恢复入口拒绝重启已提前结束训练的检查。正在运行的训练、早停 watcher 和评估工作树均未切换到该归档检查版本。
+
+13:18 CST，197 上 `cocogen_burger_terminal_recovery_tests` 完成 **25 项 CPU/合成交接检查，无跳过，退出码 0**，日志见 [terminal_recovery_tests](execution_20260915/burger_terminal_recovery_tests.log)。该测试不运行 `terminal_restore` 的 CUDA 前向，也未使用最终训练产物。源码固定为 `bc3d968302932869597ab1311ac92ea5e22c7008`，工作树 `code_burger_terminal_recovery`，归档包 `source/burger_terminal_recovery_code.bundle` 的 SHA256 为 `14935fcc77b546c0eaed7fe85cc3c02b5c4c93b87deb1d83b37060b3ae3ea08b`。
