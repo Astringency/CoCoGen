@@ -52,3 +52,7 @@
 绑定快照 SHA256：`bd6b8cc5b93f7cc32bf85014e82a110b08758ba5e39dc9e2c6ee0f45b0dd4760`；PDF SHA256：`8f0547e627cc4758c98196ed95bcd595c6e44e8abd53128407d802549bcd5262`。
 
 此前绑定 47 单元快照的 [16 页 PDF](execution_20260915/main_examples_47/first_id_main_comparisons.pdf)、PNG、来源与视觉检查记录独立保留在 `main_examples_47/`，服务器对应目录为 `reports/figures_id_first_47/`。首轮因 FM4PDE 指标浮点计算顺序而在输出图像前退出的日志也仍保留。
+
+## Burgers 对照准备
+
+已另行生成并查看 [Burgers 六个固定样本的 FM4PDE 参考图](burger_example_preparation_20260916.md)，明确时空轴及两种有效观测设置。该图集尚不包含 CoCoGen 预测；真实训练、正式采样完成后，再运行专用入口生成和检查四列模型对照，不计入上述已完成的 20 个四模型示例。

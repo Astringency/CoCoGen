@@ -1,0 +1,35 @@
+{
+  "status": "passed_for_reference_only_outputs",
+  "generated_at": "2026-09-16T00:59:05.772987+00:00",
+  "scope": "Six actual FM4PDE reference PNGs inspected; CoCoGen comparison path has no real predictions yet",
+  "provenance_sha256": "862daa1f7ef2b510ea53378099842d1b92736758c9ee000c65ebfbb35d7ff379",
+  "pngs_visually_inspected": [
+    "burger_id_random_sample_0.png",
+    "burger_id_sensor_column_sample_0.png",
+    "burger_smooth_random_sample_0.png",
+    "burger_smooth_sensor_column_sample_0.png",
+    "burger_rough_random_sample_0.png",
+    "burger_rough_sensor_column_sample_0.png"
+  ],
+  "inspected_png_sha256": {
+    "burger_id_random_sample_0.png": "f40fdd2febb328c3958dc98aa6c81074e17104fccb4cd42f309addbc3f355e97",
+    "burger_id_sensor_column_sample_0.png": "2c45e54c329b7dcd8c4847abd124becff36ae647f940df752017bd55d6352d75",
+    "burger_smooth_random_sample_0.png": "0affaf0d409e90fcba7bc8c2d36845ad3f60a72e781212190b56218524fbeaed",
+    "burger_smooth_sensor_column_sample_0.png": "283700972490344a045590a6b9a979c09a73adfed2a331caf753d7c6e37df8bb",
+    "burger_rough_random_sample_0.png": "aad951c5cee52ed2d0dd7979029b66dc47a43cd5beb0a69b09f7fb06db646a9f",
+    "burger_rough_sensor_column_sample_0.png": "d531888d3bca34fdfb0d91b0959d562f2c98f8023ae82d493ac48bd4663ca7c6"
+  },
+  "checks": [
+    "All six PNG titles, labels, observed panels and shared physical color scale are readable",
+    "Space is horizontal, time increases upward",
+    "Sensor-column observations appear as fixed spatial lines throughout time",
+    "Random observations show 500 sparse grid points; sensor columns contain 640 values",
+    "Each figure explicitly says FM4PDE reference only and CoCoGen comparison pending",
+    "All output hashes match source provenance",
+    "PDF page count independently checked with pdfinfo: 6"
+  ],
+  "pdf_pages": 6,
+  "pdf_pages_individually_rasterized_and_inspected": false,
+  "cocogen_comparison_rendered": false,
+  "training_changed": false
+}
