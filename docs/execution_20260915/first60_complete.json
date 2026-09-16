@@ -1,8 +1,0 @@
-{
-  "status": "complete",
-  "cells": 60,
-  "samples": 60000,
-  "csv": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/reports/first60.csv",
-  "csv_sha256": "a0d605ab0cfbeb0d7940d5c7201beae16ccb0430f8c9ec975f7d64b43943379f",
-  "predictions_hash_verified": true
-}

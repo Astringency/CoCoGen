@@ -1,8 +1,0 @@
-2026-09-16T07:17:12+08:00
-ca487a4115bda9df5383a339b4438d1a21a24d43
-{"batch": 1, "seconds_per_train_step": 0.02885155789554119, "peak_bytes": 919146496, "estimated_two_gpu_seconds_per_epoch": 721.2889473885298, "estimate_note": "excludes DDP communication, validation and checkpoint writing; update from actual epochs"}
-{"batch": 4, "seconds_per_train_step": 0.0457156702876091, "peak_bytes": 2954544128, "estimated_two_gpu_seconds_per_epoch": 285.7229392975569, "estimate_note": "excludes DDP communication, validation and checkpoint writing; update from actual epochs"}
-{"batch": 8, "seconds_per_train_step": 0.08586468026041985, "peak_bytes": 5665436672, "estimated_two_gpu_seconds_per_epoch": 268.327125813812, "estimate_note": "excludes DDP communication, validation and checkpoint writing; update from actual epochs"}
-{"batch": 16, "seconds_per_train_step": 0.16744547598063947, "peak_bytes": 11093512704, "estimated_two_gpu_seconds_per_epoch": 261.7172789577395, "estimate_note": "excludes DDP communication, validation and checkpoint writing; update from actual epochs"}
-{"batch": 32, "seconds_per_train_step": 0.3289271596819162, "peak_bytes": 21939705344, "estimated_two_gpu_seconds_per_epoch": 257.2210388712585, "estimate_note": "excludes DDP communication, validation and checkpoint writing; update from actual epochs"}
-2026-09-16T07:18:17+08:00

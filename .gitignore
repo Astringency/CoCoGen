@@ -6,3 +6,20 @@
 *old_code
 output*
 *.pth
+
+# Local documentation, tests, development settings, and generated files.
+/docs/
+/tests/
+/test/
+/test_*.py
+/AGENTS.md
+/pytest.ini
+/.agents/
+/.codex/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+/bak/
+/results/
+/logs/
