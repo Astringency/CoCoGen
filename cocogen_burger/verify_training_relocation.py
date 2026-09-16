@@ -20,7 +20,7 @@ import time
 from cocogen_eval.common import sha_file, write_json
 
 
-def child(root, original, output):
+def child(root, original, output, *, final_training=False):
     import builtins
     import torch
     from .archive_paths import mapped_study_reads
@@ -53,22 +53,41 @@ def child(root, original, output):
         validation = torch.load(cache['validation_path'], map_location='cpu', weights_only=False)
         assert validation['ids'] == list(range(1096, 1352))
         assert validation['fields'].shape == (256, 1, 128, 128) and torch.isfinite(validation['fields']).all()
-        checkpoint = verify(root, root/'training/burger/checkpoints/last.ckpt')
+        final_state = None
+        if final_training:
+            from .terminal_restore import verify_terminal
+            from .external_stop import checkpoint_pair
+            complete = verify_terminal(original)
+            directory = Path(complete['last_checkpoint']).parent
+            assert Path(complete['best_checkpoint']).parent == directory
+            pair = checkpoint_pair(original, directory)
+            for kind in ('best','last'):
+                assert pair[kind]['checkpoint_sha256'] == complete[f'{kind}_sha256']
+            checkpoint = pair['last']
+            final_state = dict(reason=complete['reason'], epochs_completed=complete['epochs_completed'],checkpoints=pair)
+        else:
+            checkpoint = verify(root, root/'training/burger/checkpoints/last.ckpt')
         assert len(mapping['direct_original_access_attempts']) == 2
         result = dict(status='passed', first60_gate=gate, training_cache_sha256=cache['training_sha256'],
             validation_sha256=cache['validation_sha256'], samples_read=samples,
             checkpoint=checkpoint, mapped_files=len(mapping['mapped_files']), mapped_opens=mapping['mapped_opens'],
             blocked_canary_reads=2, unexpected_original_access_attempts=0,
-            mapping_sha256=sha_file(Path(__file__).with_name('archive_paths.py')))
+            mapping_sha256=sha_file(Path(__file__).with_name('archive_paths.py')),
+            final_training_state=final_state)
     write_json(output, result)
 
 
-def run(study, bundle, commit, output):
+def run(study, bundle, commit, output, *, final_training=False, cuda_restore=False):
     import torch
 
     study = study.resolve()
+    assert not cuda_restore or final_training, 'CUDA terminal restore requires a completed training run'
     assert not output.exists() and len(commit) == 40
     assert not list(set(commit)-set('0123456789abcdef'))
+    completed = None
+    if final_training:
+        from .terminal_restore import verify_terminal
+        completed = verify_terminal(study)
     # Full cache plus first60 predictions and two checkpoints fit well below
     # this conservative scratch-space prerequisite in the current study.
     assert shutil.disk_usage(tempfile.gettempdir()).free > 32*1024**3
@@ -128,11 +147,29 @@ def run(study, bundle, commit, output):
         for name in ('training/burger/request.json','training/burger/train_config.json',
                      'training/burger/model.yaml','validation/burger_training_gpu.json'):
             read(name) if name.endswith('.json') else copy(name)
-        # Capture coherent last/best states while the live trainer atomically
-        # replaces its rolling checkpoints. Never modify those source files.
-        for attempt in range(4):
-            last_path = copy('training/burger/checkpoints/last.ckpt',replace=attempt>0)
-            best_path = copy('training/burger/checkpoints/best.ckpt',replace=attempt>0)
+        if final_training:
+            read('training/burger/complete.json')
+            progress = read('training/burger/progress.json')
+            for epoch in range(1,progress['epochs_completed']+1):
+                read(f'training/burger/epochs/{epoch:04d}.json')
+            if completed['reason']=='user_authorized_validation_plateau':
+                receipt = json.loads(copy(completed['early_stop_receipt'],completed['early_stop_receipt_sha256']).read_text())
+                copy('training/burger/early_stop/intent.json',receipt['intent_sha256'])
+                copy(receipt['policy_path'],receipt['policy_sha256'])
+                binding = json.loads(copy(receipt['binding_path'],receipt['binding_sha256']).read_text())
+                for job in binding['jobs'].values():
+                    copy(f'logs/{job}.exit')
+                for rel,checksum in completed['request']['code'].items():
+                    copy(Path(binding['code_root'])/rel,checksum)
+            else:
+                copy('logs/cocogen_burger_train.exit')
+        # Final runs use the completion-selected immutable checkpoints. Early
+        # exploratory probes can still capture coherent rolling checkpoints.
+        last_name = relative(completed['last_checkpoint']) if completed else Path('training/burger/checkpoints/last.ckpt')
+        best_name = relative(completed['best_checkpoint']) if completed else Path('training/burger/checkpoints/best.ckpt')
+        for attempt in range(1 if completed else 4):
+            last_path = copy(last_name,expected=completed['last_sha256'] if completed else None,replace=attempt>0)
+            best_path = copy(best_name,expected=completed['best_sha256'] if completed else None,replace=attempt>0)
             last = torch.load(last_path,map_location='cpu',weights_only=False)
             best = torch.load(best_path,map_location='cpu',weights_only=False)
             coherent = best['epoch'] <= last['epoch'] and best['best'] == last['best'] and best['request'] == last['request']
@@ -160,19 +197,32 @@ def run(study, bundle, commit, output):
         env = dict(os.environ,CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='4',MKL_NUM_THREADS='4',OPENBLAS_NUM_THREADS='4')
         env.pop('PYTHONPATH',None)
         subprocess.run([sys.executable,'-u','-m','cocogen_burger.verify_training_relocation',
-            '--child','--study',str(data),'--original-study',str(study),'--output',str(child_output)],
+            '--child','--study',str(data),'--original-study',str(study),'--output',str(child_output),
+            *(['--final-training'] if final_training else [])],
             cwd=code,env=env,check=True)
         recovered = json.loads(child_output.read_text())
         assert recovered['status'] == 'passed' and recovered['checkpoint']['epoch']+1 == checkpoint_epoch
-        assert recovered['checkpoint']['checkpoint_sha256'] == source_files['training/burger/checkpoints/last.ckpt']['sha256']
+        assert recovered['checkpoint']['checkpoint_sha256'] == source_files[str(last_name)]['sha256']
+        cuda_result = None
+        if cuda_restore:
+            cuda_output = temporary/'cuda_restore.json'
+            gpu_env = dict(env)
+            gpu_env.pop('CUDA_VISIBLE_DEVICES',None)
+            subprocess.run([sys.executable,'-u','-m','torch.distributed.run','--standalone','--nnodes=1',
+                '--nproc-per-node=2','--module','cocogen_burger.terminal_restore',
+                '--root',str(data),'--original-study',str(study),'--output',str(cuda_output)],
+                cwd=code,env=gpu_env,check=True)
+            cuda_result = json.loads(cuda_output.read_text())
+            assert cuda_result['status']=='passed' and cuda_result['optimization_steps']==0
         # Include post-read integrity checks so the probe cannot hide accidental
         # mutations of copied metadata, predictions, caches or checkpoints.
         assert all(sha_file(data/name)==row['sha256'] for name,row in source_files.items())
         temporary_root = str(data)
     assert not Path(temporary_root).exists()
     result = dict(status='passed',generated_at=datetime.now(timezone.utc).isoformat(),
-        scope='Real training-asset relocation and CPU restore; no CUDA resume, training updates, convergence or complete-study claim',
-        final_study_complete=False, training_complete=False, cuda_resume_exercised=False,
+        scope='Real training-asset relocation and state restore; no optimization steps, convergence or complete-study claim',
+        final_study_complete=False, training_complete=final_training, cuda_resume_exercised=False,
+        cuda_state_restore=cuda_result,
         original_study=str(study),copied_files=len(source_files),copied_bytes=sum(r['bytes'] for r in source_files.values()),
         independent_regular_copies=True, copied_files_unchanged=True, original_data_fallback=False,
         checkpoint_epoch=checkpoint_epoch, recovered=recovered, files=source_files,
@@ -191,10 +241,14 @@ if __name__ == '__main__':
     parser.add_argument('--commit')
     parser.add_argument('--original-study',type=Path)
     parser.add_argument('--child',action='store_true')
+    parser.add_argument('--final-training',action='store_true')
+    parser.add_argument('--cuda-restore',action='store_true')
     args = parser.parse_args()
     if args.child:
         assert args.original_study is not None
-        child(args.study,args.original_study,args.output)
+        assert not args.cuda_restore
+        child(args.study,args.original_study,args.output,final_training=args.final_training)
     else:
         assert args.bundle is not None and args.commit is not None
-        run(args.study,args.bundle,args.commit,args.output)
+        run(args.study,args.bundle,args.commit,args.output,
+            final_training=args.final_training,cuda_restore=args.cuda_restore)

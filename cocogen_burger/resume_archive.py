@@ -14,9 +14,13 @@ from .archive_paths import mapped_study_reads
 
 
 def resume(root, original_study):
+    root = root.resolve(strict=True)
+    completion = root/'training/burger/complete.json'
+    if completion.exists() and json.loads(completion.read_text()).get('reason')=='user_authorized_validation_plateau':
+        raise ValueError('This run was intentionally stopped by the revised policy. '
+                         'Use terminal_restore to verify saved states without restarting optimization.')
     from .train import TrainConfig, train
 
-    root = root.resolve(strict=True)
     if not (root/'training/burger/checkpoints/last.ckpt').is_file():
         raise FileNotFoundError('A real resume checkpoint is required')
     request = json.loads((root/'training/burger/request.json').read_text())['request']

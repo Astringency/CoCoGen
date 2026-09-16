@@ -3,6 +3,7 @@ import copy
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -198,6 +199,29 @@ class Handoff(unittest.TestCase):
             self.assertEqual(stop.watch(self.root,self.policy,self.binding_path),{'handed_off':True})
         sleep.assert_called_once_with(30)
         apply.assert_called_once_with(self.root,self.policy,self.binding_path)
+
+    def test_completed_stop_metadata_survives_relocation_without_original(self):
+        from .archive_paths import mapped_study_reads
+        from .terminal_restore import verify_terminal
+        complete=self.finalized()
+        with tempfile.TemporaryDirectory() as temporary:
+            moved=Path(temporary)/'archive'
+            shutil.copytree(self.root,moved)
+            self.root.rename(Path(temporary)/'inaccessible_original')
+            with mapped_study_reads(moved,self.root) as mapping:
+                self.assertEqual(verify_terminal(self.root),complete)
+                self.assertEqual(mapping['direct_original_access_attempts'],[])
+                self.assertGreater(mapping['mapped_opens'],100)
+            selected=moved/Path(complete['last_checkpoint']).relative_to(self.root)
+            selected.unlink()
+            with mapped_study_reads(moved,self.root), self.assertRaises(FileNotFoundError):
+                verify_terminal(self.root)
+
+    def test_legacy_resume_cannot_restart_authorized_completed_run(self):
+        from .resume_archive import resume
+        self.finalized()
+        with self.assertRaisesRegex(ValueError,'intentionally stopped'):
+            resume(self.root,self.root.parent/'old_study')
 
     def test_bound_signal_targets_only_own_child(self):
         child=subprocess.Popen([sys.executable,'-c','import time; time.sleep(30)'])

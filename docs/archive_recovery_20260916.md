@@ -137,3 +137,13 @@ CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.run \
 ```
 
 **此 CUDA 命令尚未实际执行。** 当前验证证明的是路径映射、真实训练资产读取和 CPU 状态加载，不能用它代替最终 CUDA 恢复证据，也不能据此宣告五 PDE 研究已完成。
+
+## 提前停止后的最终恢复入口（13:15 更新）
+
+用户允许长期平台时提前停止后，训练将由 [外部停止策略](burger_early_stop_policy_20260916.md) 接续采样。原 checkpoint 的 `stop_condition_met` 仍表示旧规则是否满足，不能改写。`resume_archive` 因而拒绝对已按新增策略结束的 run 再调用训练循环，防止恢复核验意外继续优化。
+
+`verify_training_relocation --final-training` 读取训练完成记录指定的 best/last；外部停止时使用 `early_stop/checkpoints_epoch_NNNN/` 内的副本。它同时复制停止意向、策略、进程绑定、真实退出码、全部 epoch 记录、停止收据和绑定源码文件，在独立目录中通过原路径映射重新核验停止依据与两份 checkpoint。
+
+可追加 `--cuda-restore`，在同一个独立副本中以两 rank 启动 `terminal_restore`：恢复实际 best/last 的模型、优化器及各 rank 的 Python/NumPy/CPU/CUDA 随机状态，逐值检查恢复结果，执行一次前向及分布式通信，不执行反向或优化步骤。输出应分别记录 CPU 文件迁移证据和 CUDA 状态恢复证据；这不等于恢复后继续训练。所有复制文件仍需在检查结束后重算哈希。
+
+此入口为后续最终产物核验准备；训练尚未结束，**最终真实产物迁移和 CUDA 状态恢复仍未执行**。本地已通过合成停止记录的异路径读取检查（原目录被移走、缺失副本不得回退），以及旧恢复入口拒绝重启已提前结束训练的检查。正在运行的训练、早停 watcher 和评估工作树均未切换到该归档检查版本。
