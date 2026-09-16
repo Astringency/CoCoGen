@@ -68,6 +68,18 @@ def bound_alive(expected):
 
 def send_bound_term(expected):
     # pidfd keeps the target stable even if a PID is recycled between checks.
+    # The training conda Python lacks these compiled bindings; the server's
+    # system Python exposes both. Use the same identity guard in that helper.
+    if not hasattr(os,'pidfd_open') or not hasattr(signal,'pidfd_send_signal'):
+        helper=subprocess.run(['/usr/bin/python3','-c',
+            'import json,sys,os,signal; '
+            'assert hasattr(os,"pidfd_open") and hasattr(signal,"pidfd_send_signal"), "System Python lacks pidfd"; '
+            'from cocogen_burger.external_stop import send_bound_term; send_bound_term(json.load(sys.stdin))'],
+            input=json.dumps(expected),text=True,capture_output=True,
+            cwd=Path(__file__).resolve().parents[1])
+        if helper.returncode:
+            raise ValueError('Bound signal helper rejected the action: '+helper.stderr.strip())
+        return
     fd=os.pidfd_open(expected['pid'])
     try:
         if not bound_alive(expected):

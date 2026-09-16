@@ -200,8 +200,6 @@ class Handoff(unittest.TestCase):
         apply.assert_called_once_with(self.root,self.policy,self.binding_path)
 
     def test_bound_signal_targets_only_own_child(self):
-        if not hasattr(os,'pidfd_open'):
-            self.skipTest('pidfd unavailable')
         child=subprocess.Popen([sys.executable,'-c','import time; time.sleep(30)'])
         try:
             identity=stop.process_identity(child.pid)
