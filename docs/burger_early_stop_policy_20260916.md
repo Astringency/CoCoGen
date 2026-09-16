@@ -34,3 +34,13 @@
 2026-09-16 12:41 CST，197 上只读检查器实际核验了前 **72 轮**全部连续记录和其中 **8 次**真实验证，重新得到连续未改善次数 **3**、最佳轮次 **40**。当前未达到新条件，训练没有停止，采样没有启动。记录见 [首次策略核验](execution_20260915/validation_burger_early_stop_policy_initial.json)，SHA256 为 `baa76b0850dc6d5081c708b59e8baa40fe26c0bf781eaac918b3deaed6a67c57`。
 
 真实检查任务 `cocogen_burger_early_stop_policy_check` 正常退出（退出码 0），tmux 会话已结束。训练、数据和网络三份源码在正在运行的工作树与新策略工作树中均保持原始哈希。另有 9 项本地合成历史检查通过，覆盖最早触发轮次、改善重置、微小改善与 best 的区别、沿用验证结果不重复计次，以及缺失历史或伪造停滞次数的拒绝。
+
+## 自动交接已启用（13:09 CST）
+
+197 上 `cocogen_burger_handoff_tests_v2` 的 **23 项测试全部通过，无跳过**。包括向独立测试子进程发送受控信号、拒绝错误启动时刻、checkpoint 独立副本、保留真实退出码、停止途中多完成一轮时保持已选 checkpoint、完成记录中断后接续，以及仅启动评估阶段的流程检查。训练所用 conda Python 未编译 pidfd 接口，执行器通过同一源码调用系统 Python 的接口；真实训练进程未用于信号测试。
+
+13:08 的 [只读交接核验](execution_20260915/validation_burger_early_stop_handoff_inspect.json) 检查了全部 78 轮记录及四个实际进程身份，恢复验证了 best 第 40 轮和 last 第 78 轮的模型、优化器状态；两者各有 128 个模型张量和 86 个优化器参数状态，均为有限值。last 的 CPU 随机状态可恢复，CUDA 随机状态仅检查格式，此时没有执行 CUDA 恢复或模型采样。核验退出码 0。
+
+13:09:23 启动 tmux 会话 **`cocogen_burger_early_stop_watch`**，代码 `67f4e6b6e57a0180e6e1a4d07aa86a491ecf2dff`，工作树 `code_burger_early_stop_handoff_v2`。启动记录见 [watcher_start](execution_20260915/validation_burger_early_stop_watch_start.json)。每 30 秒重新检查本次绑定训练；满足条件后执行停止交接并启动 `cocogen_burger_evaluation_after_stop`。开始监测时训练尚未停止，采样尚未开始，最新未改善计数仍为 3。
+
+该版本 Git bundle 为 `source/burger_early_stop_handoff_v2_code.bundle`，SHA256 `0f21a615dbdc6f218f6276ba91c70e23190c9c431b336a36d5f88bc717c371f6`。上述测试日志与真实 checkpoint 核验记录均已复制回本地。本段记录启用监测时的状态，最终停止轮次和采样结果以实际后续产物为准。
