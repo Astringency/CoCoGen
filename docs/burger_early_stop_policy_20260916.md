@@ -44,3 +44,7 @@
 13:09:23 启动 tmux 会话 **`cocogen_burger_early_stop_watch`**，代码 `67f4e6b6e57a0180e6e1a4d07aa86a491ecf2dff`，工作树 `code_burger_early_stop_handoff_v2`。启动记录见 [watcher_start](execution_20260915/validation_burger_early_stop_watch_start.json)。每 30 秒重新检查本次绑定训练；满足条件后执行停止交接并启动 `cocogen_burger_evaluation_after_stop`。开始监测时训练尚未停止，采样尚未开始，最新未改善计数仍为 3。
 
 该版本 Git bundle 为 `source/burger_early_stop_handoff_v2_code.bundle`，SHA256 `0f21a615dbdc6f218f6276ba91c70e23190c9c431b336a36d5f88bc717c371f6`。上述测试日志与真实 checkpoint 核验记录均已复制回本地。本段记录启用监测时的状态，最终停止轮次和采样结果以实际后续产物为准。
+
+## 第 100 轮有效改善，停止窗口重置
+
+14:42 CST，第 100 轮 uniform 固定验证损失降至 **0.00212406646**，较此前最佳下降 **9.79%**。外部检查器与原训练记录一致：best 更新到 100 轮，连续未改善计数为 **0**，不满足停止条件。未发送停止信号，未启动采样。若第 110–160 轮六次验证均无新的有效改善，最早第 160 轮触发；按当前速度约为 19:10 CST。该时间是条件性估计，有新改善时继续重新计数。详见 [前 100 轮核验](burger_training_first100_20260916.md)。

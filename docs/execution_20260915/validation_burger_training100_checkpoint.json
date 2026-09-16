@@ -1,0 +1,540 @@
+{
+  "decision": {
+    "status": "watching_plateau",
+    "eligible": false,
+    "epochs_completed": 100,
+    "best_validation_epoch": 100,
+    "best_validation_per_pixel": 0.0021240664573269896,
+    "plateau_reference": 0.0021240664573269896,
+    "stale_checks": 0,
+    "minimum_epochs": 100,
+    "patience_checks": 6,
+    "relative_min_delta": 0.002,
+    "validation_checks": [
+      {
+        "epoch": 1,
+        "loss_per_pixel": 0.026775506728881737,
+        "stale_checks": 0
+      },
+      {
+        "epoch": 10,
+        "loss_per_pixel": 0.02600187262214604,
+        "stale_checks": 0
+      },
+      {
+        "epoch": 20,
+        "loss_per_pixel": 0.00699147516161247,
+        "stale_checks": 0
+      },
+      {
+        "epoch": 30,
+        "loss_per_pixel": 0.0060199167292012135,
+        "stale_checks": 0
+      },
+      {
+        "epoch": 40,
+        "loss_per_pixel": 0.002354527214947666,
+        "stale_checks": 0
+      },
+      {
+        "epoch": 50,
+        "loss_per_pixel": 0.0025922758040906047,
+        "stale_checks": 1
+      },
+      {
+        "epoch": 60,
+        "loss_per_pixel": 0.0072778578596626176,
+        "stale_checks": 2
+      },
+      {
+        "epoch": 70,
+        "loss_per_pixel": 0.0061617050073436985,
+        "stale_checks": 3
+      },
+      {
+        "epoch": 80,
+        "loss_per_pixel": 0.005558512583320407,
+        "stale_checks": 4
+      },
+      {
+        "epoch": 90,
+        "loss_per_pixel": 0.003405464336992736,
+        "stale_checks": 5
+      },
+      {
+        "epoch": 100,
+        "loss_per_pixel": 0.0021240664573269896,
+        "stale_checks": 0
+      }
+    ],
+    "stop_applied": false,
+    "training_complete": false,
+    "requires_checkpoint_and_evaluation_handoff": false,
+    "generated_at": "2026-09-16T06:43:23.481643+00:00",
+    "policy_sha256": "70cebb10708e7235021f7216f6f7466101afe5440d493a99214c6e9d7758b3b1",
+    "training_request_sha256": "1580d4872149a86e3147ac83d4663492a41466fd6de96de5bed88ee6eb68abda",
+    "original_min_epochs": 300,
+    "original_patience_checks": 20,
+    "global_step": 78200,
+    "sources": [
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0001.json",
+        "sha256": "a167a48bf925c3b8721fea1558728c04a4dfe6259666d8d8b2216ce4f55cc252"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0002.json",
+        "sha256": "ba473a0c86f62c3561cb1b57c4b4b22f33be43cb6362bcfafdc802c7d74cc0ff"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0003.json",
+        "sha256": "a71900688613301385c2ba0bd3a944c03aaa036e4e2ea477e41f8c4382881607"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0004.json",
+        "sha256": "4830e7b951602cb79ee2dedda2598defe86d0d9c8abb719e5818710e9f9fab32"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0005.json",
+        "sha256": "156bceca6ecac04b7044135e62f6894431185c04b91cf8e927eeb5d3ca29bd86"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0006.json",
+        "sha256": "5a7954ec503cd1bb14bc6bcfb3a6ac68535a4bc4d0b54e8eae8b0310e4ec7edb"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0007.json",
+        "sha256": "2b77454fbb7d0c24ef49232ea1377632e459b090b42827fdc2bcde1d99a70f59"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0008.json",
+        "sha256": "a29e9b26f773fda6cb7442994faf1cfeb6b113a71f838d314e549873b6f7d111"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0009.json",
+        "sha256": "9b461188fd23c4db7f11aa0226893d40ab062c0addc03e58dcb206efbda9c29f"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0010.json",
+        "sha256": "ea28a2869263e365a65dfb83890f6188fa0b3f0e608729cbc44b74f2c6b20448"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0011.json",
+        "sha256": "c63bce89246a0bbcb8084c3b170bd0ea10a940556aa6de4b02ce23ec843fcf47"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0012.json",
+        "sha256": "53ed7c8961ebfa79b8d46676deb327eb82e5bb633492ca9d1fb78db5b4a90b32"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0013.json",
+        "sha256": "042d6976d45d4abceb978ef2b49f812bc402f985156edb8694902c781a471c75"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0014.json",
+        "sha256": "d202c4462da8a1d7c70b06563e726ed5a45d7018fa548d7bd4e40508b05ffbbf"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0015.json",
+        "sha256": "fa0ebb4ea992fd245c1c6b22e0abb9920b77926d930a67980c5199d142d79134"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0016.json",
+        "sha256": "3dc1c2ec8345de8c236dbee901a00bcc501624aec56e342c8ed0c37648dcfef3"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0017.json",
+        "sha256": "827b9e32d21ab7847f161118ec7275eda902bc2d24389e7ab112cdc116846b06"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0018.json",
+        "sha256": "c859f0cae332773b1854470f667db9ee10fb0d21ee50e773c98ed35a9159763e"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0019.json",
+        "sha256": "5e32293fc50257113eff0f8926e179beac462385861f704f10bce3db7cce6c38"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0020.json",
+        "sha256": "c4d6476322216320e6068dfda48241eb19998ea52d213cef753594853cc0dd6f"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0021.json",
+        "sha256": "abdb43e1d2df191aa5a336cd8b019b4cd047d96a5f19b115134181873accbb47"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0022.json",
+        "sha256": "434bff255799941f0c3dcb13f3cae0f730d3e53f113afeb7d53a2ca338be6a4b"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0023.json",
+        "sha256": "113a3b34550d164e81e8ceba5ec398f471ed37d6d27532c10ea8904913577d4f"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0024.json",
+        "sha256": "00f710a1767f4d2a271040f5bbe58f46488be7c5f40384738d732184e39aed2e"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0025.json",
+        "sha256": "30cc2bb20a38c05a12a025e4d62e3d2ea4fa8673af90d60c7a7ec622d00dacc4"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0026.json",
+        "sha256": "8af8a783c2d22d99d7c4556b3a1b8d6021eb2f1281217754e43c65f648c8c761"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0027.json",
+        "sha256": "6c934afc5bbacabcd1af35357bd04d8a18ad47ce7e072a94d22d6f33e47d3b7a"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0028.json",
+        "sha256": "ad557861fcd8ce93efc30cc727efba97b292b7a4d38480c346eb8c5239e174a4"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0029.json",
+        "sha256": "5857f117f4715f22a44bfb61b44fb35046b40d71c7e92d111778a329fd00b0e0"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0030.json",
+        "sha256": "b12c4385af078281b8da4eee976c371281e49299c02b6ca4dc290798c436c109"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0031.json",
+        "sha256": "d6810ff8c1f00f5c01fb7514ddfb62102e4cd5f02b58e85fc212d8d0da22078c"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0032.json",
+        "sha256": "94026177022f1c8f916d61ca9cb6eead685da430ea3be1551a1aa7e0eb463c95"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0033.json",
+        "sha256": "1519b6910b76a76caac059732d3c2d675c112ba5fecaef151082bc1698406f5f"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0034.json",
+        "sha256": "ab49bd1576da7e855967b06b6a6725a4dacf3e14c72ddc7fd5350d35064ed964"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0035.json",
+        "sha256": "811d0acb86214ecdf2c12959d89d08c1fa6e8a5ae99dddbeffbbeb429a4b4777"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0036.json",
+        "sha256": "2abdf41899de6c3cc21fce7fcc85ee9b228bbe9cd84e654d0d982fc461a6b81a"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0037.json",
+        "sha256": "1e1fe312078d5a0e373bcaf15be57524f7233a6bb7a33d840156bfab02e6839c"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0038.json",
+        "sha256": "b6fa29131d41bcfaecfdbc0dce525d16ead188b145ca798bf8e36e6b9da8f2da"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0039.json",
+        "sha256": "beb597869e5a9feeb075911cfe1536c22c5739f462aa2a168383b61cbc7b8ff1"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0040.json",
+        "sha256": "5fb6d9b3ad4f2a495cab3bb1eebe54ab53186f5bac1a31e77c342343bd5e568d"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0041.json",
+        "sha256": "acafa687f28ff758e575d506438c1020381162761993ad2d11d03a2fd185f68e"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0042.json",
+        "sha256": "cdc6cdbc788c97ba99d2fa0321a40fd7a5afd288541ce81f36f4607adaa80173"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0043.json",
+        "sha256": "01916345aae3d06d298a3d0f311cbd2a5968c679fe968105c424f031e9ffb8e6"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0044.json",
+        "sha256": "6582f3f81393294b80899bf7e18c614f753dfbd6f72641313727ec6a1f454fb2"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0045.json",
+        "sha256": "c029ef70aa1be3267445edfd5cd076f56288e2407984772c00947d3dea91d671"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0046.json",
+        "sha256": "76963077aa0b6c0744199e7d04809edd84a2274a716482048875d000796d24c7"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0047.json",
+        "sha256": "f396fe8887f559e887c366fbe91c0714838cd99171f9f8f86e4e4d2eae9e3fcb"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0048.json",
+        "sha256": "1fffe01452cc4045cfb1bd3f11cbb9978ea484c1e67cac85ac1d891d872fea40"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0049.json",
+        "sha256": "dade57eea8b6b956f9457c5a6173bf6446919bd5ac590746966b801ad29a4eb9"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0050.json",
+        "sha256": "aada3d58a8ced1e2abb19bc5cf813c2f76dec925b165827676a4e3430cedb927"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0051.json",
+        "sha256": "1796f439fd852c602e3ca3d56b840d172a79d884ef41b80a6b3a8080b1fd0d5c"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0052.json",
+        "sha256": "15f147f6ebedbdd1a2f45a382cc9d3ce1bd5942c536bc6b2c7c6e91f32322663"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0053.json",
+        "sha256": "a9940ee3c214a190865a5c3cf31c7c9416c5fc1631261b47ff039e40bc372236"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0054.json",
+        "sha256": "259c2a2f5b4b874cfd31cf3063cbcfd11896c5115cab664768ea05c6e44186f6"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0055.json",
+        "sha256": "186331cb28d8102c1ac2e05623167dbcd7f529c61ad6875598345515080a0c62"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0056.json",
+        "sha256": "caa55eca021c75b73fef65b39ac554c38a2efdb1fbda23ffde1d27ba5f8223f8"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0057.json",
+        "sha256": "a867e795ba40df9760aa893792c31b003bd6dfc76c8c5387a43d49b235a9c190"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0058.json",
+        "sha256": "89323b353d3d073378b61a2b06d0694855fb529ae6cb79c05f5550e4f703f995"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0059.json",
+        "sha256": "7a1e4858dc798d1eefbe45e2fd21e925a99a33f1639c677b16767e532aa757c4"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0060.json",
+        "sha256": "b656ad011478ee8517a61ea7859b86fcd19ccb39cae281636b9aea7a917460b2"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0061.json",
+        "sha256": "868d83eaefb3858cd35bebb95925d012441bd8cb065963c0d682bed7d1e92393"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0062.json",
+        "sha256": "f09c42bf83de34c8b5187b3846693d8e77d46c8c2efb74ddbd16afc4677d5c6a"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0063.json",
+        "sha256": "eefe2de2e14af646ec2c750054502949589a289cbd517392f0fb884f73432762"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0064.json",
+        "sha256": "b0f8e6a58ba7cba5c9b6a3b5511cbdff35608805cc6b205677df17a754043c31"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0065.json",
+        "sha256": "c9c9a144b2f3612f56fbf68f8d8148fbb8f7d850053baf034decaf6755940c00"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0066.json",
+        "sha256": "a5a3dcb8b2bea51f582543ad49246bd154a3b8b6b097b454f1b3b4c17156d040"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0067.json",
+        "sha256": "dc1346ddba5af109f7a01a502d3943ae3568cec4fe80a0d033bbb616fca07d36"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0068.json",
+        "sha256": "2080b32523bbccaf5e8594f22183c164d5af6809c0a986c46ecb1c9fb947df5c"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0069.json",
+        "sha256": "e4182d34d66e6c1fef836a33c6084fc19f83419c770f2c97f6a6319f020f0838"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0070.json",
+        "sha256": "29d1312d0ac2f5e5307d44a7d098a06cd033642c7d048280496191e8cb54e374"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0071.json",
+        "sha256": "9798b96881a3299ba114877734c612830bbd4d259be7cc79db622ab2b2a55815"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0072.json",
+        "sha256": "3bbfa126d3e846be0de464b885caa6b5ce27102617832e9e3f86c858f04b1606"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0073.json",
+        "sha256": "8c62cdfce9fe645cfd9bfa7aadb3741b2637656e0e727578aa77c83ced83a4ec"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0074.json",
+        "sha256": "25d410b41de76cf15d0be441da6b60477520276b33480edca6e9a968b5563ae4"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0075.json",
+        "sha256": "4d60061f25649a93fc9a8f0833eb9a8f49fee5e8556cde5b8be24e13b8c861d6"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0076.json",
+        "sha256": "72342d9ffa731e1362babb0d57eb47c3971208165893c11d2b0229dc552a5eca"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0077.json",
+        "sha256": "8941c75791c1ef4d748bcb06533f3ea9089d633915a73ac25f0aab9adf50f21d"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0078.json",
+        "sha256": "9dbc5dfe6352b1ef60dd9eca453595bd263a791609f3310a47471d2af1774043"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0079.json",
+        "sha256": "3320c16e5c21c5c572578bca8eecd54b948f4c16d2873244603f9e59c6b08171"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0080.json",
+        "sha256": "8e0b84c7bcd73ce2d2ea90375e4cfbfa03ed4a891d347f95e51c700a307729a8"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0081.json",
+        "sha256": "38bfee5afcd2cc0f7bc564ea01ab80f7ab93b203f61647f41bcf772ea9b19cf4"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0082.json",
+        "sha256": "cc75fbf7a99e637d80c4e8ac76c85a98d3e8be00ef043e860cf58069433aa47e"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0083.json",
+        "sha256": "5a386488e640c0f67a6e78b37b02f73ea0abb7dbcefaafa7a04efd0060125a8c"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0084.json",
+        "sha256": "1f5ada617ed27a86c6122372d781d489e0e3bd3e1868fb888a0573fb6b2b0b84"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0085.json",
+        "sha256": "c980a8052129745b90e6d7cd12d3bb587fe3764a18ea73f49f7912e903b69838"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0086.json",
+        "sha256": "f39d12ea132748ec92bedab019c54b8804e6de55817e48c99e36299374e9e463"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0087.json",
+        "sha256": "3305c217ecc1f40bbc42c6e552ffb41ad761df8581c96ee52f1975221a23da79"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0088.json",
+        "sha256": "3539d067b0db0bcabf57d5dff3ba56ff178c2444c708dd30c2e1c8bd3b6705e7"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0089.json",
+        "sha256": "c5109ea6759bf230b4b7c3bb9f3e74eff0e9f742348bd8a8b38b8f076ff18565"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0090.json",
+        "sha256": "4747fe33cb57847d425bbbcea5fc29fb579dcbb59904e574a5ab7f96249598f0"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0091.json",
+        "sha256": "1664df1f35198f96195fc6b491a8e7bdadac3ca9216efd444d7e0fd2a180b292"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0092.json",
+        "sha256": "ce48fbb9a1c321feebdb3d08f068b845a0a6725afe980eb879817fe0e4b0c429"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0093.json",
+        "sha256": "477b12aedffc5e31b2e1b1c321954fcd737b693aac92bb6386cdf37687484f8d"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0094.json",
+        "sha256": "338015f4c1a8a935844c8cfeb3cf7c94666b9d225b728f346679f855e359b405"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0095.json",
+        "sha256": "978cd7c2e49e048012657b8f38b945496a374683ef62a43335bfd4402b98ee36"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0096.json",
+        "sha256": "f15d6934dfbd5b0a5cee6c8616b7d705d41121ef753728c9df0c7dd2ecf084d3"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0097.json",
+        "sha256": "8858e3abb801b36a11c61622df318a1f34381d271e25eb607bdd855e501c69ed"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0098.json",
+        "sha256": "267f852c6bbfffa94980d20af4149bdbd5b8a8989ceea9ebe332e58daf0666d9"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0099.json",
+        "sha256": "72bd15e13108a93c56bf289cf0aacd9143ba1388e3aea68f5c8114417929a617"
+      },
+      {
+        "path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/epochs/0100.json",
+        "sha256": "a393f7effb350dd1d9cfd1544db24d2151b0f42ba961125529aec4aae7dac073"
+      }
+    ],
+    "observed_progress_epochs": 100,
+    "checker_sha256": "c028f2a3c99aae4ed2c2ee9200933175fb4371ce8ccada863646485b801b4af3",
+    "scope": "Read-only external early-stop decision; live training settings unchanged"
+  },
+  "processes_alive": {
+    "launcher": true,
+    "rank0": true,
+    "rank1": true,
+    "coordinator": true
+  },
+  "policy_path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/protocol/burger_early_stop_policy.json",
+  "policy_sha256": "70cebb10708e7235021f7216f6f7466101afe5440d493a99214c6e9d7758b3b1",
+  "binding_path": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/protocol/burger_early_stop_processes.json",
+  "binding_sha256": "e2117cef9d6b904b804211c2e40042d503b7267c0ddab1c80a110c34db001a38",
+  "stop_applied": false,
+  "checkpoints": {
+    "last": {
+      "status": "passed",
+      "generated_at": "2026-09-16T06:43:26.495828+00:00",
+      "scope": "CPU restore and completeness checks of one real saved checkpoint; no training updates, relocation, CUDA resume or convergence check",
+      "final_study_complete": false,
+      "training_complete": false,
+      "checkpoint": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/checkpoints/last.ckpt",
+      "checkpoint_sha256": "4eddad4ad1d01065bbe1b3c3612e68b60d6534bcec9891eb219e0674b606518e",
+      "epoch": 99,
+      "stop_condition_met": false,
+      "stale_checks": 0,
+      "best_validation_per_pixel": 0.0021240664573269896,
+      "global_step": 78200,
+      "model_tensors": 128,
+      "parameter_count": 17653505,
+      "optimizer_parameter_states": 86,
+      "strict_model_restore": true,
+      "finite_model_and_optimizer": true,
+      "rank_rng_states": 2,
+      "cpu_rng_formats_restored": true,
+      "cuda_rng_restored": false,
+      "cache_manifest_sha256": "2b0426707e4955636b89d24705a7fb16aa11cbfccc32b092a7b7c85f353e07e5",
+      "actual_training_cache_rehashed": false,
+      "epoch_receipt_sha256": "a393f7effb350dd1d9cfd1544db24d2151b0f42ba961125529aec4aae7dac073",
+      "code": {
+        "cocogen_burger/train.py": "85481589d8dab1ec6fa7714666564a346cafe3d9964fe299a52b42e1e63e1c5c",
+        "cocogen_burger/data.py": "cf3ea75a560f1a75177fea5309e47f273893b90554641214386e0b5ce1b96d97",
+        "cocogen_eval/network.py": "8692e3a32af4715a9c51d7107a9afba0c97ef5df0c861eda827664cd07a79f7c"
+      },
+      "auditor_sha256": "f777fc52170894c2e2acf1e082ae347a191e6e79a8323c4af49f431632e09b49"
+    },
+    "best": {
+      "checkpoint": "/research_data/users/zhangxifeng/C01Python/FM4PDE/outputs/cocogen_main_20260915/training/burger/checkpoints/best.ckpt",
+      "checkpoint_sha256": "da658455191945d0a8892e95080f65a21c249ccaba52529eee254230486392f4",
+      "epoch": 99,
+      "global_step": 78200,
+      "best_validation_per_pixel": 0.0021240664573269896,
+      "model_tensors": 128,
+      "optimizer_parameter_states": 86,
+      "strict_cpu_model_and_optimizer_restore": true,
+      "stop_condition_met": false
+    }
+  }
+}
